@@ -11,10 +11,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160110172656) do
+ActiveRecord::Schema.define(version: 20160110210300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "color_schemes", force: :cascade do |t|
+    t.string   "title"
+    t.string   "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "jewels", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "jewel_id"
+    t.integer  "color_scheme_id"
+    t.string   "title"
+    t.text     "description"
+    t.text     "notes"
+    t.text     "acknowledgements"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "featured_image_file_name"
+    t.string   "featured_image_content_type"
+    t.integer  "featured_image_file_size"
+    t.datetime "featured_image_updated_at"
+  end
+
+  add_index "recipes", ["color_scheme_id"], name: "index_recipes_on_color_scheme_id", using: :btree
+  add_index "recipes", ["jewel_id"], name: "index_recipes_on_jewel_id", using: :btree
+  add_index "recipes", ["user_id"], name: "index_recipes_on_user_id", using: :btree
 
   create_table "user_groups", force: :cascade do |t|
     t.string   "name"
@@ -54,4 +91,7 @@ ActiveRecord::Schema.define(version: 20160110172656) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "recipes", "color_schemes"
+  add_foreign_key "recipes", "jewels"
+  add_foreign_key "recipes", "users"
 end

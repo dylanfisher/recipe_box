@@ -1,0 +1,12 @@
+<%= simple_form_for([:admin, @jewel]) do |f| %>
+  <%= render 'admin/errors', f: f, record: @jewel %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :image, as: :file %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,0 +1,18 @@
+<%= simple_form_for([:admin, @recipe]) do |f| %>
+  <%= render 'admin/errors', f: f, record: @recipe %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :notes %>
+    <%= f.input :acknowledgements %>
+    <%= f.input :featured_image, as: :file %>
+    <%= f.association :user, label_method: :first_name %>
+    <%= f.association :jewel %>
+    <%= f.association :color_scheme %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

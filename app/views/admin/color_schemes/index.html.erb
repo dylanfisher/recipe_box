@@ -1,0 +1,29 @@
+<h1>Listing color_schemes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Color</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @color_schemes.each do |color_scheme| %>
+      <tr>
+        <td><%= color_scheme.title %></td>
+        <td><%= color_scheme.color %></td>
+        <td><%= link_to 'Show', [:admin, color_scheme] %></td>
+        <td><%= link_to 'Edit', edit_admin_color_scheme_path(color_scheme) %></td>
+        <td><%= link_to 'Destroy', [:admin, color_scheme], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Color scheme', new_admin_color_scheme_path %>

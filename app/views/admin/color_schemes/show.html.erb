@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @color_scheme.title %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @color_scheme.color %>
+</p>
+
+<%= link_to 'Edit', edit_admin_color_scheme_path(@color_scheme) %> |
+<%= link_to 'Back', admin_color_schemes_path %>

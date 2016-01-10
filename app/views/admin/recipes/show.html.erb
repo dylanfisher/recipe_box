@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= image_tag(@recipe.featured_image.url(:medium)) %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @recipe.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @recipe.description %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @recipe.notes %>
+</p>
+
+<p>
+  <strong>Acknowledgements:</strong>
+  <%= @recipe.acknowledgements %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @recipe.user_id %>
+</p>
+
+<p>
+  <strong>Jewel:</strong>
+  <%= @recipe.jewel_id %>
+</p>
+
+<p>
+  <strong>Color scheme:</strong>
+  <%= @recipe.color_scheme_id %>
+</p>
+
+<%= link_to 'Edit', edit_admin_recipe_path(@recipe) %> |
+<%= link_to 'Back', admin_recipes_path %>

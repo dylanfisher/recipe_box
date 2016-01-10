@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
 
   namespace :admin do
+    resources :color_schemes
+  end
+  namespace :admin do
+    resources :jewels
+  end
+  namespace :admin do
+    resources :recipes
+  end
+  namespace :admin do
     resources :users
   end
   root to: "home#index"

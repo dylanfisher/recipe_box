@@ -39,7 +39,7 @@ gem 'pundit'
 
 # Rails generator which allows to scaffold admin controllers, views with proper (non-namespaced) models, helpers, tests and routes
 # 1. Generate model: bin/rails g model Post title:string content:text
-# 2. Create admin scaffold: bin/rails g admin:scaffold_controller Post title:string content:text
+# 2. Create admin scaffold: bin/rails g admin:scaffold_controller Post title content --parent_controller=admin
 gem 'rails-admin-scaffold'
 
 gem 'simple_form'

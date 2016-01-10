@@ -1,0 +1,79 @@
+ Recipe:
+  associations
+  ✔ belongs_to :user @done (16-01-10 15:58)
+  ✔ belongs_to :jewel @done (16-01-10 15:58)
+  ✔ belongs_to :color_scheme @done (16-01-10 15:58)
+  ☐ has_and_belongs_to_many :cuisines
+  ☐ has_and_belongs_to_many :meal_types
+  ☐ has_and_belongs_to_many :diets
+  ☐ has_and_belongs_to_many :seasons
+  ☐ has_and_belongs_to_many :occasions
+  ☐ has_and_belongs_to_many :pairings
+  ☐ has_and_belongs_to_many :boxes
+
+  attributes
+  ✔ title :string @done (16-01-10 15:59)
+  ✔ description :text @done (16-01-10 15:59)
+  ✔ notes :text @done (16-01-10 15:59)
+  ✔ acknowledgements :text @done (16-01-10 15:59)
+  ☐ ingredients nested cocoon
+  ☐ steps nested cocoon
+  ✔ featured_image :paperclip @done (16-01-10 15:59)
+
+Box:
+  ☐ has_and_belongs_to_many :recipes
+
+ Pairing:
+  associations
+  ☐ has_and_belongs_to_many :recipes
+
+Jewel:
+  associations
+  ✔ has_many :recipes @done (16-01-10 16:00)
+
+  attributes
+  ✔ title :string @done (16-01-10 16:00)
+  ✔ image :paperclip @done (16-01-10 16:00)
+
+ColorScheme:
+  associations
+  ✔ has_many :recipes @done (16-01-10 16:01)
+
+  attributes
+  ✔ title :string @done (16-01-10 16:01)
+  ✔ color :string @done (16-01-10 16:01)
+
+MealType:
+  associations
+  ☐ has_and_belongs_to_many :recipes
+
+  attributes
+  ☐ title :string
+
+Diet:
+  associations
+  ☐ has_and_belongs_to_many :recipes
+
+  attributes
+  ☐ title :string
+
+Cuisine:
+  associations
+  ☐ has_and_belongs_to_many :recipes
+
+  attributes
+  ☐ title :string
+
+Season:
+  associations
+  ☐ has_and_belongs_to_many :recipes
+
+  attributes
+  ☐ title :string
+
+Occasion:
+  associations
+  ☐ has_and_belongs_to_many :recipes
+
+  attributes
+  ☐ title :string

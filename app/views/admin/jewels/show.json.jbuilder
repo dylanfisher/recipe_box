@@ -1,0 +1,1 @@
+json.extract! @jewel, :title, :created_at, :updated_at
