@@ -37,6 +37,11 @@ gem 'puma'
 gem 'devise'
 gem 'pundit'
 
+# Rails generator which allows to scaffold admin controllers, views with proper (non-namespaced) models, helpers, tests and routes
+# 1. Create admin scaffold: bin/rails g admin:scaffold_controller Post title:string content:text
+# 2. Generate model: bin/rails g model Post title:string content:text
+gem 'rails-admin-scaffold'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

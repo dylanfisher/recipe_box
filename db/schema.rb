@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160110043619) do
+ActiveRecord::Schema.define(version: 20160110055100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "user_groups", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_groups_users", id: false, force: :cascade do |t|
+    t.integer "user_id",       null: false
+    t.integer "user_group_id", null: false
+  end
+
+  add_index "user_groups_users", ["user_group_id", "user_id"], name: "index_user_groups_users_on_user_group_id_and_user_id", using: :btree
+  add_index "user_groups_users", ["user_id", "user_group_id"], name: "index_user_groups_users_on_user_id_and_user_group_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -29,6 +43,8 @@ ActiveRecord::Schema.define(version: 20160110043619) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

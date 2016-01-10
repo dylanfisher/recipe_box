@@ -1,0 +1,9 @@
+<h1>Admin Index</h1>
+
+<% @records.each do |record| %>
+  <div>
+    <%= link_to polymorphic_path([record.name]) do %>
+      <%= admin_record_name(record) %>
+    <% end %>
+  </div>
+<% end %>
