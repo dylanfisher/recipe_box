@@ -1,0 +1,14 @@
+<%= simple_form_for([:admin, @user]) do |f| %>
+  <%= render 'admin/errors', f: f, record: @user %>
+
+  <div class="form-inputs">
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :email %>
+    <%= f.association :user_groups %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
