@@ -1,9 +1,22 @@
-<h1>Admin Index</h1>
+<h1>Admin Dashboard</h1>
 
-<% @records.each do |record| %>
-  <div>
-    <%= link_to polymorphic_path([record.name]) do %>
-      <%= admin_record_name(record) %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Record</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @records.each do |record| %>
+      <tr>
+        <td>
+          <%= link_to polymorphic_path([record.name]) do %>
+            <%= admin_record_name(record) %>
+          <% end %>
+        </td>
+        <td><%= record.name.gsub('admin_', '').classify.safe_constantize.count %></td>
+      </tr>
     <% end %>
-  </div>
-<% end %>
+  </tbody>
+</table>

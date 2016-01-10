@@ -17,7 +17,11 @@
 
 <p>
   <strong>User groups:</strong>
-  <%= @user.user_groups %>
+  <%= @user.user_groups.collect { |ug| ug.name }.join(', ') %>
+</p>
+
+<p>
+  <%= image_tag @user.avatar.url(:medium) %>
 </p>
 
 <%= link_to 'Edit', edit_admin_user_path(@user) %> |
