@@ -1,0 +1,21 @@
+html {
+  @include font-regular;
+  text-rendering: optimizeLegibility;
+
+  @include breakpoint(sm) {
+    text-rendering: auto;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  margin: 1em 0 0;
+}
+
+h1, h2, h3 {
+  @include font-large;
+}
+
+h4, h5, h6 {
+  @include font-regular;
+}

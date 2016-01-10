@@ -1,0 +1,40 @@
+//
+// Typography definitions
+//
+
+@mixin type-generator($font-size, $letter-spacing, $line-height) {
+  $xs-ratio: 1.2;
+  $sm-ratio: 1.1;
+  $md-ratio: 1.05;
+
+  font-size:      round($font-size      / $xs-ratio);
+  letter-spacing: round($letter-spacing / $xs-ratio);
+  line-height:    round($line-height    / $xs-ratio);
+
+  @include breakpoint(sm) {
+    font-size:      round($font-size      / $sm-ratio);
+    letter-spacing: round($letter-spacing / $sm-ratio);
+    line-height:    round($line-height    / $sm-ratio);
+  }
+
+  @include breakpoint(md) {
+    font-size:      round($font-size      / $md-ratio);
+    letter-spacing: round($letter-spacing / $md-ratio);
+    line-height:    round($line-height    / $md-ratio);
+  }
+
+  @include breakpoint(lg) {
+    font-size:      $font-size;
+    letter-spacing: $letter-spacing;
+    line-height:    $line-height;
+  }
+}
+
+// Regular font
+@mixin font-regular {
+  @include type-generator($font-regular-size, $font-regular-letter-spacing, $font-regular-line-height);
+}
+
+@mixin font-large {
+ @include type-generator($font-large-size, $font-large-letter-spacing, $font-large-line-height);
+}
