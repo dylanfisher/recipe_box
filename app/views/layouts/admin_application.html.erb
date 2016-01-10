@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RecipeBox</title>
+  <%= stylesheet_link_tag    'admin_application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'admin_application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="flash-messages">
+    <p class="notice flash-message"><%= notice %></p>
+    <p class="alert flash-message"><%= alert %></p>
+  </div>
+<%= yield %>
+</body>
+</html>

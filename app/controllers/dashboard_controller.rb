@@ -1,6 +1,4 @@
-class DashboardController < ApplicationController
-
-  before_action :authenticate_user!
+class DashboardController < Admin::ApplicationController
 
   def index
     @records = admin_routes

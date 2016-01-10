@@ -42,6 +42,8 @@ gem 'pundit'
 # 2. Generate model: bin/rails g model Post title:string content:text
 gem 'rails-admin-scaffold'
 
+gem 'simple_form'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
