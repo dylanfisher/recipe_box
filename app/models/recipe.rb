@@ -5,4 +5,19 @@ class Recipe < ActiveRecord::Base
   belongs_to :user
   belongs_to :jewel
   belongs_to :color_scheme
+
+  has_many :boxes
+
+  has_and_belongs_to_many :cuisines
+  has_and_belongs_to_many :meal_types
+  has_and_belongs_to_many :diets
+  has_and_belongs_to_many :seasons
+  has_and_belongs_to_many :occasions
+  has_and_belongs_to_many :recipes,
+              class_name: 'Recipe',
+              join_table: :pairings_recipes,
+              foreign_key: :recipe_id,
+              association_foreign_key: :pairing_id
+
+  scope :all_except, -> (recipe) { where.not(id: recipe) }
 end

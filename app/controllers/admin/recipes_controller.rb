@@ -1,5 +1,6 @@
 class Admin::RecipesController < Admin::ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /admin/recipes
   # GET /admin/recipes.json
@@ -25,6 +26,7 @@ class Admin::RecipesController < Admin::ApplicationController
   # POST /admin/recipes.json
   def create
     @recipe = Recipe.new(recipe_params)
+    @recipe.user = current_user if current_user
 
     respond_to do |format|
       if @recipe.save
@@ -69,6 +71,20 @@ class Admin::RecipesController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:title, :description, :notes, :acknowledgements, :featured_image, :user_id, :jewel_id, :color_scheme_id)
+      params.require(:recipe).permit(:title,
+                                     :description,
+                                     :notes,
+                                     :acknowledgements,
+                                     :featured_image,
+                                     :user_id,
+                                     :jewel_id,
+                                     :color_scheme_id,
+                                     :cuisine_ids => [],
+                                     :meal_type_ids => [],
+                                     :diet_ids => [],
+                                     :season_ids => [],
+                                     :occasion_ids => [],
+                                     :recipe_ids => [],
+                                     :box_ids => [],)
     end
 end

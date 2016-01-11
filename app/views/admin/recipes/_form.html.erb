@@ -10,6 +10,12 @@
     <%= f.association :user, label_method: :first_name %>
     <%= f.association :jewel %>
     <%= f.association :color_scheme %>
+    <%= f.association :cuisines %>
+    <%= f.association :meal_types %>
+    <%= f.association :diets %>
+    <%= f.association :seasons %>
+    <%= f.association :occasions %>
+    <%= f.association :recipes, collection: Recipe.all_except(@recipe) %>
   </div>
 
   <div class="form-actions">

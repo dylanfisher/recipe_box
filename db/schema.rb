@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160110210300) do
+ActiveRecord::Schema.define(version: 20160111005504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "boxes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "recipe_id"
+    t.integer  "user_id"
+  end
 
   create_table "color_schemes", force: :cascade do |t|
     t.string   "title"
@@ -22,6 +29,34 @@ ActiveRecord::Schema.define(version: 20160110210300) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "cuisines", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cuisines_recipes", id: false, force: :cascade do |t|
+    t.integer "cuisine_id", null: false
+    t.integer "recipe_id",  null: false
+  end
+
+  add_index "cuisines_recipes", ["cuisine_id", "recipe_id"], name: "index_cuisines_recipes_on_cuisine_id_and_recipe_id", using: :btree
+  add_index "cuisines_recipes", ["recipe_id", "cuisine_id"], name: "index_cuisines_recipes_on_recipe_id_and_cuisine_id", using: :btree
+
+  create_table "diets", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "diets_recipes", id: false, force: :cascade do |t|
+    t.integer "diet_id",   null: false
+    t.integer "recipe_id", null: false
+  end
+
+  add_index "diets_recipes", ["diet_id", "recipe_id"], name: "index_diets_recipes_on_diet_id_and_recipe_id", using: :btree
+  add_index "diets_recipes", ["recipe_id", "diet_id"], name: "index_diets_recipes_on_recipe_id_and_diet_id", using: :btree
 
   create_table "jewels", force: :cascade do |t|
     t.string   "title"
@@ -32,6 +67,47 @@ ActiveRecord::Schema.define(version: 20160110210300) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
   end
+
+  create_table "meal_types", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "meal_types_recipes", id: false, force: :cascade do |t|
+    t.integer "meal_type_id", null: false
+    t.integer "recipe_id",    null: false
+  end
+
+  add_index "meal_types_recipes", ["meal_type_id", "recipe_id"], name: "index_meal_types_recipes_on_meal_type_id_and_recipe_id", using: :btree
+  add_index "meal_types_recipes", ["recipe_id", "meal_type_id"], name: "index_meal_types_recipes_on_recipe_id_and_meal_type_id", using: :btree
+
+  create_table "occasions", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "occasions_recipes", id: false, force: :cascade do |t|
+    t.integer "occasion_id", null: false
+    t.integer "recipe_id",   null: false
+  end
+
+  add_index "occasions_recipes", ["occasion_id", "recipe_id"], name: "index_occasions_recipes_on_occasion_id_and_recipe_id", using: :btree
+  add_index "occasions_recipes", ["recipe_id", "occasion_id"], name: "index_occasions_recipes_on_recipe_id_and_occasion_id", using: :btree
+
+  create_table "pairings", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pairings_recipes", id: false, force: :cascade do |t|
+    t.integer "pairing_id", null: false
+    t.integer "recipe_id",  null: false
+  end
+
+  add_index "pairings_recipes", ["pairing_id", "recipe_id"], name: "index_pairings_recipes_on_pairing_id_and_recipe_id", using: :btree
+  add_index "pairings_recipes", ["recipe_id", "pairing_id"], name: "index_pairings_recipes_on_recipe_id_and_pairing_id", using: :btree
 
   create_table "recipes", force: :cascade do |t|
     t.integer  "user_id"
@@ -52,6 +128,20 @@ ActiveRecord::Schema.define(version: 20160110210300) do
   add_index "recipes", ["color_scheme_id"], name: "index_recipes_on_color_scheme_id", using: :btree
   add_index "recipes", ["jewel_id"], name: "index_recipes_on_jewel_id", using: :btree
   add_index "recipes", ["user_id"], name: "index_recipes_on_user_id", using: :btree
+
+  create_table "recipes_seasons", id: false, force: :cascade do |t|
+    t.integer "season_id", null: false
+    t.integer "recipe_id", null: false
+  end
+
+  add_index "recipes_seasons", ["recipe_id", "season_id"], name: "index_recipes_seasons_on_recipe_id_and_season_id", using: :btree
+  add_index "recipes_seasons", ["season_id", "recipe_id"], name: "index_recipes_seasons_on_season_id_and_recipe_id", using: :btree
+
+  create_table "seasons", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "user_groups", force: :cascade do |t|
     t.string   "name"
