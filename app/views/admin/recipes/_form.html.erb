@@ -15,7 +15,7 @@
     <%= f.association :diets %>
     <%= f.association :seasons %>
     <%= f.association :occasions %>
-    <%= f.association :recipes, collection: Recipe.all_except(@recipe) %>
+    <%= f.association :pairings, collection: Recipe.all_except(@recipe) %>
 
     <h3>Ingredients</h3>
     <div class="ingredients" data-sortable="true">

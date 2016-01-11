@@ -1,2 +1,20 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Recipe Box</h1>
+
+<p>tk you stumble upon a jewelry encrusted box. the decadent container lures you in. you open the box. loose leaf pages adorned with squishy embellishments and stick on jewels. these are the most decadent and satisfying recipes of your life. this is recipe box.</p>
+
+<nav>
+  <ul>
+    <li>All Recipes</li>
+    <li>About</li>
+    <li>Submit</li>
+    <li>Your Box</li>
+  </ul>
+</nav>
+
+<div>Featured Recipes</div>
+
+<% cache(cache_key_for(Recipe)) do %>
+  <div class="recipes">
+    <%= render partial: 'recipes/recipe', collection: @recipes %>
+  </div>
+<% end %>

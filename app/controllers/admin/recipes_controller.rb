@@ -66,7 +66,7 @@ class Admin::RecipesController < Admin::ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_recipe
-      @recipe = Recipe.find(params[:id])
+      @recipe = Recipe.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -84,7 +84,7 @@ class Admin::RecipesController < Admin::ApplicationController
                                      :diet_ids => [],
                                      :season_ids => [],
                                      :occasion_ids => [],
-                                     :recipe_ids => [],
+                                     :pairing_ids => [],
                                      :box_ids => [],
                                      steps_attributes: [:id, :_destroy, :position, :description],
                                      ingredients_attributes: [:id, :_destroy, :position, :title, :amount],)

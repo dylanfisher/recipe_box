@@ -6,7 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%= @application_body_class %>">
   <div class="flash-messages">
     <p class="notice flash-message"><%= notice %></p>
     <p class="alert flash-message"><%= alert %></p>

@@ -1,0 +1,30 @@
+<% cache(@recipe) do %>
+  <%= content_tag(:h1, @recipe.title) %>
+  <%= content_tag(:div, @recipe.description) if @recipe.description.present? %>
+  <div class="ingredients">
+    <h2>Ingredients</h2>
+    <%= render partial: 'ingredient', collection: @recipe.ingredients %>
+  </div>
+
+  <div class="steps">
+    <h2>Procedure</h2>
+    <ol>
+      <%= render partial: 'step', collection: @recipe.steps %>
+    </ol>
+  </div>
+
+  <div class="notes">
+    <h2>Notes</h2>
+    <%= @recipe.notes %>
+  </div>
+
+  <div class="acknowledgements">
+    <h2>Acknowledgements</h2>
+    <%= @recipe.acknowledgements %>
+  </div>
+
+  <div class="pairings">
+    <h2>Suggested Pairings</h2>
+    <%= render partial: 'recipe', collection: @recipe.pairings %>
+  </div>
+<% end %>

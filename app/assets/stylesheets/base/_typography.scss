@@ -1,5 +1,5 @@
 html {
-  @include font-regular;
+  @include regular-sans;
   text-rendering: optimizeLegibility;
 
   @include breakpoint(sm) {
@@ -12,10 +12,6 @@ h1, h2, h3, h4, h5, h6 {
   margin: 1em 0 0;
 }
 
-h1, h2, h3 {
-  @include font-large;
-}
-
-h4, h5, h6 {
-  @include font-regular;
+h1 {
+  @include large-serif;
 }
