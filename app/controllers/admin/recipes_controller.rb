@@ -85,6 +85,8 @@ class Admin::RecipesController < Admin::ApplicationController
                                      :season_ids => [],
                                      :occasion_ids => [],
                                      :recipe_ids => [],
-                                     :box_ids => [],)
+                                     :box_ids => [],
+                                     steps_attributes: [:id, :_destroy, :position, :description],
+                                     ingredients_attributes: [:id, :_destroy, :position, :title, :amount],)
     end
 end

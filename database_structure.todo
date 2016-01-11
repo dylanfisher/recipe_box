@@ -9,7 +9,7 @@
   ✔ has_and_belongs_to_many :diets @done (16-01-10 19:32)
   ✔ has_and_belongs_to_many :seasons @done (16-01-10 19:33)
   ✔ has_and_belongs_to_many :occasions @done (16-01-10 19:33)
-  ☐ has_and_belongs_to_many :boxes
+  ✔ has_many :boxes @done (16-01-10 20:21)
 
   attributes
   ✔ title :string @done (16-01-10 15:59)
@@ -19,6 +19,21 @@
   ✔ featured_image :paperclip @done (16-01-10 15:59)
   ☐ ingredients nested cocoon
   ☐ steps nested cocoon
+
+Ingredient:
+  associations
+  ☐ belongs_to :recipe
+
+  attributes
+  ☐ title :string
+  ☐ amount :string
+
+Step:
+  associations
+  ☐ belongs_to :recipe
+
+  attributes
+  ☐ description :text
 
 Box:
   ✔ has_many :recipes @done (16-01-10 20:00)

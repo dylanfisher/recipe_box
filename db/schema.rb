@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160111005504) do
+ActiveRecord::Schema.define(version: 20160111012629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,18 @@ ActiveRecord::Schema.define(version: 20160111005504) do
 
   add_index "diets_recipes", ["diet_id", "recipe_id"], name: "index_diets_recipes_on_diet_id_and_recipe_id", using: :btree
   add_index "diets_recipes", ["recipe_id", "diet_id"], name: "index_diets_recipes_on_recipe_id_and_diet_id", using: :btree
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string   "title"
+    t.string   "amount"
+    t.integer  "position"
+    t.integer  "recipe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "ingredients", ["recipe_id", "position"], name: "index_ingredients_on_recipe_id_and_position", using: :btree
+  add_index "ingredients", ["recipe_id"], name: "index_ingredients_on_recipe_id", using: :btree
 
   create_table "jewels", force: :cascade do |t|
     t.string   "title"
@@ -143,6 +155,17 @@ ActiveRecord::Schema.define(version: 20160111005504) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "steps", force: :cascade do |t|
+    t.text     "description"
+    t.integer  "position"
+    t.integer  "recipe_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "steps", ["recipe_id", "position"], name: "index_steps_on_recipe_id_and_position", using: :btree
+  add_index "steps", ["recipe_id"], name: "index_steps_on_recipe_id", using: :btree
+
   create_table "user_groups", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -181,7 +204,9 @@ ActiveRecord::Schema.define(version: 20160111005504) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "ingredients", "recipes"
   add_foreign_key "recipes", "color_schemes"
   add_foreign_key "recipes", "jewels"
   add_foreign_key "recipes", "users"
+  add_foreign_key "steps", "recipes"
 end

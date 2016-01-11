@@ -7,6 +7,11 @@ class Recipe < ActiveRecord::Base
   belongs_to :color_scheme
 
   has_many :boxes
+  has_many :steps, -> { order('position') }
+  has_many :ingredients, -> { order('position') }
+
+  accepts_nested_attributes_for :steps, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :ingredients, reject_if: :all_blank, allow_destroy: true
 
   has_and_belongs_to_many :cuisines
   has_and_belongs_to_many :meal_types
