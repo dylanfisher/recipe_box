@@ -1,5 +1,10 @@
 <% cache(recipe) do %>
-  <div class="recipe">
-    <%= link_to(content_tag(:h2, recipe.title), recipe) %>
+  <div class="recipes-grid__item col-sm-6 text-center">
+    <div class="recipes-grid__item__inner">
+      <div class="recipes-grid__item__gem">
+        
+      </div>
+      <%= link_to(content_tag(:h2, recipe.title), recipe, class: 'recipes-grid__item__title') %>
+    </div>
   </div>
 <% end %>

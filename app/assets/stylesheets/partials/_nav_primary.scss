@@ -1,0 +1,16 @@
+.nav--primary {
+  padding: 25px;
+
+  .controller--home & {
+    background-color: $white;
+  }
+}
+
+.nav--primary__list {
+  @include blank-list;
+}
+
+.nav--primary__list-item {
+  display: inline-block;
+  margin: 0 20px;
+}

@@ -1,20 +1,37 @@
-<h1>Recipe Box</h1>
+<div class="controller--home__intro row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <h1>
+      <span class="visually-hidden">Recipe Box</span>
+      <%= embedded_svg('recipe-box-logo', class: 'recipe-box-logo--large') %>
+    </h1>
+    <p>tk you stumble upon a jewelry encrusted box. the decadent container lures you in. you open the box. loose leaf pages adorned with squishy embellishments and stick on jewels. these are the most decadent and satisfying recipes of your life. this is recipe box.</p>
+  </div>
+</div>
 
-<p>tk you stumble upon a jewelry encrusted box. the decadent container lures you in. you open the box. loose leaf pages adorned with squishy embellishments and stick on jewels. these are the most decadent and satisfying recipes of your life. this is recipe box.</p>
-
-<nav>
-  <ul>
-    <li>All Recipes</li>
-    <li>About</li>
-    <li>Submit</li>
-    <li>Your Box</li>
-  </ul>
-</nav>
-
-<div>Featured Recipes</div>
+<%= render 'shared/nav_primary' %>
 
 <% cache(cache_key_for(Recipe)) do %>
-  <div class="recipes">
-    <%= render partial: 'recipes/recipe', collection: @recipes %>
+  <div class="controller--home__recipes recipes-grid row">
+    <div class="text-center">Featured Recipes</div>
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="row">
+        <%= render partial: 'recipes/recipe', collection: @recipes %>
+      </div>
+    </div>
   </div>
 <% end %>
+
+<div class="controller--home__about-area row text-center">
+  <div class="controller--home__about-area__left-column col-sm-4">
+    <h6>the story behind</h6>
+    <h4>Recipe Box</h4>
+  </div>
+  <div class="controller--home__about-area__right-column col-sm-8">
+    <p>Recipe Box phasellus leo enim, convallis nec eleifend vitae, port titor efficitur ipsum. Pelle tesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque dignissim posuere ligula eget elementum. Morbi finibus arcu sit amet turpis facilisis pharetra.</p>
+    <p><b>Continue reading</b></p>
+  </div>
+</div>
+
+<footer class="footer--primary row text-center">
+  <%= embedded_svg('recipe-box-logo', class: 'recipe-box-logo--large') %>
+</footer>

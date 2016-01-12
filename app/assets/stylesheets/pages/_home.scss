@@ -1,3 +1,19 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.controller--home__intro {
+  background: $pink;
+  text-align: center;
+  color: #fff;
+  fill: #fff;
+}
+
+.controller--home__recipes {
+  background: $pink-dark;
+}
+
+.controller--home__about-area__right-column {
+  background: $blue;
+  color: $white;
+}
