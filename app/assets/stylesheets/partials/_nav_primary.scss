@@ -1,5 +1,7 @@
 .nav--primary {
-  padding: 25px;
+  @include font__patron-regular__size__medium;
+  line-height: normal;
+  padding: 30px 10px;
 
   .controller--home & {
     background-color: $white;

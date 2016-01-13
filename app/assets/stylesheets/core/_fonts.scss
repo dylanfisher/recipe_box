@@ -12,12 +12,36 @@
 }
 
 @font-face {
-  font-family: 'HelveticaNeueRegular';
-  src: font-url('HelveticaNeue/HelveticaNeue.eot');
-  src: font-url('HelveticaNeue/HelveticaNeue.eot?#iefix') format('embedded-opentype'),
-       font-url('HelveticaNeue/HelveticaNeue.woff') format('woff'),
-       font-url('HelveticaNeue/HelveticaNeue.ttf') format('truetype'),
-       font-url('HelveticaNeue/HelveticaNeue.svg#HelveticaNeueRegular') format('svg');
-  font-weight: 100;
+  font-family: 'patron-light';
+  src: font-url('PatronTRIAL-Light.otf');
+  font-weight: normal;
   font-style: normal;
+}
+
+@font-face {
+  font-family: 'patron-medium';
+  src: font-url('PatronTRIAL-Medium.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'patron-regular';
+  src: font-url('PatronTRIAL-Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'patron-thin';
+  src: font-url('PatronTRIAL-Thin.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'patron-thin';
+  src: font-url('PatronTRIAL-ThinItalic.otf');
+  font-weight: normal;
+  font-style: italic;
 }

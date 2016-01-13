@@ -1,17 +1,26 @@
 html {
-  @include regular-sans;
-  text-rendering: optimizeLegibility;
+  @include font__patron-thin__size__regular;
 
   @include breakpoint(sm) {
-    text-rendering: auto;
+    text-rendering: optimizeLegibility;
+  }
+
+  @include breakpoint(md) {
+    text-rendering: geometricPrecision;
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: normal;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   margin: 0 0 1em;
 }
 
-h1 {
-  @include large-serif;
+h1,
+h2 {
+  @include font__bangla-regular__size__large;
 }

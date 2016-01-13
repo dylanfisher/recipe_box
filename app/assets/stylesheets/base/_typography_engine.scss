@@ -1,70 +1,121 @@
-//
-// Type Variables
-//
+///////////////////////////////////////////////////
+// Typography Variables
+///////////////////////////////////////////////////
 
+//
 // Font stacks
-$helvetica: 'HelveticaNeue', sans-serif;
-$bangla: 'bangla', serif;
-
-// Font sizes
-$font-regular-size           : 16px;
-$font-regular-letter-spacing : 0.5px;
-$font-regular-line-height    : 18px;
-
-$font-large-size             : 32px;
-$font-large-letter-spacing   : 0.5px;
-$font-large-line-height      : 36px;
-
 //
+
+// Patron
+$font-stack__patron-light   : 'patron-light',   sans-serif;
+$font-stack__patron-medium  : 'patron-medium',  sans-serif;
+$font-stack__patron-regular : 'patron-regular', sans-serif;
+$font-stack__patron-thin    : 'patron-thin',    sans-serif;
+
+// Bangla
+$font-stack__bangla-regular : 'bangla',         serif;
+
+
+///////////////////////////////////////////////////
 // Typography definitions
+///////////////////////////////////////////////////
+
+//
+// Patron
 //
 
-@mixin type-generator($font-size, $letter-spacing, $line-height) {
-  $xs-ratio: 1.2;
-  $sm-ratio: 1.1;
-  $md-ratio: 1.05;
-
-  font-size:      round($font-size      / $xs-ratio);
-  letter-spacing: round($letter-spacing / $xs-ratio);
-  line-height:    round($line-height    / $xs-ratio);
-
-  @include breakpoint(sm) {
-    font-size:      round($font-size      / $sm-ratio);
-    letter-spacing: round($letter-spacing / $sm-ratio);
-    line-height:    round($line-height    / $sm-ratio);
-  }
-
-  @include breakpoint(md) {
-    font-size:      round($font-size      / $md-ratio);
-    letter-spacing: round($letter-spacing / $md-ratio);
-    line-height:    round($line-height    / $md-ratio);
-  }
-
-  @include breakpoint(lg) {
-    font-size:      $font-size;
-    letter-spacing: $letter-spacing;
-    line-height:    $line-height;
-  }
+// Patron thin
+@mixin font__patron-thin__size__regular {
+  $font-size      : 16px;
+  $letter-spacing : 0.5px;
+  $line-height    : 18px;
+  font-family: $font-stack__patron-thin;
+  @include type-generator($font-size, $letter-spacing, $line-height);
+}
+.font__patron-thin__size__regular {
+  @include font__patron-thin__size__regular;
 }
 
-// Sans-serif
-@mixin regular-sans {
-  font-family: $helvetica;
-  @include type-generator($font-regular-size, $font-regular-letter-spacing, $font-regular-line-height);
+@mixin font__patron-thin__size__medium {
+  $font-size      : 23px;
+  $letter-spacing : 0.5px;
+  $line-height    : 26px;
+  font-family: $font-stack__patron-thin;
+  @include type-generator($font-size, $letter-spacing, $line-height);
+}
+.font__patron-thin__size__medium {
+  @include font__patron-thin__size__medium;
 }
 
-@mixin large-sans {
-  font-family: $helvetica;
- @include type-generator($font-large-size, $font-large-letter-spacing, $font-large-line-height);
+@mixin font__patron-thin__size__large {
+  $font-size      : 30px;
+  $letter-spacing : 0.5px;
+  $line-height    : 43px;
+  @include type-generator($font-size, $letter-spacing, $line-height);
+  font-family: $font-stack__patron-thin;
+}
+.font__patron-thin__size__large {
+  @include font__patron-thin__size__large;
 }
 
-// Serif
-@mixin regular-serif {
-  font-family: $bangla;
-  @include type-generator($font-regular-size, $font-regular-letter-spacing, $font-regular-line-height);
+// Patron regular
+@mixin font__patron-regular__size__medium {
+  $font-size      : 23px;
+  $letter-spacing : 0.5px;
+  $line-height    : 26px;
+  @include type-generator($font-size, $letter-spacing, $line-height);
+  font-family: $font-stack__patron-regular;
+}
+.font__patron-regular__size__medium {
+  @include font__patron-regular__size__medium;
 }
 
-@mixin large-serif {
-  font-family: $bangla;
- @include type-generator($font-large-size, $font-large-letter-spacing, $font-large-line-height);
+@mixin font__patron-regular__size__large {
+  $font-size      : 30px;
+  $letter-spacing : 0.5px;
+  $line-height    : 43px;
+  @include type-generator($font-size, $letter-spacing, $line-height);
+  font-family: $font-stack__patron-regular;
+}
+.font__patron-regular__size__large {
+  @include font__patron-regular__size__large;
+}
+
+// Patron medium
+@mixin font__patron-medium__size__large {
+  $font-size      : 30px;
+  $letter-spacing : 0.5px;
+  $line-height    : 43px;
+  @include type-generator($font-size, $letter-spacing, $line-height);
+  font-family: $font-stack__patron-medium;
+}
+.font__patron-medium__size__large {
+  @include font__patron-medium__size__large;
+}
+
+//
+// Bangla
+//
+
+@mixin font__bangla-regular__size__regular {
+  $font-size      : 16px;
+  $letter-spacing : 0.5px;
+  $line-height    : 18px;
+  @include type-generator($font-size, $letter-spacing, $line-height);
+  font-family: $font-stack__bangla-regular;
+}
+.font__bangla-regular__size__regular {
+  @include font__bangla-regular__size__regular;
+}
+
+@mixin font__bangla-regular__size__large {
+  $font-size      : 38px;
+  $letter-spacing : 0.5px;
+  $line-height    : 41px;
+  @include type-generator($font-size, $letter-spacing, $line-height);
+  font-family: $font-stack__bangla-regular;
+  font-weight: bold;
+}
+.font__bangla-regular__size__large {
+  @include font__bangla-regular__size__large;
 }
