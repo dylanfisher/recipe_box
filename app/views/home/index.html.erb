@@ -1,14 +1,16 @@
-<div class="controller--home__intro row">
-  <div class="col-sm-8 col-sm-offset-2">
-    <h1>
-      <span class="visually-hidden">Recipe Box</span>
-      <%= embedded_svg('recipe-box-logo', class: 'recipe-box-logo--large') %>
-    </h1>
-    <p>tk you stumble upon a jewelry encrusted box. the decadent container lures you in. you open the box. loose leaf pages adorned with squishy embellishments and stick on jewels. these are the most decadent and satisfying recipes of your life. this is recipe box.</p>
+<%= content_for :header do %>
+  <div class="controller--home__intro row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h1>
+        <span class="visually-hidden">Recipe Box</span>
+        <%= embedded_svg('recipe-box-logo', class: 'recipe-box-logo recipe-box-logo--large') %>
+      </h1>
+      <p>tk you stumble upon a jewelry encrusted box. the decadent container lures you in. you open the box. loose leaf pages adorned with squishy embellishments and stick on jewels. these are the most decadent and satisfying recipes of your life. this is recipe box.</p>
+    </div>
   </div>
-</div>
 
-<%= render 'shared/nav_primary' %>
+  <%= render 'nav_primary_home' %>
+<% end %>
 
 <% cache(cache_key_for(Recipe)) do %>
   <div class="controller--home__recipes recipes-grid row">
@@ -33,7 +35,3 @@
     <div class="font__patron-medium__size__large">Continue reading</div>
   </div>
 </div>
-
-<footer class="footer--primary row text-center">
-  <p>This is recipe box</p>
-</footer>

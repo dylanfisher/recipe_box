@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
       parts << "controller--#{controller_path.gsub('/', '-')}" if try(:controller_path)
       parts << "action--#{action_name}" if try(:action_name)
       parts << "container-fluid"
+      parts << "application-body"
       @application_body_class = parts.join(" ")
     end
 

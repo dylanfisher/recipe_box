@@ -25,6 +25,8 @@
 
   <div class="pairings">
     <h2>Suggested Pairings</h2>
-    <%= render partial: 'recipe', collection: @recipe.pairings %>
+    <div class="row">
+      <%= render partial: 'recipe', collection: @recipe.pairings %>
+    </div>
   </div>
 <% end %>

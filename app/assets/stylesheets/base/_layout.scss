@@ -1,1 +1,7 @@
+.application-body {
+  margin-top: $header-height + 80px;
 
+  &.controller--home {
+    margin-top: 0;
+  }
+}
