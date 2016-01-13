@@ -1,10 +1,11 @@
 App.pageLoad.push(function() {
 
   if($('.controller--home').length) {
+    var $nav                 = $('.nav--primary');
+    var $affixHolder         = $('.nav--primary__affix-holder');
+      
     $(window).on('scroll.homeNavScrollEvents', function() {
       var st                   = $(this).scrollTop();
-      var $nav                 = $('.nav--primary');
-      var $affixHolder         = $('.nav--primary__affix-holder');
       var navOffsetTop         = $nav.offset().top;
       var affixHolderOffsetTop = $affixHolder.offset().top;
 
