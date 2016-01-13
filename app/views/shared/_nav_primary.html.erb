@@ -2,10 +2,5 @@
   <%= link_to(root_path) do %>
     <%= embedded_svg('recipe-box-logo', class: 'recipe-box-logo nav--primary__recipe-box-logo') %>
   <% end %>
-  <ul class="nav--primary__list">
-    <li class="nav--primary__list-item">All Recipes</li>
-    <li class="nav--primary__list-item">About</li>
-    <li class="nav--primary__list-item">Submit</li>
-    <li class="nav--primary__list-item">Your Box</li>
-  </ul>
+  <%= render 'shared/nav_primary_list' %>
 </nav>
