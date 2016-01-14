@@ -27,5 +27,6 @@ class Recipe < ActiveRecord::Base
               foreign_key: :recipe_id,
               association_foreign_key: :pairing_id
 
+  scope :recent, -> { order(updated_at: :desc) }
   scope :all_except, -> (recipe) { where.not(id: recipe) }
 end

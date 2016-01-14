@@ -13,6 +13,10 @@
   background: $pink;
   padding: 30px 10px 14px;
 
+  .controller--recipes.action--show & {
+    background: $gray;
+  }
+
   .nav--primary__list {
     float: right;
   }

@@ -1,6 +1,14 @@
 <ul class="nav--primary__list">
-  <li class="nav--primary__list-item">All Recipes</li>
-  <li class="nav--primary__list-item">About</li>
-  <li class="nav--primary__list-item">Submit</li>
-  <li class="nav--primary__list-item">Your Box</li>
+  <li class="nav--primary__list-item">
+    <%= link_to('Recipes', recipes_path, class: 'blank-link') %>
+  </li>
+  <li class="nav--primary__list-item">
+    <%= link_to('About', '#about_path', class: 'blank-link') %>
+  </li>
+  <li class="nav--primary__list-item">
+    <%= link_to('Submit', '#submit_path', class: 'blank-link') %>
+  </li>
+  <li class="nav--primary__list-item">
+    <%= link_to('Your Box', '#box_path', class: 'blank-link') %>
+  </li>
 </ul>

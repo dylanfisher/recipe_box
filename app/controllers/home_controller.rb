@@ -2,7 +2,7 @@ class HomeController < ApplicationController
 
   def index
     skip_authorization
-    @recipes = Recipe.all
+    @recipes = Recipe.recent.limit(4)
   end
 
 end

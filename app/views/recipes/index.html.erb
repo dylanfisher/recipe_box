@@ -1,2 +1,9 @@
-<h1>Recipes#index</h1>
-<p>Find me in app/views/recipes/index.html.erb</p>
+<% cache(cache_key_for(Recipe)) do %>
+  <div class="recipes-grid row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="row">
+        <%= render partial: 'recipes/recipe', collection: @recipes %>
+      </div>
+    </div>
+  </div>
+<% end %>
