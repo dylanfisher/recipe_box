@@ -1,16 +1,11 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: [:show]
-
   def index
     @recipes = Recipe.recent
   end
 
   def show
+    @recipe   = Recipe.friendly.find(params[:id])
+    @pairings = @recipe.pairings.randomize
+    @user     = @recipe.user
   end
-
-  private
-
-    def set_recipe
-      @recipe = Recipe.friendly.find(params[:id])
-    end
 end

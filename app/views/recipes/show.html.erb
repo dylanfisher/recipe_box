@@ -1,32 +1,70 @@
-<% cache(@recipe) do %>
-  <%= content_tag(:h1, @recipe.title) %>
-  <%= content_tag(:div, @recipe.description) if @recipe.description.present? %>
-  <div class="ingredients">
-    <h2>Ingredients</h2>
-    <%= render partial: 'ingredient', collection: @recipe.ingredients %>
-  </div>
+<div class="row recipe--show__wrapper">
+  <div class="recipe--show__content col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2">
 
-  <div class="steps">
-    <h2>Procedure</h2>
-    <ol>
-      <%= render partial: 'step', collection: @recipe.steps %>
-    </ol>
-  </div>
+    <div class="recipe--show__gem recipe__gem text-center">
+      
+    </div>
 
-  <div class="notes">
-    <h2>Notes</h2>
-    <%= @recipe.notes %>
-  </div>
+    <%= content_tag(:div, class: 'recipe--show__image text-center') do %>
+      <%= image_tag(@recipe.featured_image.url(:medium)) %>
+    <% end %>
 
-  <div class="acknowledgements">
-    <h2>Acknowledgements</h2>
-    <%= @recipe.acknowledgements %>
-  </div>
+    <%= content_tag(:h1, @recipe.title, class: 'recipe--show__title text-center font__bangla-regular__size__huge') %>
 
-  <div class="pairings">
-    <h2>Suggested Pairings</h2>
-    <div class="row">
-      <%= render partial: 'recipe', collection: @recipe.pairings %>
+    <%= content_tag(:div, class: 'recipe--show__description font__patron-light__size__large text-center') do %>
+      This is a <%= @recipe.diet_names %> recipe posted by <%= link_to(@user.name, user_path(@user), class: 'link--default') %>.
+      <%#= @recipe.description if @recipe.description? %>
+    <% end %>
+
+    <div class="recipe--show__actions font__patron-medium__size__large line-height-normal row">
+      <div class="recipe--show__actions__save col-sm-6">
+        Save to your box
+      </div>
+      <div class="recipe--show__actions__print col-sm-6">
+        Print / Save as PDF
+      </div>
+    </div>
+
+    <hr class="hr--dotted">
+
+    <div class="recipe--show__body font__patron-light__size__medium">
+      <div class="recipe--show__ingredients-procedure-wrapper">
+        <div class="row">
+          <div class="recipe--show__ingredients col-sm-6">
+            <h3 class="h3 subtitle">Ingredients</h3>
+            <%= render partial: 'ingredient', collection: @recipe.ingredients %>
+          </div>
+
+          <div class="recipe--show__steps col-sm-6">
+            <h3 class="h3 subtitle">Procedure</h3>
+            <ol class="list-style--lower-roman">
+              <%= render partial: 'step', collection: @recipe.steps %>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="recipe--show__notes font__patron-light__size__medium">
+      <h3 class="h3 subtitle">Notes</h3>
+      <%= @recipe.notes %>
+    </div>
+
+    <div class="recipe--show__acknowledgements font__patron-light__size__medium">
+      <h3 class="h3 subtitle">Acknowledgements</h3>
+      <%= @recipe.acknowledgements %>
+    </div>
+
+  </div>
+</div>
+
+<div class="recipe--show__pairings row">
+  <div class="recipe--show__pairings__left-column recipe--show__pairings__column text-center col-sm-4">
+    <div class="recipe--show__pairings__left-column__inner col-sm-4">
+      <div class="font__patron-regular__size__large">Suggested<br>pairings</div>
     </div>
   </div>
-<% end %>
+  <div class="recipe--show__pairings__right-column recipe--show__pairings__column font__patron-thin__size__large col-sm-8" data-carousel>
+    <%= render partial: 'recipe', collection: @pairings, layout: 'pairing_layout' %>
+  </div>
+</div>

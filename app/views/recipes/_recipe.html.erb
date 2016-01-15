@@ -1,12 +1,10 @@
-<% cache(recipe) do %>
-  <div class="recipes-grid__item col-sm-6 text-center">
-    <%= link_to(recipe, class: 'blank-link') do %>
-      <div class="recipes-grid__item__inner">
-        <div class="recipes-grid__item__gem">
-          
-        </div>
-        <%= content_tag(:h2, recipe.title, class: 'recipes-grid__item__title') %>
+<div class="recipes-grid__item col-sm-6 text-center">
+  <%= link_to(recipe, class: 'link--blank') do %>
+    <div class="recipes-grid__item__inner">
+      <div class="recipes-grid__item__gem recipe__gem">
+        
       </div>
-    <% end %>
-  </div>
-<% end %>
+      <%= content_tag(:h2, recipe.title, class: 'recipes-grid__item__title font__bangla-regular__size__large') %>
+    </div>
+  <% end %>
+</div>

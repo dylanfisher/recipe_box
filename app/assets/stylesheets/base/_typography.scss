@@ -21,6 +21,16 @@ p {
 }
 
 h1,
-h2 {
-  @include font__bangla-regular__size__large;
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+.subtitle {
+  @include font__patron-medium__size__smallcaps;
+  margin-bottom: 40px;
 }

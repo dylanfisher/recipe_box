@@ -22,16 +22,25 @@
   padding-bottom: 40px;
 }
 
-.controller--home__about-area__column {
-  padding: 50px 50px 40px;
-}
-
 .controller--home__about-area__right-column {
   background: $blue;
   color: $white;
 }
 
-.controller--home__about-area__left-column__inner {
-  margin-top: 50%;
-  transform: translate(0, -100%);
+@include breakpoint(sm) {
+  .controller--home__about-area {
+    position: relative;
+  }
+
+  .controller--home__about-area__column {
+    padding: 50px 50px 40px;
+    position: static;
+  }
+
+  .controller--home__about-area__left-column__inner {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+  }
 }

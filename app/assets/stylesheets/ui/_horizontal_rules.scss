@@ -1,0 +1,32 @@
+@mixin hr-reset {
+  display: block;
+  border: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin hr--dotted {
+  @include hr-reset;
+  background-repeat: repeat-x;
+  background-size: 8px 4px;
+  height: 4px;
+  background-image: radial-gradient(circle, $black 1px, transparent 1.5px);
+}
+
+.hr--dotted {
+  @include hr--dotted;
+  margin-bottom: 40px;
+
+  @include breakpoint(sm) {
+    margin-bottom: 60px;
+  }
+}
+
+@mixin hr--dotted--vertical {
+  @include hr-reset;
+  background-repeat: repeat-y;
+  background-size: 4px 8px;
+  width: 4px;
+  background-image: radial-gradient(circle, $black 1px, transparent 1.5px);
+}

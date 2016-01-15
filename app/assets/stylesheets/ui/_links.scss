@@ -1,4 +1,14 @@
-.blank-link {
+.link--blank {
   color: $black;
+  text-decoration: none;
+}
+
+.link--default {
+  @include smart-underline($white, $black, $selection-background, 90%);
+  text-decoration: none;
+}
+
+.link--special {
+  @include smart-underline($pink, $white, $selection-background, 90%);
   text-decoration: none;
 }

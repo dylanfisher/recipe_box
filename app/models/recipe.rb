@@ -27,6 +27,11 @@ class Recipe < ActiveRecord::Base
               foreign_key: :recipe_id,
               association_foreign_key: :pairing_id
 
-  scope :recent, -> { order(updated_at: :desc) }
+  scope :recent,     -> { order(updated_at: :desc) }
+  scope :randomize,  -> { order('random()') }
   scope :all_except, -> (recipe) { where.not(id: recipe) }
+
+  def diet_names
+    diets.collect { |d| d.title }.to_sentence
+  end
 end

@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
 
   has_many :recipes
   has_one :box
+
+  def name
+    first_name || last_name || "Anonymous"
+  end
 end

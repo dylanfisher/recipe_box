@@ -5,3 +5,11 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
+
+::selection {
+  background: $selection-background;
+}
+
+::-moz-selection {
+  background: $selection-background;
+}
