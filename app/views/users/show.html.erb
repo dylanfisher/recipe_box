@@ -1,2 +1,17 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<%= content_tag(:h1, @user.full_name, class: 'font__bangla-regular__size__large') %>
+
+<% if @uploaded_recipes.any? %>
+  <h1><%= @user.name.possessive %> Recipes</h1>
+  <% @uploaded_recipes.each do |recipe| %>
+    <%= link_to recipe.title, recipe %><br>
+  <% end %>
+<% end %>
+
+<br><br>
+
+<% if @collected_recipes.any? %>
+  <h1>Recipes <%= @user.name %> has collected</h1>
+  <% @collected_recipes.each do |recipe| %>
+    <%= link_to recipe.title, recipe %>, uploaded by <%= link_to recipe.user.name, recipe.user %><br>
+  <% end %>
+<% end %>

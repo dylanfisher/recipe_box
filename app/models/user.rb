@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :slug_candidates, use: :slugged
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -13,6 +16,13 @@ class User < ActiveRecord::Base
   has_one :box
 
   scope :guest, -> { joins(:user_groups).where('user_groups.name = ?', 'guest').limit(1).first }
+
+  def slug_candidates
+    [
+      :full_name,
+      [:full_name, :id]
+    ]
+  end
 
   def name
     first_name || last_name || "Anonymous"

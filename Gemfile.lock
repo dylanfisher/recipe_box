@@ -138,6 +138,7 @@ GEM
       mime-types
       mimemagic (= 0.3.0)
     pg (0.18.4)
+    possessive (1.0.1)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -246,6 +247,7 @@ DEPENDENCIES
   jquery-ui-rails
   paperclip
   pg (~> 0.15)
+  possessive
   pry-rails
   puma
   pundit

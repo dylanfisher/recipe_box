@@ -8,11 +8,11 @@ Rails.application.routes.draw do
 
   # Recipes
   get 'recipes',          to: 'recipes#index', as: 'recipes'
-  get 'recipes/show/:id', to: 'recipes#show',  as: 'recipe'
+  get 'recipes/:id', to: 'recipes#show',  as: 'recipe'
 
   # Users
   get 'users',            to: 'users#index',   as: 'users'
-  get 'users/show/:id',   to: 'users#show',    as: 'user'
+  get 'users/:id',   to: 'users#show',    as: 'user'
 
   #
   # Admin
