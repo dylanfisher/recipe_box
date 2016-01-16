@@ -31,6 +31,10 @@ class Recipe < ActiveRecord::Base
   scope :randomize,  -> { order('random()') }
   scope :all_except, -> (recipe) { where.not(id: recipe) }
 
+  def color
+    (color_scheme.color if color_scheme) || 'undefined'
+  end
+
   def diet_names
     diets.collect { |d| d.title }.to_sentence
   end

@@ -1,4 +1,10 @@
-<div class="row recipe--show__wrapper">
+<style type="text/css">
+  .link--default {
+    background: -webkit-linear-gradient(#fff, #fff), -webkit-linear-gradient(#fff, #fff), -webkit-linear-gradient(<%= @recipe.color %>, <%= @recipe.color %>);
+  }
+</style>
+
+<div class="row recipe--show__wrapper" style="color: <%= @recipe.color %>">
   <div class="recipe--show__content col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2">
 
     <div class="recipe--show__gem recipe__gem text-center">
@@ -6,7 +12,7 @@
     </div>
 
     <%= content_tag(:div, class: 'recipe--show__image text-center') do %>
-      <%= image_tag(@recipe.featured_image.url(:medium)) %>
+    <%= image_tag(@recipe.featured_image.url(:medium), class: 'duotone', data: { gradient_map: "#000, #{@recipe.color}, #fff 100%" }) %>
     <% end %>
 
     <%= content_tag(:h1, @recipe.title, class: 'recipe--show__title text-center font__bangla-regular__size__huge') %>
@@ -64,7 +70,7 @@
       <div class="font__patron-regular__size__large">Suggested<br>pairings</div>
     </div>
   </div>
-  <div class="recipe--show__pairings__right-column recipe--show__pairings__column font__patron-thin__size__large col-sm-8" data-carousel>
+  <div class="recipe--show__pairings__right-column recipe--show__pairings__column font__patron-thin__size__large col-sm-8" <%= "data-carousel" if @pairings.count > 1 %>>
     <%= render partial: 'recipe', collection: @pairings, layout: 'pairing_layout' %>
   </div>
 </div>
