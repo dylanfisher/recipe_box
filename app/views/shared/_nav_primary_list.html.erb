@@ -9,6 +9,7 @@
     <%= link_to('Submit', '#submit_path', class: 'link--blank') %>
   </li>
   <li class="nav--primary__list-item">
-    <%= link_to('Your Box', '#box_path', class: 'link--blank') %>
+    <%= link_to('Your Box', user_path(current_or_guest_user), class: 'link--blank') %>
   </li>
 </ul>
+

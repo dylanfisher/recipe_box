@@ -40,11 +40,6 @@ gem 'puma'
 gem 'devise'
 gem 'pundit'
 
-# Rails generator which allows to scaffold admin controllers, views with proper (non-namespaced) models, helpers, tests and routes
-# 1. Generate model: bin/rails g model Post title:string content:text
-# 2. Create admin scaffold: bin/rails g admin:scaffold_controller Post title content --parent_controller=admin
-gem 'rails-admin-scaffold'
-
 gem 'simple_form'
 
 gem 'paperclip', '~> 4.3'
@@ -57,9 +52,9 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
-group :development do
-  gem 'pry-rails'
+gem 'pry-rails'
 
+group :development do
   # Mutes assets pipeline log messages https://github.com/evrone/quiet_assets
   gem 'quiet_assets'
 
@@ -69,6 +64,11 @@ group :development do
   # Guard is a command line tool to easily handle events on file system modifications. http://guardgem.org
   gem 'guard'
   gem 'guard-livereload', '~> 2.4', require: false
+
+  # Rails generator which allows to scaffold admin controllers, views with proper (non-namespaced) models, helpers, tests and routes
+  # 1. Generate model: bin/rails g model Post title:string content:text
+  # 2. Create admin scaffold: bin/rails g admin:scaffold_controller Post title content --parent_controller=admin
+  gem 'rails-admin-scaffold'
 end
 
 group :production, :test do

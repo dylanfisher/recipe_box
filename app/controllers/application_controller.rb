@@ -4,6 +4,21 @@ class ApplicationController < ActionController::Base
 
   before_action :set_body_class
 
+  helper_method :current_or_guest_user
+
+  # if user is logged in, return current_user, else return guest_user
+  def current_or_guest_user
+    if current_user
+      current_user
+    else
+      guest_user
+    end
+  end
+
+  def guest_user
+    @cached_guest_user ||= User.guest
+  end
+
   private
 
     def set_body_class

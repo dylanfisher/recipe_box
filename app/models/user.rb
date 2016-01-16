@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   has_many :recipes
   has_one :box
 
+  scope :guest, -> { joins(:user_groups).where('user_groups.name = ?', 'guest').limit(1).first }
+
   def name
     first_name || last_name || "Anonymous"
   end
