@@ -1,36 +1,51 @@
 .nav--primary {
   @include font__patron-regular__size__medium;
-  height: $header-height;
   line-height: normal !important;
+  margin-bottom: 40px;
+  padding: 30px 10px;
+
+  @include breakpoint(sm) {
+    height: $header-height;
+    margin-bottom: 0;
+    text-align: center;
+  }
 }
 
 .nav--primary--home {
   background-color: $white;
-  padding: 30px 10px;
   text-align: center;
 }
 
 .nav--primary--with-logo {
   background: $pink;
-  padding: 30px 10px 14px;
 
   .controller--recipes.action--show & {
     background: $gray;
   }
 
   .nav--primary__list {
-    float: right;
+    float: left;
+    clear: both;
+  }
+
+  @include breakpoint(sm) {
+    .nav--primary__list {
+      float: right;
+      clear: none;
+    }
   }
 }
 
 .nav--primary--fixed,
 .nav--primary.affix {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  margin: 0;
-  z-index: 100;
+  @include breakpoint(sm) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    z-index: 100;
+  }
 }
 
 .nav--primary__affix-holder {
@@ -41,6 +56,11 @@
 .nav--primary__recipe-box-logo {
   width: 230px;
   float: left;
+  margin-bottom: 20px;
+
+  @include breakpoint(sm) {
+    margin-bottom: 0;
+  }
 }
 
 .nav--primary__list {
@@ -49,5 +69,14 @@
 
 .nav--primary__list-item {
   display: inline-block;
-  margin: 0 20px;
+  margin-right: 20px;
+
+  @include breakpoint(sm) {
+    margin-right: 0;
+
+    &:not(:first-child)
+    {
+      margin-left: 20px;
+    }
+  }
 }

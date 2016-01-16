@@ -1,7 +1,22 @@
-.application-body {
-  margin-top: $header-height + 80px;
+html, body {
+  height: 100%;
+}
 
-  &.controller--home {
-    margin-top: 0;
+.application-body {
+  @include breakpoint(sm) {
+    padding-top: $header-height + 80px;
+
+    &.controller--home {
+      padding-top: 0;
+    }
   }
+}
+
+.application-wrapper {
+  min-height: 100%;
+  position: relative;
+}
+
+.application-content {
+  padding-bottom: $footer-height;
 }

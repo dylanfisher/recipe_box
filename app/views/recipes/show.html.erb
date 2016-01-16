@@ -12,15 +12,18 @@
     </div>
 
     <%= content_tag(:div, class: 'recipe--show__image text-center') do %>
-    <%= image_tag(@recipe.featured_image.url(:medium), data: { gradient_map: "#000, #{@recipe.color}, #fff 100%" }) %>
-    <% end %>
+      <%= image_tag(@recipe.featured_image.url(:medium), data: { gradient_map: "#000, #{@recipe.color}, #fff 100%" }) %>
+    <% end if @recipe.featured_image.present? %>
 
     <%= content_tag(:h1, @recipe.title, class: 'recipe--show__title text-center font__bangla-regular__size__huge') %>
 
-    <%= content_tag(:div, class: 'recipe--show__description font__patron-light__size__large text-center') do %>
+    <%= content_tag(:div, class: 'recipe--show__intro font__patron-light__size__large text-center') do %>
       This is a <%= @recipe.diet_names %> recipe posted by <%= link_to(@user.name, user_path(@user), class: 'link--default') %>.
-      <%#= @recipe.description if @recipe.description? %>
     <% end %>
+
+    <%= content_tag(:div, class: 'recipe--show__description font__patron-light__size__medium') do %>
+      <%= @recipe.description %>
+    <% end if @recipe.description? %>
 
     <div class="recipe--show__actions font__patron-medium__size__large line-height-normal row">
       <div class="recipe--show__actions__save col-sm-6">
@@ -51,26 +54,28 @@
       </div>
     </div>
 
-    <div class="recipe--show__notes font__patron-light__size__medium">
+    <%= content_tag(:div, class: 'recipe--show__notes font__patron-light__size__medium') do %>
       <h3 class="h3 subtitle">Notes</h3>
       <%= @recipe.notes %>
-    </div>
+    <% end if @recipe.notes? %>
 
-    <div class="recipe--show__acknowledgements font__patron-light__size__medium">
+    <%= content_tag(:div, class: 'recipe--show__acknowledgements font__patron-light__size__medium') do %>
       <h3 class="h3 subtitle">Acknowledgements</h3>
       <%= @recipe.acknowledgements %>
-    </div>
+    <% end if @recipe.acknowledgements? %>
 
   </div>
 </div>
 
-<div class="recipe--show__pairings row">
-  <div class="recipe--show__pairings__left-column recipe--show__pairings__column text-center col-sm-4">
-    <div class="recipe--show__pairings__left-column__inner col-sm-4">
-      <div class="font__patron-regular__size__large">Suggested<br>pairings</div>
+<% if @recipe.pairings.any? %>
+  <div class="recipe--show__pairings row">
+    <div class="recipe--show__pairings__left-column recipe--show__pairings__column text-center col-sm-4">
+      <div class="recipe--show__pairings__left-column__inner col-sm-4">
+        <div class="font__patron-regular__size__large">Suggested<br>pairings</div>
+      </div>
+    </div>
+    <div class="recipe--show__pairings__right-column recipe--show__pairings__column font__patron-thin__size__large col-sm-8" <%= "data-carousel" if @pairings.count > 1 %>>
+      <%= render partial: 'recipe', collection: @pairings, layout: 'pairing_layout' %>
     </div>
   </div>
-  <div class="recipe--show__pairings__right-column recipe--show__pairings__column font__patron-thin__size__large col-sm-8" <%= "data-carousel" if @pairings.count > 1 %>>
-    <%= render partial: 'recipe', collection: @pairings, layout: 'pairing_layout' %>
-  </div>
-</div>
+<% end %>

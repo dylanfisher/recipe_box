@@ -44,14 +44,15 @@
 .recipe--show__gem,
 .recipe--show__image,
 .recipe--show__title,
+.recipe--show__intro,
 .recipe--show__notes,
 .recipe--show__actions,
 .recipe--show__ingredients-procedure-wrapper {
   margin-bottom: 40px;
 }
 
-.recipe--show__content,
-.recipe--show__description {
+.recipe--show__description,
+.recipe--show__content {
   margin-bottom: 80px;
 }
 
@@ -111,41 +112,20 @@
   }
 }
 
-.recipe--show__pairings {
-  background: $pink-dark;
+.ingredient {
+  @extend .clearfix;
 }
 
-.recipe--show__pairings__right-column {
-  background: $orange;
-  color: $white;
-  padding: 0;
+.ingredient__amount,
+.ingredient__title {
+  float: left;
+
 }
 
-.recipes-pairing__item__inner {
-  padding: 25px 25px 66.66%;
-  height: 0;
-  position: relative;
+.ingredient__amount {
+  width: 33.33%;
 }
 
-@include breakpoint(sm) {
-  .recipe--show__pairings {
-    position: relative;
-  }
-
-  .recipe--show__pairings__column {
-    position: static;
-  }
-
-  .recipe--show__pairings__left-column__inner {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translate(0, -50%);
-  }
-
-  .recipe-pairing__item {
-    width: 100%;
-    padding: 50px 50px 40px;
-    display: block;
-  }
+.ingredient__title {
+  width: 66.66%;
 }

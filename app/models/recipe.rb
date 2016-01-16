@@ -32,7 +32,7 @@ class Recipe < ActiveRecord::Base
   scope :all_except, -> (recipe) { where.not(id: recipe) }
 
   def color
-    (color_scheme.color if color_scheme) || 'undefined'
+    (color_scheme.color if color_scheme) || '#000000'
   end
 
   def diet_names

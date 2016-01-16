@@ -1,0 +1,38 @@
+.recipe--show__pairings {
+  background: $pink-dark;
+}
+
+.recipe--show__pairings__right-column {
+  background: $orange;
+  color: $white;
+  padding: 0;
+}
+
+.recipes-pairing__item__inner {
+  padding: 25px 25px 55%;
+  height: 0;
+  position: relative;
+}
+
+@include breakpoint(sm) {
+  .recipe--show__pairings {
+    position: relative;
+  }
+
+  .recipe--show__pairings__column {
+    position: static;
+  }
+
+  .recipe--show__pairings__left-column__inner {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+  }
+
+  .recipe-pairing__item {
+    width: 100%;
+    padding: 40px;
+    display: block;
+  }
+}
