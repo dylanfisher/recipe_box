@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/index'
-
-  get 'users/show'
 
   #
   # Public
@@ -14,6 +11,7 @@ Rails.application.routes.draw do
   get 'recipes/show/:id', to: 'recipes#show',  as: 'recipe'
 
   # Users
+  get 'users',            to: 'users#index',   as: 'users'
   get 'users/show/:id',   to: 'users#show',    as: 'user'
 
   #

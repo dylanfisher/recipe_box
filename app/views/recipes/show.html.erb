@@ -27,7 +27,7 @@
         Save to your box
       </div>
       <div class="recipe--show__actions__print col-sm-6">
-        Print / Save as PDF
+        <%= link_to('Print / Save as PDF', recipe_path(format: :pdf), class: 'link--blank') %>
       </div>
     </div>
 
