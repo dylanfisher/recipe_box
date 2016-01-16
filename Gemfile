@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.3.0'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 
@@ -55,11 +57,6 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
-end
-
 group :development do
   gem 'pry-rails'
 
@@ -74,3 +71,6 @@ group :development do
   gem 'guard-livereload', '~> 2.4', require: false
 end
 
+group :production, :test do
+  gem 'rails_12factor'
+end
