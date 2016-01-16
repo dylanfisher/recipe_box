@@ -22,7 +22,7 @@
     <% end %>
 
     <%= content_tag(:div, class: 'recipe--show__description font__patron-light__size__medium') do %>
-      <%= @recipe.description %>
+      <%= md @recipe.description %>
     <% end if @recipe.description? %>
 
     <div class="recipe--show__actions font__patron-medium__size__large line-height-normal row">

@@ -57,6 +57,8 @@ gem 'pry-rails'
 
 gem 'figaro'
 
+gem 'redcarpet'
+
 group :development do
   # Mutes assets pipeline log messages https://github.com/evrone/quiet_assets
   gem 'quiet_assets'
