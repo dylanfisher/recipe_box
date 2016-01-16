@@ -1,7 +1,7 @@
 .nav--primary {
   @include font__patron-regular__size__medium;
   height: $header-height;
-  line-height: normal;
+  line-height: normal !important;
 }
 
 .nav--primary--home {

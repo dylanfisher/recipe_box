@@ -1,5 +1,7 @@
 App.pageLoad.push(function() {
 
+  if(!$('[data-carousel]').length) return;
+
   if(typeof $('[data-carousel]').data().flickity != 'undefined') {
     $('[data-carousel]').flickity('destroy');
   }
