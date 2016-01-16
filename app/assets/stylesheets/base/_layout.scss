@@ -9,6 +9,10 @@ html, body {
     &.controller--home {
       padding-top: 0;
     }
+
+    &.controller--recipes {
+      padding-top: $header-height + 60px;
+    }
   }
 }
 
