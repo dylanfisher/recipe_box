@@ -1,5 +1,9 @@
 App.pageLoad.push(function() {
 
+  if(typeof $('[data-carousel]').data().flickity != 'undefined') {
+    $('[data-carousel]').flickity('destroy');
+  }
+
   $('[data-carousel]').flickity({
     pageDots: false,
     wrapAround: true,
