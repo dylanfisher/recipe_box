@@ -12,7 +12,7 @@
     </div>
 
     <%= content_tag(:div, class: 'recipe--show__image text-center') do %>
-    <%= image_tag(@recipe.featured_image.url(:medium), class: 'duotone', data: { gradient_map: "#000, #{@recipe.color}, #fff 100%" }) %>
+    <%= image_tag(@recipe.featured_image.url(:medium), data: { gradient_map: "#000, #{@recipe.color}, #fff 100%" }) %>
     <% end %>
 
     <%= content_tag(:h1, @recipe.title, class: 'recipe--show__title text-center font__bangla-regular__size__huge') %>
