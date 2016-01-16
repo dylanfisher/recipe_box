@@ -42,7 +42,8 @@ gem 'pundit'
 
 gem 'simple_form'
 
-gem 'paperclip', '~> 4.3'
+gem 'paperclip'
+gem 'aws-sdk-v1'
 
 gem 'cocoon'
 
@@ -53,6 +54,8 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
 gem 'pry-rails'
+
+gem 'figaro'
 
 group :development do
   # Mutes assets pipeline log messages https://github.com/evrone/quiet_assets

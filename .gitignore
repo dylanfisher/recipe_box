@@ -17,3 +17,6 @@ pickle-email-*.html
 /vendor/bundle
 
 .env
+
+# Ignore application configuration
+/config/application.yml
