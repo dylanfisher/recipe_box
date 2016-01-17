@@ -29,5 +29,4 @@ class ApplicationController < ActionController::Base
       parts << "application-body"
       @application_body_class = parts.join(" ")
     end
-
 end

@@ -1,0 +1,5 @@
+<% flash.each do |type, message| %>
+  $(".flash-messages").html("<%= escape_javascript(md(flash_message)) %>")
+<% end %>
+
+App.startFlashTimer();

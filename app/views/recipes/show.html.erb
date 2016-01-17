@@ -27,7 +27,7 @@
 
     <div class="recipe--show__actions font__patron-medium__size__large line-height-normal row">
       <div class="recipe--show__actions__save col-sm-6">
-        Save to your box
+        <%= link_to 'Save to your box', save_to_box_path, method: :post, remote: true %>
       </div>
       <div class="recipe--show__actions__print col-sm-6">
         <%= link_to('Print / Save as PDF', recipe_path(format: :pdf), class: 'link--blank') %>

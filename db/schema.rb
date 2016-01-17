@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160116221339) do
+ActiveRecord::Schema.define(version: 20160117004427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,9 +19,16 @@ ActiveRecord::Schema.define(version: 20160116221339) do
   create_table "boxes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "recipe_id"
     t.integer  "user_id"
   end
+
+  create_table "boxes_recipes", id: false, force: :cascade do |t|
+    t.integer "box_id",    null: false
+    t.integer "recipe_id", null: false
+  end
+
+  add_index "boxes_recipes", ["box_id", "recipe_id"], name: "index_boxes_recipes_on_box_id_and_recipe_id", using: :btree
+  add_index "boxes_recipes", ["recipe_id", "box_id"], name: "index_boxes_recipes_on_recipe_id_and_box_id", using: :btree
 
   create_table "color_schemes", force: :cascade do |t|
     t.string   "title"

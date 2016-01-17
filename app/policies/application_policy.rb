@@ -6,6 +6,18 @@ class ApplicationPolicy
     @record = record
   end
 
+  def admin?
+    user.in_group?('admin')
+  end
+
+  def registered?
+    admin? || user.in_group?('registered')
+  end
+
+  def guest?
+    user.in_group?('guest')
+  end
+
   def index?
     false
   end

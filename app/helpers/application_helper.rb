@@ -16,4 +16,17 @@ module ApplicationHelper
     doc.to_html.html_safe
   end
 
+  def flash_message
+    flash_message_close = %{<span class="flash-message__close">×</span>}
+    flash_message_check = %{<span class="flash-message__close">✔</span>}
+
+    if flash[:notice]
+      %{<div class="flash-message flash-message--notice">#{flash_message_close} #{flash[:notice]}</div>}
+    elsif flash[:error]
+      %{<div class="flash-message flash-message--error">#{flash_message_close} #{flash[:error]}</div>}
+    elsif flash[:success]
+      %{<div class="flash-message flash-message--success">#{flash_message_check} #{flash[:success]}</div>}
+    end
+  end
+
 end

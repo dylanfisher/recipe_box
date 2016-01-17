@@ -24,7 +24,8 @@ class Admin::UsersController < Admin::ApplicationController
   # POST /admin/users
   # POST /admin/users.json
   def create
-    @user = User.new(user_params)
+    @user     = User.new(user_params)
+    @user.box = Box.new
 
     respond_to do |format|
       if @user.save
@@ -64,11 +65,11 @@ class Admin::UsersController < Admin::ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = User.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :user_groups, :avatar, :password)
+      params.require(:user).permit(:first_name, :last_name, :email, :user_groups, :avatar, :password, :slug)
     end
 end

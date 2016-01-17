@@ -31,4 +31,12 @@ class User < ActiveRecord::Base
   def full_name
     [first_name, last_name].join(' ')
   end
+
+  def in_group?(name)
+    user_group_names.include?(name)
+  end
+
+  def user_group_names
+    @user_group_names ||= user_groups.collect(&:name)
+  end
 end

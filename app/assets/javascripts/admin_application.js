@@ -14,6 +14,7 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require jquery-ui/sortable
+//= require jquery_plugins
 //= require turbolinks
 //= require cocoon
 //= require admin/main

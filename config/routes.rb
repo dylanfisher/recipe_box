@@ -7,11 +7,13 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   # Recipes
-  get 'recipes',          to: 'recipes#index', as: 'recipes'
-  get 'recipes/:id', to: 'recipes#show',  as: 'recipe'
+  get 'recipes',           to: 'recipes#index',       as: 'recipes'
+  get 'recipes/:id',       to: 'recipes#show',        as: 'recipe'
+  # get 'recipes/save/:id',  to: redirect('recipes/%{id}')
+  post 'recipes/save/:id', to: 'recipes#save_to_box', as: 'save_to_box'
 
   # Users
-  get 'users',            to: 'users#index',   as: 'users'
+  get 'users',       to: 'users#index',   as: 'users'
   get 'users/:id',   to: 'users#show',    as: 'user'
 
   #

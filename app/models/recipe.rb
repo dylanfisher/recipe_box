@@ -9,13 +9,13 @@ class Recipe < ActiveRecord::Base
   belongs_to :jewel
   belongs_to :color_scheme
 
-  has_many :boxes
   has_many :steps, -> { order('position') }
   has_many :ingredients, -> { order('position') }
 
   accepts_nested_attributes_for :steps, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :ingredients, reject_if: :all_blank, allow_destroy: true
 
+  has_and_belongs_to_many :boxes
   has_and_belongs_to_many :cuisines
   has_and_belongs_to_many :meal_types
   has_and_belongs_to_many :diets
@@ -31,7 +31,7 @@ class Recipe < ActiveRecord::Base
   scope :randomize,  -> { order('random()') }
   scope :all_except, -> (recipe) { where.not(id: recipe) }
   scope :uploaded_by,  -> (user_id) { joins(:user).where('recipes.user_id = ?', user_id) }
-  scope :collected_by, -> (user_id) { joins(:user).where.not('recipes.user_id = ?', user_id) }
+  scope :collected_by, -> (user_id) { joins(:boxes).where('boxes.user_id = ?', user_id) }
 
   def color
     (color_scheme.color if color_scheme) || '#000000'

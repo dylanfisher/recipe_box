@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery_plugins
 //= require turbolinks
 //= require_tree ./vendor
 //= require main

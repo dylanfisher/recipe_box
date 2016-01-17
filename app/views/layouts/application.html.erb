@@ -8,12 +8,9 @@
 </head>
 <body class="<%= @application_body_class %>">
   <div class="application-wrapper row">
-    <div class="flash-messages col-sm-12">
-      <p class="notice flash-message"><%= notice %></p>
-      <p class="alert flash-message"><%= alert %></p>
-    </div>
     <%= content_for?(:header) ? yield(:header) : render('shared/nav_primary') %>
     <div class="application-content col-sm-12">
+      <%= render 'shared/flash_messages' %>
       <%= content_for?(:application) ? yield(:application) : yield %>
     </div>
     <%= render 'shared/footer' %>
