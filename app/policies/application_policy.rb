@@ -7,15 +7,15 @@ class ApplicationPolicy
   end
 
   def admin?
-    user.in_group?('admin')
+    user.try(:in_group?, 'admin')
   end
 
   def registered?
-    admin? || user.in_group?('registered')
+    admin? || user.try(:in_group?, 'registered')
   end
 
   def guest?
-    user.in_group?('guest')
+    user.try(:in_group?, 'guest')
   end
 
   def index?

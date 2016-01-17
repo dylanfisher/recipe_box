@@ -1,6 +1,5 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :save_to_box]
-  # before_filter :authenticate_user!, only: [:save_to_box]
 
   def index
     @recipes = Recipe.recent
@@ -22,7 +21,7 @@ class RecipesController < ApplicationController
   end
 
   def save_to_box
-    @user = current_user
+    @user = current_or_guest_user
     authorize @user
 
     respond_to do |format|
@@ -50,5 +49,15 @@ class RecipesController < ApplicationController
 
     def set_recipe
       @recipe = Recipe.friendly.find(params[:id])
+    end
+
+    def user_not_authorized(exception)
+      policy_name = exception.policy.class.to_s.underscore
+
+      # TODO: Redirect to sign up page
+      flash.now[:error] = 'You must sign in before you can add a recipe to your box.'
+      respond_to do |format|
+        format.js { render 'shared/flash_messages' }
+      end
     end
 end
