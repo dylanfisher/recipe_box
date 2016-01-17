@@ -25,7 +25,7 @@ class Admin::UsersController < Admin::ApplicationController
   # POST /admin/users.json
   def create
     @user     = User.new(user_params)
-    @user.box = Box.new
+    @user.box = Box.new if @user.box.blank?
 
     respond_to do |format|
       if @user.save

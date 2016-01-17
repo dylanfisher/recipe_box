@@ -24,13 +24,12 @@ class RecipesController < ApplicationController
   def save_to_box
     @user = current_user
     authorize @user
-    respond_to do |format|
 
+    respond_to do |format|
       if @user.box.recipes.include?(@recipe)
         flash.now[:notice] = 'This recipe is already in your box.'
         format.js { render 'shared/flash_messages' }
       elsif @recipe.user == @user
-        binding.pry
         flash.now[:notice] = 'This recipe belongs to you; you can\'t add it to your box.'
         format.js { render 'shared/flash_messages' }
       else
