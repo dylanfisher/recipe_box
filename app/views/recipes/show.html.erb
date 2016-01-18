@@ -1,4 +1,6 @@
+<%# Page Meta %>
 <%= page_title(@recipe.title) %>
+<%= page_description("#{@recipe.title} is a recipe by #{@recipe.user.full_name}. It was uploaded on #{full_date(@recipe.created_at)} and appears in #{@recipe.boxes.count} other boxes.") %>
 
 <style type="text/css">
   .link--default {

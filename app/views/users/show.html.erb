@@ -1,4 +1,6 @@
+<%# Page Meta %>
 <%= page_title(@user.full_name) %>
+<%= page_description("View #{@user.full_name.possessive} recipes on Recipe Box (#{@user.uploaded_recipe_count} uploaded, #{@user.collected_recipe_count} collected). #{@user.name} joined Recipe Box on #{full_date(@user.created_at)}.") %>
 
 <%= content_tag(:h1, @user.full_name, class: 'font__bangla-regular__size__large') %>
 

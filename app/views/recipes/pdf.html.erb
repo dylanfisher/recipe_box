@@ -4,7 +4,7 @@
     <%= content_tag(:h1, @recipe.title, class: 'recipe--show__title text-center font__bangla-regular__size__huge') %>
 
     <%= content_tag(:div, class: 'recipe--show__description font__patron-light__size__large text-center') do %>
-      Originally posted by <%= @user.full_name %> on <%= @recipe.created_at.strftime(full_date) %>.
+      Originally posted by <%= @user.full_name %> on <%= full_date(@recipe.created_at) %>.
       <%#= @recipe.description if @recipe.description? %>
     <% end %>
 

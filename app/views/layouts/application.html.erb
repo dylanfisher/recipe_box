@@ -2,6 +2,8 @@
 <html>
 <head>
   <title><%= content_for?(:page_title) ? yield(:page_title) : 'Recipe Box' %></title>
+  <%= tag :meta, name: 'description', content: content_for?(:page_description) ? yield(:page_description) : MetaHelper::DEFAULT_DESCRIPTION %>
+  <%= tag :meta, name: 'keywords',    content: content_for?(:page_keywords)    ? yield(:page_keywords)    : MetaHelper::DEFAULT_KEYWORDS %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
