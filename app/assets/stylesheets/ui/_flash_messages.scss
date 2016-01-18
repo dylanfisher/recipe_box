@@ -3,6 +3,7 @@
   margin-top: -30px;
   cursor: pointer;
   text-align: center;
+  display: none;
 
   @include breakpoint(sm) {
     position: fixed;
@@ -14,6 +15,10 @@
     padding: 0 30px;
     margin-top: 0;
   }
+}
+
+.flash-messages--visible {
+  display: block;
 }
 
 .flash-message__close {

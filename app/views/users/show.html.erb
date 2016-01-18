@@ -1,3 +1,5 @@
+<%= page_title(@user.full_name) %>
+
 <%= content_tag(:h1, @user.full_name, class: 'font__bangla-regular__size__large') %>
 
 <% if @uploaded_recipes.any? %>
