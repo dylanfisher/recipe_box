@@ -1,5 +1,7 @@
 body[class*="controller--devise"],
-.controller--users-registrations {
+.controller--users-registrations,
+.controller--users.action--confirm,
+.controller--users.action--update {
   background: $blue;
 
   .nav--primary {
@@ -54,25 +56,5 @@ body[class*="controller--devise"],
     ul {
       @include blank-list;
     }
-  }
-}
-
-.controller--devise-registrations__step-2 {
-  display: none;
-}
-
-.controller--devise-registrations__submit-button {
-  display: none;
-}
-
-.controller--devise-registrations__wrapper.showing-step-2 {
-  .controller--devise-registrations__step-1,
-  .controller--devise-registrations__next-step-button {
-    display: none;
-  }
-
-  .controller--devise-registrations__step-2,
-  .controller--devise-registrations__submit-button {
-    display: block;
   }
 }

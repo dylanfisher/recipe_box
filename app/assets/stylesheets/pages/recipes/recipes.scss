@@ -18,11 +18,19 @@
   position: relative;
 }
 
-.recipes-grid__item__gem {
+.recipes-grid__item__gem,
+.recipes-grid__item__user {
   position: absolute;
-  top: 22%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.recipes-grid__item__gem {
+  top: 22%;
+}
+
+.recipes-grid__item__user {
+  top: 84%;
 }
 
 .recipes-grid__item__title {

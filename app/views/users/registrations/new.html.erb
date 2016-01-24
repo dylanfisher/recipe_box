@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="devise-styles controller--devise-registrations__wrapper col-sm-6 col-sm-offset-3">
+  <div class="devise-styles controller--devise-registrations__wrapper col-sm-6 col-sm-offset-3 showing-step-1">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'controller--devise-registrations__form' } ) do |f| %>
       <div class="font__patron-thin__size__medium">
 
@@ -20,29 +20,10 @@
             <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password confirmation" %>
           </div>
         </div>
-
-        <div class="controller--devise-registrations__step-2">
-          <h2 class="font__patron-medium__size__large">Who are you</h2>
-          <h4 class="font__patron-thin__size__large">These will display on your recipe box page, and will be visible to others.</h4>
-          <%= devise_error_messages! %>
-
-          <div class="field">
-            <%= f.text_field :first_name, autofocus: true, placeholder: 'First name' %>
-          </div>
-
-          <div class="field">
-            <%= f.text_field :last_name, placeholder: "Last name" %>
-          </div>
-
-          <div class="field">
-            <%= f.text_field :location, placeholder: "Location" %>
-          </div>
-        </div>
       </div>
 
       <div class="actions font__patron-regular__size__large">
-        <div class="controller--devise-registrations__next-step-button like-input next-step">Keep going</div>
-        <%= f.submit "Finish", class: 'controller--devise-registrations__submit-button' %>
+        <%= f.submit "Keep going", class: 'controller--devise-registrations__submit-button' %>
       </div>
     <% end %>
 

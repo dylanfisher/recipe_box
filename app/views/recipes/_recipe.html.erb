@@ -5,6 +5,7 @@
         
       </div>
       <%= content_tag(:h2, recipe.title, class: 'recipes-grid__item__title font__bangla-regular__size__large') %>
+      <%= content_tag(:div, "by #{recipe.user.first_name}", class: 'recipes-grid__item__user') %>
     </div>
   <% end %>
 </div>

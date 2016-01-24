@@ -34,6 +34,9 @@ Rails.application.routes.draw do
   # Authentication
   #
 
+  get 'signup/confirm/:id', to: 'users#confirm', as: 'confirm_user_registration'
+  patch 'signup/confirm/:id', to: 'users#confirm_update'
+
   devise_for :users, path: '', controllers: { registrations: 'users/registrations' },
                                path_names:  { sign_in: 'login', sign_out: 'logout', sign_up: 'signup' }
   devise_scope :user do

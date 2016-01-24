@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
 
+  attr_accessor :activating
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -15,7 +17,7 @@ class User < ActiveRecord::Base
   has_many :recipes
   has_one :box
 
-  validates_presence_of :first_name, :last_name, :location
+  validates :first_name, :last_name, :location, presence: true, if: :activating
 
   scope :guest,                     -> { joins(:user_groups).where('user_groups.name = ?', 'guest').limit(1).first }
   scope :with_uploaded_recipes,     -> { where(:id => Recipe.select(:user_id).uniq) }
@@ -29,6 +31,14 @@ class User < ActiveRecord::Base
       :full_name,
       [:full_name, :id]
     ]
+  end
+
+  def activated?
+    activated
+  end
+
+  def not_activated?
+    !activated?
   end
 
   def name

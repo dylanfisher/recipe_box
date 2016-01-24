@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="devise-styles controller--devise-registrations__wrapper col-sm-6 col-sm-offset-3">
+    <%= form_for(@user, url: confirm_user_registration_path(@user), html: { class: 'controller--devise-registrations__form' } ) do |f| %>
+      <div class="font__patron-thin__size__medium">
+
+        <h2 class="font__patron-medium__size__large">Who are you</h2>
+        <h4 class="font__patron-thin__size__large">These will display on your recipe box page, and will be visible to others.</h4>
+
+        <% @user.errors.each do |error, message| %>
+          <div class="error-message"><%= error.to_s.humanize %> <%= message %></div>
+        <% end %>
+
+        <div class="field">
+          <%= f.text_field :first_name, autofocus: true, placeholder: 'First name' %>
+        </div>
+
+        <div class="field">
+          <%= f.text_field :last_name, placeholder: "Last name" %>
+        </div>
+
+        <div class="field">
+          <%= f.text_field :location, placeholder: "Location" %>
+        </div>
+
+        <%= f.hidden_field :activated, value: true %>
+
+      </div>
+
+      <div class="actions font__patron-regular__size__large">
+        <%= f.submit "Finish", class: 'controller--devise-registrations__submit-button' %>
+      </div>
+    <% end %>
+
+    <%#= render "devise/shared/links", resource: @user %>
+  </div>
+</div>
