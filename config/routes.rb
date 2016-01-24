@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   # Recipes
   get 'recipes',           to: 'recipes#index',       as: 'recipes'
   get 'recipes/:id',       to: 'recipes#show',        as: 'recipe'
-  # get 'recipes/save/:id',  to: redirect('recipes/%{id}')
   post 'recipes/save/:id', to: 'recipes#save_to_box', as: 'save_to_box'
 
   # Users

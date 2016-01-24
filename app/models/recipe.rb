@@ -42,4 +42,8 @@ class Recipe < ActiveRecord::Base
   def diet_names
     diets.collect { |d| d.title }.to_sentence
   end
+
+  def collected?
+    boxes.any?
+  end
 end

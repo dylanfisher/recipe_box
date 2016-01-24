@@ -133,3 +133,17 @@
 .ingredient__title {
   width: 66.66%;
 }
+
+.recipe--show__collected-by {
+  background: $pink-gray-light;
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  @include breakpoint(sm) {
+    padding: 80px;
+  }
+}
+
+.recipe--show__collected-by__user__total-wrapper {
+  margin-top: 1em;
+}

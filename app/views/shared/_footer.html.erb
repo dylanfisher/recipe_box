@@ -1,3 +1,24 @@
-<footer class="footer--primary text-center col-sm-12">
-  <p>This is recipe box</p>
+<footer class="footer--primary">
+  <div class="col-sm-10 col-sm-offset-1">
+    <div class="row">
+      <div class="col-sm-3">
+        <%= link_to(root_path) do %>
+          <%= embedded_svg('recipe-box-logo', class: 'recipe-box-logo footer--primary__recipe-box-logo') %>
+        <% end %>
+      </div>
+      <div class="col-sm-3">
+        Recipe box<br>
+        Community<br>
+        guidelines
+      </div>
+      <div class="col-sm-3">
+        Login<br>
+        Your box<br>
+        Submit
+      </div>
+      <div class="col-sm-3">
+        Newsletter
+      </div>
+    </div>
+  </div>
 </footer>
