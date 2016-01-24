@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="devise-styles controller--devise-registrations__wrapper col-sm-6 col-sm-offset-3">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'controller--devise-registrations__form' } ) do |f| %>
+      <div class="font__patron-thin__size__medium">
+
+        <div class="controller--devise-registrations__step-1">
+          <h2 class="font__patron-medium__size__large">Sign up</h2>
+          <h4 class="font__patron-thin__size__large">Recipe Box helps you collect your dearest recipes and share with your dearest friends.</h4>
+          <%= devise_error_messages! %>
+
+          <div class="field">
+            <%= f.email_field :email, autofocus: true, placeholder: 'Email address' %>
+          </div>
+
+          <div class="field">
+            <%= f.password_field :password, autocomplete: "off", placeholder: "Password (#{@minimum_password_length}+ characters)" %>
+          </div>
+
+          <div class="field">
+            <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password confirmation" %>
+          </div>
+        </div>
+
+        <div class="controller--devise-registrations__step-2">
+          <h2 class="font__patron-medium__size__large">Who are you</h2>
+          <h4 class="font__patron-thin__size__large">These will display on your recipe box page, and will be visible to others.</h4>
+          <%= devise_error_messages! %>
+
+          <div class="field">
+            <%= f.email_field :email, autofocus: true, placeholder: 'First name' %>
+          </div>
+
+          <div class="field">
+            <%= f.password_field :password, autocomplete: "off", placeholder: "Last name" %>
+          </div>
+
+          <div class="field">
+            <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Location" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions font__patron-regular__size__large">
+        <div class="controller--devise-registrations__next-step-button like-input next-step">Keep going</div>
+        <%= f.submit "Finish", class: 'controller--devise-registrations__submit-button' %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

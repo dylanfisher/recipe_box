@@ -1,0 +1,78 @@
+body[class*="controller--devise"],
+.controller--users-registrations {
+  background: $blue;
+
+  .nav--primary {
+    background: $white;
+  }
+}
+
+.devise-styles {
+  text-align: center;
+  color: $white;
+
+  .checkbox {
+    text-align: left;
+    margin-bottom: 2em;
+
+    label {
+      color: $white;
+    }
+  }
+
+  input:not([type="checkbox"]),
+  .like-input {
+    padding: 20px;
+    border-radius: 10px;
+    border: 0;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2em;
+    line-height: normal;
+  }
+
+  .field {
+    color: $black;
+  }
+
+  [type="submit"],
+  .next-step {
+    background: $black;
+  }
+
+  .next-step {
+    cursor: pointer;
+  }
+
+  #error_explanation {
+    margin-bottom: 2em;
+
+    h2 {
+      margin: 0;
+    }
+
+    ul {
+      @include blank-list;
+    }
+  }
+}
+
+.controller--devise-registrations__step-2 {
+  display: none;
+}
+
+.controller--devise-registrations__submit-button {
+  display: none;
+}
+
+.controller--devise-registrations__wrapper.showing-step-2 {
+  .controller--devise-registrations__step-1,
+  .controller--devise-registrations__next-step-button {
+    display: none;
+  }
+
+  .controller--devise-registrations__step-2,
+  .controller--devise-registrations__submit-button {
+    display: block;
+  }
+}
