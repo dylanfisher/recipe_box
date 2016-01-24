@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   has_many :recipes
   has_one :box
 
+  validates_presence_of :first_name, :last_name, :location
+
   scope :guest,                     -> { joins(:user_groups).where('user_groups.name = ?', 'guest').limit(1).first }
   scope :with_uploaded_recipes,     -> { where(:id => Recipe.select(:user_id).uniq) }
   scope :without_uploaded_recipes,  -> { where.not(:id => Recipe.select(:user_id).uniq) }

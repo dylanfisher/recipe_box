@@ -27,15 +27,15 @@
           <%= devise_error_messages! %>
 
           <div class="field">
-            <%= f.email_field :email, autofocus: true, placeholder: 'First name' %>
+            <%= f.text_field :first_name, autofocus: true, placeholder: 'First name' %>
           </div>
 
           <div class="field">
-            <%= f.password_field :password, autocomplete: "off", placeholder: "Last name" %>
+            <%= f.text_field :last_name, placeholder: "Last name" %>
           </div>
 
           <div class="field">
-            <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Location" %>
+            <%= f.text_field :location, placeholder: "Location" %>
           </div>
         </div>
       </div>

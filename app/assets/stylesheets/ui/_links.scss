@@ -1,5 +1,7 @@
 .link {
-  text-decoration: underline;
+  text-decoration: none;
+  border-bottom: 1px solid;
+  color: inherit;
 }
 
 .link--blank {
@@ -8,11 +10,13 @@
 }
 
 .link--default {
-  @include smart-underline($white, $black, $selection-background, 90%);
   text-decoration: none;
+  border-bottom: 1px solid;
+  color: inherit;
 }
 
 .link--special {
-  @include smart-underline($pink, $white, $selection-background, 90%);
   text-decoration: none;
+  border-bottom: 1px solid;
+  color: inherit;
 }

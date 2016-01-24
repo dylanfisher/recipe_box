@@ -29,4 +29,12 @@ module ApplicationHelper
     end
   end
 
+  def user_or_login_path
+    if current_user
+      user_path(current_user)
+    else
+      new_user_session_path
+    end
+  end
+
 end

@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :set_body_class
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   helper_method :current_or_guest_user
 
@@ -20,6 +21,13 @@ class ApplicationController < ActionController::Base
   def guest_user
     @cached_guest_user ||= User.guest
   end
+
+  protected
+
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.for(:sign_up) << [:first_name, :last_name, :location]
+      devise_parameter_sanitizer.for(:account_update) << [:first_name, :last_name, :location]
+    end
 
   private
 

@@ -10,7 +10,9 @@
           <p>
             tk you stumble upon a <a class="link--special" href="#">jewelry encrusted box</a>. the decadent container lures you in. you open the box. loose leaf pages adorned with squishy embellishments and <a class="link--special" href="#">stick on jewels</a>. these are the most decadent and satisfying recipes of your life. this is <a class="link--special" href="#">Recipe Box</a>.
           </p>
-          <%= link_to('Sign up', new_user_registration_path) %>
+          <% if !current_user %>
+            <%= link_to('Sign up', new_user_registration_path, class: 'link--default') %>
+          <% end %>
         </div>
       </div>
     </div>
