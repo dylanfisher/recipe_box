@@ -1,11 +1,16 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :confirm, :confirm_update]
+  before_action :set_user, only: [:show, :edit, :update, :confirm, :confirm_update]
 
   def index
   end
 
+  def edit
+    authorize @user
+    @color_schemes = ColorScheme.all
+  end
+
   def show
-    if @user.not_activated?
+    if current_user == @user && @user.not_activated?
       # TODO get flash to work
       redirect_to action: 'confirm', error: 'You need to confirm your account details before continuing.'
       return
@@ -14,7 +19,23 @@ class UsersController < ApplicationController
     @collected_recipes = Recipe.collected_by(@user)
   end
 
+  # PATCH/PUT /user/1
+  # PATCH/PUT /user/1.json
+  def update
+    authorize @user
+    respond_to do |format|
+      if @user.update(user_params)
+        format.html { redirect_to [@user], notice: 'Your profile was saved.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def confirm
+    authorize @user
     if @user.activated?
       # TODO get flash to work
       redirect_to action: 'show', notice: 'You already confirmed your account details.'
@@ -25,6 +46,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /signup/confirm/1
   # PATCH/PUT /signup/confirm/1.json
   def confirm_update
+    authorize @user
     @user.activating = true
     @user.slug = nil
     respond_to do |format|
@@ -46,6 +68,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :user_groups, :avatar, :slug, :location, :activated)
+      params.require(:user).permit(:first_name, :last_name, :email, :avatar, :slug, :location, :activated)
     end
 end

@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="content-column text-center">
+
+    <%= simple_form_for(@user, html: { class: 'inline-input', data: { droppable_url: edit_user_path(@user) } }) do |f| %>
+
+      <div class="user__actions text-right">
+        <%= f.button :submit, 'Save', class: 'user__save-recipe-button' %>
+        <%= link_to('Cancel', user_path(@user), class: 'user__cancel-recipe-button') %>
+      </div>
+
+      <%= content_tag(:h1, 'Edit your recipe box', class: 'user__edit__editing-title font__patron-medium__size__large') %>
+
+      <div class="user__top-area row">
+        <div class="col-sm-10 col-sm-offset-1 ibfix">
+          <div class="user__avatar-wrapper">
+            <div id="user__dropzone" class="user__avatar-inner" data-droppable>
+              <% if @user.avatar.present? %>
+              <% else %>
+                <div class="user__edit__avatar-missing-message font__patron-light__size__large">
+                  <%#= f.input :avatar, as: :file, label: false %>
+                  <span class="user__edit__avatar-mising-message__text">Add an avatar</span>
+                  <span class="user__edit__avatar-mising-message__text--hover">Click, or drag an image</span>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="user__name-location-wrapper text-left">
+            <%= content_tag(:h1, class: 'font__patron-medium__size__large') do %>
+              <%= f.input :first_name, label: false, placeholder: 'First name', autofocus: true %>
+              <%= f.input :last_name, label: false, placeholder: 'Last name' %>
+            <% end %>
+
+            <%= content_tag(:h4, class: 'font__patron-light__size__medium') do %>
+              <%= f.input :location, label: false, placeholder: 'Location' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="font__patron-medium__size__medium">Claim your url</div>
+      <div class="font__patron-light__size__medium">
+        <%= f.input :email, label: false, placeholder: 'Email' %>
+        <%= f.input :slug, label: false, placeholder: 'url' %>
+      </div>
+
+      <div class="font__patron-medium__size__medium">Enter a message</div>
+      <div class="font__patron-light__size__medium">
+        <%= f.input :greeting, label: false, placeholder: 'Type a greeting for your box' %>
+      </div>
+
+      <div class="font__patron-medium__size__medium color-scheme-colors">Update the background color</div>
+      <% @color_schemes.each do |color_scheme| %>
+        <%= content_tag(:div, nil, class: 'color-scheme-color', style: "background: #{color_scheme.color};", data: { color_scheme_id: color_scheme.id } ) %>
+      <% end %>
+
+      <div class="user__welcome-message-wrapper">
+        <h2 class="font__patron-medium__size__large h2">Welcome</h2>
+        <div class="font__patron-light__size__large">
+          Congratulations! You're now a Recipe Box user. To customize your box, click the pencil icon in the top right. To add a new recipe, select the pizza button next to it.
+        </div>
+      </div>
+
+    <% end %>
+
+  </div>
+</div>

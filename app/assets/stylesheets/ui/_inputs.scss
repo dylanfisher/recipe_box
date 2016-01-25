@@ -1,0 +1,21 @@
+.inline-input {
+  input {
+    &[type="text"],
+    &[type="email"] {
+      letter-spacing: inherit;
+      background: transparent;
+      outline: 0;
+      border: 0;
+      border-bottom: 1px dashed;
+      width: 100%;
+
+      &:focus {
+        background: $white;
+      }
+    }
+  }
+
+  .form-group {
+
+  }
+}

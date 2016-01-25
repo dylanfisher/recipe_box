@@ -37,4 +37,8 @@ module ApplicationHelper
     end
   end
 
+  def users_own_profile?(user)
+    current_user && current_user == user
+  end
+
 end

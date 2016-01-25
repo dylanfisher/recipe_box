@@ -1,0 +1,67 @@
+.controller--users {
+  background: $yellow-light;
+}
+
+.user__avatar-wrapper,
+.user__name-location-wrapper {
+  display: inline-block;
+  vertical-align: middle;
+  width: 50%;
+}
+
+.user__avatar-wrapper {
+  padding-right: $gutter;
+}
+
+.user__avatar-inner {
+  padding-bottom: 100%;
+  background: $white;
+  border-radius: 50%;
+  border: 1px dashed $black;
+}
+
+.user__name-location-wrapper {
+  padding-left: $gutter;
+}
+
+.user__top-area,
+.user__welcome-message-wrapper,
+.user__edit__editing-title {
+  margin-bottom: 80px;
+}
+
+.user__avatar-inner {
+  position: relative;
+}
+
+.user__edit__avatar-missing-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+
+  @include breakpoint(sm) {
+    padding: 25px;
+  }
+
+  &:hover {
+    .user__edit__avatar-mising-message__text {
+      display: none;
+    }
+
+    .user__edit__avatar-mising-message__text--hover {
+      display: block;
+    }
+  }
+}
+
+.user__edit__avatar-mising-message__text--hover {
+  display: none;
+}
+
+.color-scheme-color {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
