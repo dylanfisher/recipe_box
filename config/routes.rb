@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   # Public
   #
 
+  get 'soon', to: 'holding_pages#show', as: 'holding_page'
+
   root to: "home#index"
 
   # Recipes

@@ -4,10 +4,17 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
+  before_action :redirect_to_holding_page
   before_action :set_body_class
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   helper_method :current_or_guest_user
+
+  def redirect_to_holding_page
+    if Rails.env.production?
+      redirect_to holding_page_path unless controller_name == 'holding_pages'
+    end
+  end
 
   # if user is logged in, return current_user, else return guest_user
   def current_or_guest_user
@@ -20,6 +27,10 @@ class ApplicationController < ActionController::Base
 
   def guest_user
     @cached_guest_user ||= User.guest
+  end
+
+  def guest_user?
+    current_user == guest_user
   end
 
   protected
