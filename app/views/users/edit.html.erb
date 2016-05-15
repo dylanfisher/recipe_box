@@ -1,12 +1,14 @@
 <div class="row">
-  <div class="content-column text-center">
+  <%= simple_form_for(@user, html: { class: 'inline-input', data: { droppable_url: edit_user_path(@user) } }) do |f| %>
 
-    <%= simple_form_for(@user, html: { class: 'inline-input', data: { droppable_url: edit_user_path(@user) } }) do |f| %>
-
-      <div class="user__actions text-right">
-        <%= f.button :submit, 'Save', class: 'user__save-recipe-button' %>
-        <%= link_to('Cancel', user_path(@user), class: 'user__cancel-recipe-button') %>
+    <div class="col-sm-10 col-sm-offset-1">
+      <div class="user-edit__actions text-left">
+        <%= link_to('Cancel', user_path(@user), class: 'user-edit__cancel-recipe-button button') %>
+        <%= f.button :submit, 'Save', class: 'user-edit__save-recipe-button button' %>
       </div>
+    </div>
+
+    <div class="content-column text-center">
 
       <%= content_tag(:h1, 'Edit your recipe box', class: 'user__edit__editing-title font__patron-medium__size__large') %>
 
@@ -31,36 +33,53 @@
             <% end %>
 
             <%= content_tag(:h4, class: 'font__patron-light__size__medium') do %>
+              <%= f.input :website, label: false, placeholder: 'Website' %>
               <%= f.input :location, label: false, placeholder: 'Location' %>
             <% end %>
           </div>
         </div>
       </div>
 
-      <div class="font__patron-medium__size__medium">Claim your url</div>
-      <div class="font__patron-light__size__medium">
-        <%= f.input :email, label: false, placeholder: 'Email' %>
-        <%= f.input :slug, label: false, placeholder: 'url' %>
-      </div>
-
-      <div class="font__patron-medium__size__medium">Enter a message</div>
-      <div class="font__patron-light__size__medium">
-        <%= f.input :greeting, label: false, placeholder: 'Type a greeting for your box' %>
-      </div>
-
-      <div class="font__patron-medium__size__medium color-scheme-colors">Update the background color</div>
-      <% @color_schemes.each do |color_scheme| %>
-        <%= content_tag(:div, nil, class: 'color-scheme-color', style: "background: #{color_scheme.color};", data: { color_scheme_id: color_scheme.id } ) %>
-      <% end %>
-
-      <div class="user__welcome-message-wrapper">
-        <h2 class="font__patron-medium__size__large h2">Welcome</h2>
-        <div class="font__patron-light__size__large">
-          Congratulations! You're now a Recipe Box user. To customize your box, click the pencil icon in the top right. To add a new recipe, select the pizza button next to it.
+      <div class="user-edit__form-group">
+        <div class="font__patron-medium__size__medium">Claim your url</div>
+        <div class="font__patron-light__size__medium">
+          <%= f.input :email, label: false, placeholder: 'Email' %>
+          <%= f.input :slug, label: false, placeholder: 'url' %>
         </div>
       </div>
 
-    <% end %>
+      <div class="user-edit__form-group">
+        <div class="font__patron-medium__size__medium">Enter a message</div>
+        <div class="font__patron-light__size__medium">
+          <%= f.input :greeting, label: false, placeholder: 'Type a greeting for your box' %>
+        </div>
+      </div>
 
-  </div>
+      <div class="user-edit__form-group">
+        <%= f.simple_fields_for :box do |b| %>
+          <%= b.input :background_color, as: :hidden %>
+          <%= b.simple_fields_for :jewels do |j| %>
+            <% Jewel.all.each do |jewel| %>
+              <%= image_tag(jewel.image.url(:small)) %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="user-edit__form-group">
+        <div class="font__patron-medium__size__medium user-edit__box-background-colors">
+          <div class="user-edit__box-background-colors__label">Update the background color</div>
+          <% @box_background_colors.each do |color| %>
+            <%= content_tag(:div,
+                            nil,
+                            class: "user-edit__box-background-color #{'active' if @box.background_color == color}",
+                            style: "background: #{color};",
+                            data: { background_color: color } ) %>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+
+  <% end %>
 </div>

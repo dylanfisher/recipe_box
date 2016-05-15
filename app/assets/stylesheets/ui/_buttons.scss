@@ -1,0 +1,19 @@
+.button {
+  @include font__patron-light__size__medium;
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  background: transparent;
+  border: 1px solid;
+  border-radius: 6px;
+  line-height: 1;
+  padding: 0.4em 0.6em;
+
+  &:hover {
+    border-style: dashed;
+  }
+
+  &:active {
+    transform: translate(2px, 2px);
+  }
+}

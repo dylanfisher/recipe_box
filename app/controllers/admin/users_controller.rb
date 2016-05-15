@@ -15,6 +15,7 @@ class Admin::UsersController < Admin::ApplicationController
   # GET /admin/users/new
   def new
     @user = User.new
+    @user.build_box
   end
 
   # GET /admin/users/1/edit

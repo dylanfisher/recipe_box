@@ -8,7 +8,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body class="<%= @application_body_class %>">
+<body class="<%= @application_body_class %>" style="<%= application_body_styles %>">
   <div class="application-wrapper row">
     <%= content_for?(:header) ? yield(:header) : render('shared/nav_primary') %>
     <div class="application-content col-sm-12">

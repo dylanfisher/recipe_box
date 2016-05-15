@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 
   before_action :redirect_to_holding_page
   before_action :set_body_class
+  before_action :initialize_style_variables
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   helper_method :current_or_guest_user
@@ -56,5 +57,9 @@ class ApplicationController < ActionController::Base
 
       flash[:error] = t "#{policy_name}.#{exception.query}", scope: "pundit", default: :default
       redirect_to(request.referrer || root_path)
+    end
+
+    def initialize_style_variables
+      @application_body_styles ||= {}
     end
 end

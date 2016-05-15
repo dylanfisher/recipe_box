@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :confirm, :confirm_update]
+  before_action :set_box_styles, only: [:show, :edit]
 
   def index
   end
 
   def edit
     authorize @user
-    @color_schemes = ColorScheme.all
   end
 
   def show
@@ -68,6 +68,21 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :avatar, :slug, :location, :activated)
+      params.require(:user).permit(:first_name,
+                                   :last_name,
+                                   :email,
+                                   :avatar,
+                                   :slug,
+                                   :location,
+                                   :activated,
+                                   :website,
+                                   :greeting,
+                                   box_attributes: [:id, :background_color])
+    end
+
+    def set_box_styles
+      @box = @user.box
+      @box_background_colors = Box::BackgroundColor::COLORS
+      @application_body_styles["background-color"] = @box.background_color if @box.background_color.present?
     end
 end

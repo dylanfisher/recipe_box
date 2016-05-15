@@ -41,4 +41,9 @@ module ApplicationHelper
     current_user && current_user == user
   end
 
+  def application_body_styles
+    return if @application_body_styles.blank?
+    @application_body_styles.collect{|key, value| "#{key}: #{value};"}.join
+  end
+
 end

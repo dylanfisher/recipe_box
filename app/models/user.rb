@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   has_many :recipes
   has_one :box
 
+  accepts_nested_attributes_for :box
+
   validates :first_name, :last_name, :location, presence: true, if: :activating
 
   scope :guest,                     -> { joins(:user_groups).where('user_groups.name = ?', 'guest').limit(1).first }

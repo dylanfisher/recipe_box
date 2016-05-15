@@ -3,4 +3,6 @@ class Jewel < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   has_many :recipes
+
+  has_and_belongs_to_many :boxes
 end

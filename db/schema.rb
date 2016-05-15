@@ -11,16 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160125024322) do
+ActiveRecord::Schema.define(version: 20160515212317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "boxes", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.integer  "user_id"
+    t.string   "background_color"
   end
+
+  create_table "boxes_jewels", id: false, force: :cascade do |t|
+    t.integer "box_id",   null: false
+    t.integer "jewel_id", null: false
+  end
+
+  add_index "boxes_jewels", ["box_id", "jewel_id"], name: "index_boxes_jewels_on_box_id_and_jewel_id", using: :btree
+  add_index "boxes_jewels", ["jewel_id", "box_id"], name: "index_boxes_jewels_on_jewel_id_and_box_id", using: :btree
 
   create_table "boxes_recipes", id: false, force: :cascade do |t|
     t.integer "box_id",    null: false
@@ -187,6 +196,11 @@ ActiveRecord::Schema.define(version: 20160125024322) do
 
   add_index "steps", ["recipe_id", "position"], name: "index_steps_on_recipe_id_and_position", using: :btree
   add_index "steps", ["recipe_id"], name: "index_steps_on_recipe_id", using: :btree
+
+  create_table "user_background_colors", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "user_groups", force: :cascade do |t|
     t.string   "name"

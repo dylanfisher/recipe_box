@@ -6,9 +6,9 @@
   <div class="content-column text-center">
 
     <% if users_own_profile? @user %>
-      <div class="user__actions text-right">
-        <%= link_to('Add a recipe', '#', class: 'user__add-recipe-button') %>
-        <%= link_to('Edit', edit_user_path(@user), class: 'user__edit-recipe-button') %>
+      <div class="user__actions text-right font__patron-light__size__regular">
+        <%= link_to('Add a recipe', '#', class: 'user__add-recipe-button link--blank-hover') %>
+        <%= link_to('Edit', edit_user_path(@user), class: 'user__edit-recipe-button link--blank-hover') %>
       </div>
     <% end %>
 
@@ -26,11 +26,22 @@
 
     <% if users_own_profile? @user %>
       <div class="user__welcome-message-wrapper">
-        <h2 class="font__patron-medium__size__large h2">Welcome</h2>
-        <div class="font__patron-light__size__medium">
-          Congratulations! You're now a Recipe Box user. To customize your box, click the pencil icon in the top right. To add a new recipe, select the pizza button next to it.
-        </div>
+        <% if @user.greeting.present? %>
+          <div class="font__patron-light__size__medium">
+            <%= @user.greeting %>
+          </div>
+        <% else %>
+          <h2 class="font__patron-medium__size__large h2">Welcome</h2>
+          <div class="font__patron-light__size__medium">
+            Congratulations! You're now a Recipe Box user. To customize your box, click the pencil icon in the top right. To add a new recipe, select the pizza button next to it.
+          </div>
+        <% end %>
       </div>
+    <% elsif @user.greeting.present? %>
+      <div class="font__patron-light__size__medium">
+        <%= @user.greeting %>
+      </div>
+      <br><br>
     <% end %>
 
     <% if @uploaded_recipes.any? %>

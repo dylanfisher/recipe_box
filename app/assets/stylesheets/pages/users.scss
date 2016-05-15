@@ -2,6 +2,20 @@
   background: $yellow-light;
 }
 
+.user-edit__form-group {
+  margin-bottom: 80px;
+}
+
+.user-edit__actions {
+  position: relative;
+}
+
+.user-edit__save-recipe-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 .user__avatar-wrapper,
 .user__name-location-wrapper {
   display: inline-block;
@@ -61,8 +75,19 @@
   display: none;
 }
 
-.color-scheme-color {
+.user-edit__box-background-color {
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  display: inline-block;
+  margin: 5px;
+  cursor: pointer;
+
+  &:hover {
+    border: 1px dotted $black;
+  }
+
+  &.active {
+    border: 1px solid $black;
+  }
 }

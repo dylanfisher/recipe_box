@@ -26,6 +26,6 @@ App.pageLoad.push(function() {
     }
   }
 
-  // new Dropzone(dropzone, singleImageOptions);
+  new Dropzone(dropzone, singleImageOptions);
 
 });

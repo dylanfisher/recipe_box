@@ -9,6 +9,10 @@
       border-bottom: 1px dashed;
       width: 100%;
 
+      &:hover {
+        background: rgba(255, 255, 255, 0.5);
+      }
+
       &:focus {
         background: $white;
       }
