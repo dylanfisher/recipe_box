@@ -28,20 +28,20 @@ $font-stack__bangla-regular : 'bangla',         serif;
 @mixin font__patron-light__size__large {
   $font-size      : 42px;
   $letter-spacing : 1.2px;
-  $line-height    : 49px;
   font-family: $font-stack__patron-light;
-  @include type-generator($font-size, $letter-spacing, $line-height);
+  line-height: 1.2;
+  @include type-generator($font-size, $letter-spacing);
 }
 .font__patron-light__size__large {
   @include font__patron-light__size__large;
 }
 
 @mixin font__patron-light__size__medium {
-  $font-size      : 23px;
+  $font-size      : 27px;
   $letter-spacing : 0.5px;
-  $line-height    : 35px;
   font-family: $font-stack__patron-light;
-  @include type-generator($font-size, $letter-spacing, $line-height);
+  line-height: 1.4;
+  @include type-generator($font-size, $letter-spacing);
 }
 .font__patron-light__size__medium {
   @include font__patron-light__size__medium;
@@ -51,9 +51,9 @@ $font-stack__bangla-regular : 'bangla',         serif;
 @mixin font__patron-thin__size__regular {
   $font-size      : 16px;
   $letter-spacing : 0.5px;
-  $line-height    : 18px;
   font-family: $font-stack__patron-thin;
-  @include type-generator($font-size, $letter-spacing, $line-height);
+  line-height: 1.4;
+  @include type-generator($font-size, $letter-spacing);
 }
 .font__patron-thin__size__regular {
   @include font__patron-thin__size__regular;
@@ -62,9 +62,9 @@ $font-stack__bangla-regular : 'bangla',         serif;
 @mixin font__patron-thin__size__medium {
   $font-size      : 23px;
   $letter-spacing : 0.5px;
-  $line-height    : 35px;
   font-family: $font-stack__patron-thin;
-  @include type-generator($font-size, $letter-spacing, $line-height);
+  line-height: 1.4;
+  @include type-generator($font-size, $letter-spacing);
 }
 .font__patron-thin__size__medium {
   @include font__patron-thin__size__medium;
@@ -73,8 +73,8 @@ $font-stack__bangla-regular : 'bangla',         serif;
 @mixin font__patron-thin__size__large {
   $font-size      : 30px;
   $letter-spacing : 0.5px;
-  $line-height    : 43px;
-  @include type-generator($font-size, $letter-spacing, $line-height);
+  @include type-generator($font-size, $letter-spacing);
+  line-height: 1.2;
   font-family: $font-stack__patron-thin;
 }
 .font__patron-thin__size__large {
@@ -85,8 +85,8 @@ $font-stack__bangla-regular : 'bangla',         serif;
 @mixin font__patron-regular__size__medium {
   $font-size      : 23px;
   $letter-spacing : 0.5px;
-  $line-height    : 35px;
-  @include type-generator($font-size, $letter-spacing, $line-height);
+  @include type-generator($font-size, $letter-spacing);
+  line-height: 1.4;
   font-family: $font-stack__patron-regular;
 }
 .font__patron-regular__size__medium {
@@ -96,8 +96,8 @@ $font-stack__bangla-regular : 'bangla',         serif;
 @mixin font__patron-regular__size__large {
   $font-size      : 30px;
   $letter-spacing : 0.5px;
-  $line-height    : 43px;
-  @include type-generator($font-size, $letter-spacing, $line-height);
+  @include type-generator($font-size, $letter-spacing);
+  line-height: 1.2;
   font-family: $font-stack__patron-regular;
 }
 .font__patron-regular__size__large {
@@ -108,8 +108,8 @@ $font-stack__bangla-regular : 'bangla',         serif;
 @mixin font__patron-medium__size__smallcaps {
   $font-size      : 18px;
   $letter-spacing : 1px;
-  $line-height    : 20px;
-  @include type-generator($font-size, $letter-spacing, $line-height);
+  @include type-generator($font-size, $letter-spacing);
+  line-height: 1.4;
   font-family: $font-stack__patron-medium;
   text-transform: uppercase;
 }
@@ -120,8 +120,8 @@ $font-stack__bangla-regular : 'bangla',         serif;
 @mixin font__patron-medium__size__medium {
   $font-size      : 30px;
   $letter-spacing : 0.5px;
-  $line-height    : 43px;
-  @include type-generator($font-size, $letter-spacing, $line-height);
+  @include type-generator($font-size, $letter-spacing);
+  line-height: 1.4;
   font-family: $font-stack__patron-medium;
 }
 .font__patron-medium__size__medium {
@@ -131,8 +131,8 @@ $font-stack__bangla-regular : 'bangla',         serif;
 @mixin font__patron-medium__size__large {
   $font-size      : 42px;
   $letter-spacing : 1.2px;
-  $line-height    : 49px;
-  @include type-generator($font-size, $letter-spacing, $line-height);
+  @include type-generator($font-size, $letter-spacing);
+  line-height: 1.2;
   font-family: $font-stack__patron-medium;
 }
 .font__patron-medium__size__large {
@@ -146,8 +146,8 @@ $font-stack__bangla-regular : 'bangla',         serif;
 @mixin font__bangla-regular__size__regular {
   $font-size      : 16px;
   $letter-spacing : 0.5px;
-  $line-height    : 18px;
-  @include type-generator($font-size, $letter-spacing, $line-height);
+  @include type-generator($font-size, $letter-spacing);
+  line-height: 1.4;
   font-family: $font-stack__bangla-regular;
 }
 .font__bangla-regular__size__regular {
@@ -157,8 +157,8 @@ $font-stack__bangla-regular : 'bangla',         serif;
 @mixin font__bangla-regular__size__large {
   $font-size      : 38px;
   $letter-spacing : 0.5px;
-  $line-height    : 41px;
-  @include type-generator($font-size, $letter-spacing, $line-height);
+  @include type-generator($font-size, $letter-spacing);
+  line-height: 1.2;
   font-family: $font-stack__bangla-regular;
   font-weight: bold;
 }
@@ -169,8 +169,8 @@ $font-stack__bangla-regular : 'bangla',         serif;
 @mixin font__bangla-regular__size__huge {
   $font-size      : 52px;
   $letter-spacing : 0px;
-  $line-height    : 64px;
-  @include type-generator($font-size, $letter-spacing, $line-height);
+  @include type-generator($font-size, $letter-spacing);
+  line-height: 1.2;
   font-family: $font-stack__bangla-regular;
   font-weight: bold;
 }

@@ -14,4 +14,8 @@ class UserPolicy < ApplicationPolicy
   def confirm?
     admin? or edit?
   end
+
+  def confirm_update?
+    admin? or edit?
+  end
 end

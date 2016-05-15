@@ -61,6 +61,13 @@ gem 'redcarpet'
 
 gem 'possessive'
 
+group :production do
+  # Enable memcache store for API query caching on Heroku
+  gem 'dalli'
+  gem 'memcachier'
+end
+
+
 group :development do
   # Mutes assets pipeline log messages https://github.com/evrone/quiet_assets
   gem 'quiet_assets'

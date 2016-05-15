@@ -4,16 +4,14 @@
 
 .controller--home__intro {
   @include font__patron-thin__size__large;
-  background: $pink;
+  background: $pink-light;
   text-align: center;
-  color: #fff;
-  fill: #fff;
   padding-top: 80px;
   padding-bottom: 80px;
 }
 
 .controller--home__recipes {
-  background: $pink-dark;
+  background: $pink-light;
   padding-top: 60px;
   padding-bottom: 60px;
 }
