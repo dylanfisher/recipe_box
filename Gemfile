@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.3.0'
+ruby '2.3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
@@ -61,12 +61,19 @@ gem 'redcarpet'
 
 gem 'possessive'
 
+group :development, :test do
+  gem 'dotenv-rails'
+end
+
+group :production, :test do
+  gem 'rails_12factor'
+end
+
 group :production do
   # Enable memcache store for API query caching on Heroku
   gem 'dalli'
   gem 'memcachier'
 end
-
 
 group :development do
   # Mutes assets pipeline log messages https://github.com/evrone/quiet_assets
@@ -83,8 +90,4 @@ group :development do
   # 1. Generate model: bin/rails g model Post title:string content:text
   # 2. Create admin scaffold: bin/rails g admin:scaffold_controller Post title content --parent_controller=admin
   gem 'rails-admin-scaffold'
-end
-
-group :production, :test do
-  gem 'rails_12factor'
 end
