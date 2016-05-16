@@ -10,7 +10,7 @@
 
     <div class="content-column text-center">
 
-      <%= content_tag(:h1, 'Edit your recipe box', class: 'user__edit__editing-title font__patron-medium__size__large') %>
+      <%= content_tag(:h1, 'Edit your recipe box', class: 'user__edit__editing-title patron-medium__large') %>
 
       <div class="user__top-area row">
         <div class="col-sm-10 col-sm-offset-1 ibfix">
@@ -18,7 +18,7 @@
             <div id="user__dropzone" class="user__avatar-inner" data-droppable>
               <% if @user.avatar.present? %>
               <% else %>
-                <div class="user__edit__avatar-missing-message font__patron-light__size__large">
+                <div class="user__edit__avatar-missing-message patron-light__large">
                   <%#= f.input :avatar, as: :file, label: false %>
                   <span class="user__edit__avatar-mising-message__text">Add an avatar</span>
                   <span class="user__edit__avatar-mising-message__text--hover">Click, or drag an image</span>
@@ -27,12 +27,12 @@
             </div>
           </div>
           <div class="user__name-location-wrapper text-left">
-            <%= content_tag(:h1, class: 'font__patron-medium__size__large') do %>
+            <%= content_tag(:h1, class: 'patron-medium__large') do %>
               <%= f.input :first_name, label: false, placeholder: 'First name', autofocus: true %>
               <%= f.input :last_name, label: false, placeholder: 'Last name' %>
             <% end %>
 
-            <%= content_tag(:h4, class: 'font__patron-light__size__medium') do %>
+            <%= content_tag(:h4, class: 'patron-light__medium') do %>
               <%= f.input :website, label: false, placeholder: 'Website' %>
               <%= f.input :location, label: false, placeholder: 'Location' %>
             <% end %>
@@ -41,16 +41,16 @@
       </div>
 
       <div class="user-edit__form-group">
-        <div class="font__patron-medium__size__medium">Claim your url</div>
-        <div class="font__patron-light__size__medium">
+        <div class="patron-medium__medium">Claim your url</div>
+        <div class="patron-light__medium">
           <%= f.input :email, label: false, placeholder: 'Email' %>
           <%= f.input :slug, label: false, placeholder: 'url' %>
         </div>
       </div>
 
       <div class="user-edit__form-group">
-        <div class="font__patron-medium__size__medium">Enter a message</div>
-        <div class="font__patron-light__size__medium">
+        <div class="patron-medium__medium">Enter a message</div>
+        <div class="patron-light__medium">
           <%= f.input :greeting, label: false, placeholder: 'Type a greeting for your box' %>
         </div>
       </div>
@@ -67,7 +67,7 @@
       </div>
 
       <div class="user-edit__form-group">
-        <div class="font__patron-medium__size__medium user-edit__box-background-colors">
+        <div class="patron-medium__medium user-edit__box-background-colors">
           <div class="user-edit__box-background-colors__label">Update the background color</div>
           <% @box_background_colors.each do |color| %>
             <%= content_tag(:div,

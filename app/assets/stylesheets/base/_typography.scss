@@ -1,5 +1,5 @@
 html {
-  @include font__patron-thin__size__regular;
+  @include patron-thin__regular;
 
   @include breakpoint(sm) {
     text-rendering: optimizeLegibility;
@@ -43,6 +43,6 @@ h6 {
 }
 
 .subtitle {
-  @include font__patron-medium__size__smallcaps;
+  @include patron-medium__smallcaps;
   margin-bottom: 40px;
 }

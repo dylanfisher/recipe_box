@@ -18,8 +18,8 @@
           <div class="user__avatar-inner"></div>
         </div>
         <div class="user__name-location-wrapper text-left">
-          <%= content_tag(:h1, @user.full_name, class: 'font__patron-medium__size__large') %>
-          <%= content_tag(:h4, @user.location, class: 'font__patron-light__size__medium') %>
+          <%= content_tag(:h1, @user.full_name, class: 'patron-medium__large') %>
+          <%= content_tag(:h4, @user.location, class: 'patron-light__medium') %>
         </div>
       </div>
     </div>
@@ -27,30 +27,30 @@
     <% if users_own_profile? @user %>
       <div class="user__welcome-message-wrapper">
         <% if @user.greeting.present? %>
-          <div class="font__patron-light__size__medium">
+          <div class="patron-light__medium">
             <%= @user.greeting %>
           </div>
         <% else %>
-          <h2 class="font__patron-medium__size__large h2">Welcome</h2>
-          <div class="font__patron-light__size__medium">
+          <h2 class="patron-medium__large h2">Welcome</h2>
+          <div class="patron-light__medium">
             Congratulations! You're now a Recipe Box user. To customize your box, click the pencil icon in the top right. To add a new recipe, select the pizza button next to it.
           </div>
         <% end %>
       </div>
     <% elsif @user.greeting.present? %>
-      <div class="font__patron-light__size__medium">
+      <div class="patron-light__medium">
         <%= @user.greeting %>
       </div>
       <br><br>
     <% end %>
 
     <% if @uploaded_recipes.any? %>
-      <h2 class="font__patron-medium__size__medium"><%= @user.name.possessive %> Recipes</h2>
+      <h2 class="patron-medium__medium"><%= @user.name.possessive %> Recipes</h2>
       <% @uploaded_recipes.each do |recipe| %>
         <%= link_to recipe.title, recipe %><br>
       <% end %>
     <% elsif users_own_profile? @user %>
-      <div class="font__patron-light__size__medium">
+      <div class="patron-light__medium">
         You havent uploaded any recipes.
       </div>
       Upload your first recipe
@@ -59,12 +59,12 @@
     <br><br>
 
     <% if @collected_recipes.any? %>
-      <h2 class="font__patron-medium__size__medium">Recipes <%= @user.name %> has collected</h2>
+      <h2 class="patron-medium__medium">Recipes <%= @user.name %> has collected</h2>
       <% @collected_recipes.each do |recipe| %>
         <%= link_to recipe.title, recipe %>, uploaded by <%= link_to recipe.user.name, recipe.user %><br>
       <% end %>
     <% elsif users_own_profile? @user %>
-      <div class="font__patron-light__size__medium">
+      <div class="patron-light__medium">
         You havent saved any recipes.
       </div>
       Browse 100s of recipes

@@ -1,11 +1,11 @@
 <div class="row">
   <div class="devise-styles controller--devise-registrations__wrapper col-sm-6 col-sm-offset-3 showing-step-1">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'controller--devise-registrations__form' } ) do |f| %>
-      <div class="font__patron-thin__size__medium">
+      <div class="patron-thin__medium">
 
         <div class="controller--devise-registrations__step-1">
-          <h2 class="font__patron-medium__size__large">Sign up</h2>
-          <h4 class="font__patron-thin__size__large">Recipe Box helps you collect your dearest recipes and share with your dearest friends.</h4>
+          <h2 class="patron-medium__large">Sign up</h2>
+          <h4 class="patron-thin__large">Recipe Box helps you collect your dearest recipes and share with your dearest friends.</h4>
           <%= devise_error_messages! %>
 
           <div class="field">
@@ -22,7 +22,7 @@
         </div>
       </div>
 
-      <div class="actions font__patron-regular__size__large">
+      <div class="actions patron-regular__large">
         <%= f.submit "Keep going", class: 'controller--devise-registrations__submit-button' %>
       </div>
     <% end %>

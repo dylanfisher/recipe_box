@@ -2,11 +2,16 @@
   <div class="recipes-grid__item text-center col-sm-6">
     <%= link_to(recipe, class: 'link--blank') do %>
       <div class="recipes-grid__item__inner">
-        <div class="recipes-grid__item__gem recipe__gem">
-          
+        <div class="recipes-grid__item__front">
+          <div class="recipes-grid__item__gem recipe__gem">
+            
+          </div>
+          <%= content_tag(:h2, recipe.title, class: 'recipes-grid__item__title recipes-grid__item__centered-text bangla-regular__large') %>
+          <%= content_tag(:div, "by #{recipe.user.first_name}", class: 'recipes-grid__item__user') %>
         </div>
-        <%= content_tag(:h2, recipe.title, class: 'recipes-grid__item__title font__bangla-regular__size__large') %>
-        <%= content_tag(:div, "by #{recipe.user.first_name}", class: 'recipes-grid__item__user') %>
+        <div class="recipes-grid__item__back">
+          <%= content_tag(:h4, recipe.description, class: 'recipes-grid__item__description recipes-grid__item__centered-text patron-thin__medium') %>
+        </div>
       </div>
     <% end %>
   </div>

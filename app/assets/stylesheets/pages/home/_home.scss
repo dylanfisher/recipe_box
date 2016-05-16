@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .controller--home__intro {
-  @include font__patron-thin__size__large;
+  @include patron-thin__large;
   background: $pink-light;
   text-align: center;
   padding-top: 80px;

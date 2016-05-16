@@ -1,10 +1,10 @@
 <div class="row">
   <div class="devise-styles controller--devise-registrations__wrapper col-sm-6 col-sm-offset-3">
     <%= form_for(@user, url: confirm_user_registration_path(@user), html: { class: 'controller--devise-registrations__form' } ) do |f| %>
-      <div class="font__patron-thin__size__medium">
+      <div class="patron-thin__medium">
 
-        <h2 class="font__patron-medium__size__large">Who are you</h2>
-        <h4 class="font__patron-thin__size__large">These will display on your recipe box page, and will be visible to others.</h4>
+        <h2 class="patron-medium__large">Who are you</h2>
+        <h4 class="patron-thin__large">These will display on your recipe box page, and will be visible to others.</h4>
 
         <% @user.errors.each do |error, message| %>
           <div class="error-message"><%= error.to_s.humanize %> <%= message %></div>
@@ -26,7 +26,7 @@
 
       </div>
 
-      <div class="actions font__patron-regular__size__large">
+      <div class="actions patron-regular__large">
         <%= f.submit "Finish", class: 'controller--devise-registrations__submit-button' %>
       </div>
     <% end %>

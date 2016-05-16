@@ -21,17 +21,17 @@
       <%= image_tag(@recipe.featured_image.url(:medium), data: { gradient_map: "#000, #{@recipe.color}, #fff 100%" }) %>
     <% end if @recipe.featured_image.present? %>
 
-    <%= content_tag(:h1, @recipe.title, class: 'recipe--show__title text-center font__bangla-regular__size__huge') %>
+    <%= content_tag(:h1, @recipe.title, class: 'recipe--show__title text-center bangla-regular__huge') %>
 
-    <%= content_tag(:div, class: 'recipe--show__intro font__patron-light__size__large text-center') do %>
+    <%= content_tag(:div, class: 'recipe--show__intro patron-light__large text-center') do %>
       This is a <%= @recipe.diet_names %> recipe posted by <%= link_to(@user.name, user_path(@user), class: 'link--default') %>.
     <% end %>
 
-    <%= content_tag(:div, class: 'recipe--show__description font__patron-light__size__medium') do %>
+    <%= content_tag(:div, class: 'recipe--show__description patron-light__medium') do %>
       <%= md @recipe.description %>
     <% end if @recipe.description? %>
 
-    <div class="recipe--show__actions font__patron-medium__size__large line-height-normal row">
+    <div class="recipe--show__actions patron-medium__large line-height-normal row">
       <div class="recipe--show__actions__save col-sm-6">
         <%= link_to 'Save to your box', save_to_box_path, method: :post, remote: true %>
       </div>
@@ -42,7 +42,7 @@
 
     <hr class="hr--dotted">
 
-    <div class="recipe--show__body font__patron-light__size__medium">
+    <div class="recipe--show__body patron-light__medium">
       <div class="recipe--show__ingredients-procedure-wrapper">
         <div class="row">
           <div class="recipe--show__ingredients col-sm-6">
@@ -60,12 +60,12 @@
       </div>
     </div>
 
-    <%= content_tag(:div, class: 'recipe--show__notes font__patron-light__size__medium') do %>
+    <%= content_tag(:div, class: 'recipe--show__notes patron-light__medium') do %>
       <h3 class="h3 subtitle">Notes</h3>
       <%= @recipe.notes %>
     <% end if @recipe.notes? %>
 
-    <%= content_tag(:div, class: 'recipe--show__acknowledgements font__patron-light__size__medium') do %>
+    <%= content_tag(:div, class: 'recipe--show__acknowledgements patron-light__medium') do %>
       <h3 class="h3 subtitle">Acknowledgements</h3>
       <%= @recipe.acknowledgements %>
     <% end if @recipe.acknowledgements? %>
@@ -78,10 +78,10 @@
   <div class="recipe--show__pairings row">
     <div class="recipe--show__pairings__left-column recipe--show__pairings__column text-center col-sm-4">
       <div class="recipe--show__pairings__left-column__inner col-sm-4">
-        <div class="font__patron-regular__size__large">Suggested<br>pairings</div>
+        <div class="patron-regular__large">Suggested<br>pairings</div>
       </div>
     </div>
-    <div class="recipe--show__pairings__right-column recipe--show__pairings__column font__patron-thin__size__large col-sm-8" <%= "data-carousel" if @pairings.count > 1 %>>
+    <div class="recipe--show__pairings__right-column recipe--show__pairings__column patron-thin__large col-sm-8" <%= "data-carousel" if @pairings.count > 1 %>>
       <%= render partial: 'recipe', collection: @pairings, layout: 'pairing_layout' %>
     </div>
   </div>
@@ -90,7 +90,7 @@
 <%# Collected by users %>
 <% if @recipe.collected? %>
   <% collected_limit = 3 %>
-  <div class="recipe--show__collected-by font__patron-regular__size__medium text-center row">
+  <div class="recipe--show__collected-by patron-regular__medium text-center row">
     <div class="col-sm-12">
       <h4 class="recipe--show__collected-by__title">This recipe has been collected by</h4>
       <% @recipe.boxes.first(collected_limit).each do |box| %>
