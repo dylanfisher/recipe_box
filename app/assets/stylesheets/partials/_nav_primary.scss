@@ -37,6 +37,27 @@
   }
 }
 
+.nav--primary--with-logo__home-link,
+.nav--primary--with-logo .nav--primary__list {
+  @include breakpoint(sm) {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}
+
+.nav--primary--with-logo__home-link {
+  @include breakpoint(sm) {
+    left: 10px;
+  }
+}
+
+.nav--primary--with-logo .nav--primary__list {
+  @include breakpoint(sm) {
+    right: 10px;
+  }
+}
+
 .nav--primary--fixed,
 .nav--primary.affix {
   @include breakpoint(sm) {
@@ -58,6 +79,7 @@
   width: 230px;
   float: left;
   margin-bottom: 20px;
+  transition: fill $tt;
 
   @include breakpoint(sm) {
     margin-bottom: 0;

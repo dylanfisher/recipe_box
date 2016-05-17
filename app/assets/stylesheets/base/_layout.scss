@@ -4,13 +4,15 @@ html, body {
 
 .application-body {
   @include breakpoint(sm) {
-    padding-top: $header-height + 80px;
+    .application-wrapper {
+      padding-top: $header-height + 80px;
+    }
 
-    &.controller--home {
+    &.controller--home .application-wrapper {
       padding-top: 0;
     }
 
-    &.controller--recipes {
+    &.controller--recipes .application-wrapper {
       padding-top: $header-height + 60px;
     }
   }

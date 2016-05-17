@@ -1,9 +1,13 @@
 App.pageLoad.push(function() {
+  var $nav = $('.nav--primary');
+  var nav = $nav.get(0);
+  var options = {
+    offset : $nav.outerHeight(),
+  };
 
   if($('.controller--home').length) {
-    var $nav                 = $('.nav--primary');
-    var $affixHolder         = $('.nav--primary__affix-holder');
-      
+    var $affixHolder = $('.nav--primary__affix-holder');
+
     $(window).on('scroll.homeNavScrollEvents', function() {
       var st                   = $(this).scrollTop();
       var navOffsetTop         = $nav.offset().top;
@@ -19,6 +23,8 @@ App.pageLoad.push(function() {
     });
   } else {
     $(window).off('scroll.homeNavScrollEvents');
+    headroom  = new Headroom(nav, options);
+    headroom.init();
   }
 
 });

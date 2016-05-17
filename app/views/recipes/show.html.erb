@@ -5,7 +5,12 @@
 <%# Color scheme unique to this recipe %>
 <style type="text/css">
   .link--default {
-    background: -webkit-linear-gradient(#fff, #fff), -webkit-linear-gradient(#fff, #fff), -webkit-linear-gradient(<%= @recipe.color %>, <%= @recipe.color %>);
+    background: -webkit-linear-gradient(#fff, #fff),
+    -webkit-linear-gradient(#fff, #fff),
+    -webkit-linear-gradient(<%= @recipe.color %>, <%= @recipe.color %>);
+  }
+  .nav--primary__recipe-box-logo:hover {
+    fill: <%= @recipe.color %>;
   }
 </style>
 
@@ -17,11 +22,11 @@
       
     </div>
 
+    <%= content_tag(:h1, @recipe.title, class: 'recipe--show__title text-center bangla-regular__huge') %>
+
     <%= content_tag(:div, class: 'recipe--show__image text-center') do %>
       <%= image_tag(@recipe.featured_image.url(:medium), data: { gradient_map: "#000, #{@recipe.color}, #fff 100%" }) %>
     <% end if @recipe.featured_image.present? %>
-
-    <%= content_tag(:h1, @recipe.title, class: 'recipe--show__title text-center bangla-regular__huge') %>
 
     <%= content_tag(:div, class: 'recipe--show__intro patron-light__large text-center') do %>
       This is a <%= @recipe.diet_names %> recipe posted by <%= link_to(@user.name, user_path(@user), class: 'link--default') %>.
