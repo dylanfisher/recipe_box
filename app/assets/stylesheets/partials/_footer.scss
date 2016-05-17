@@ -10,6 +10,10 @@
   background: $black;
   color: $white;
   fill: $white;
+
+  a {
+    @extend .link--blank-hover;
+  }
 }
 
 .footer--primary__recipe-box-logo {

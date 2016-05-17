@@ -58,3 +58,12 @@ body[class*="controller--devise"],
     }
   }
 }
+
+.devise__shared-links {
+  margin-bottom: 80px;
+
+  a {
+    @extend .link--blank-hover;
+    color: $white;
+  }
+}

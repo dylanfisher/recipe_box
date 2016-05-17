@@ -7,8 +7,8 @@
 
     <% if users_own_profile? @user %>
       <div class="user__actions text-right font__patron-light__size__regular">
-        <%= link_to('Add a recipe', '#', class: 'user__add-recipe-button link--blank-hover') %>
-        <%= link_to('Edit', edit_user_path(@user), class: 'user__edit-recipe-button link--blank-hover') %>
+        <%#= link_to('Add a recipe', '#', class: 'user__add-recipe-button link--blank-hover') %>
+        <%= link_to('Edit your profile', edit_user_path(@user), class: 'user__edit-recipe-button link--blank-hover') %>
       </div>
     <% end %>
 
@@ -69,6 +69,8 @@
       </div>
       Browse 100s of recipes
     <% end %>
+
+    <br><br><br><br>
 
   </div>
 </div>

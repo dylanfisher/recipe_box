@@ -30,9 +30,16 @@
     transform: translate(0, -50%);
   }
 
-  .recipe-pairing__item {
+  .recipes-pairing__item {
     width: 100%;
     padding: 40px;
     display: block;
+  }
+
+  .recipes-pairing__item__description {
+    position: absolute;
+    left: 0;
+    bottom: 22%;
+    width: 100%;
   }
 }

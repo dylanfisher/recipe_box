@@ -1,8 +1,9 @@
-<%= link_to(recipe, class: 'recipe-pairing__item text-center link--blank', style: "background: #{recipe.color}" ) do %>
+<%= link_to(recipe, class: 'recipes-pairing__item text-center link--blank', style: "background: #{recipe.color}" ) do %>
   <div class="recipes-pairing__item__inner">
     <div class="recipes-grid__item__gem recipe__gem">
       
     </div>
-    <%= content_tag(:h2, recipe.title, class: 'recipes-grid__item__title bangla-regular__huge') %>
+    <%= content_tag(:h2, recipe.title, class: 'recipes-grid__item__title recipes-grid__item__centered-text bangla-regular__huge') %>
+    <%= content_tag(:h4, recipe.description, class: 'recipes-pairing__item__description patron-thin__medium') %>
   </div>
 <% end %>

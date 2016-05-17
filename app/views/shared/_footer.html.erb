@@ -12,8 +12,8 @@
         guidelines
       </div>
       <div class="col-sm-3">
-        Login<br>
-        Your box<br>
+        <%= link_to('Login', new_user_session_path) %><br>
+        <%= link_to('Your box<br>'.html_safe, user_path(current_user)) if current_user %>
         Submit
       </div>
       <div class="col-sm-3">
