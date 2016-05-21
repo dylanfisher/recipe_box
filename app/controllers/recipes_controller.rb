@@ -10,12 +10,14 @@ class RecipesController < ApplicationController
     @pairings = @recipe.pairings.randomize
     @user     = @recipe.user
 
+    if !Rails.cache.exist?([@recipe, @user])
+      Rails.cache.write([@recipe, @user], render_to_string(pdf: "#{@recipe.title} - #{Date.today.to_s}", template: 'recipes/pdf.html.erb', layout: 'pdf.html'))
+    end
+
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "#{@recipe.title} - #{Date.today.to_s}",
-               template: 'recipes/pdf.html.erb',
-               layout: 'pdf.html'
+        render text: Rails.cache.read([@recipe, @user])
       end
     end
   end
@@ -55,7 +57,7 @@ class RecipesController < ApplicationController
       policy_name = exception.policy.class.to_s.underscore
 
       # TODO: Redirect to sign up page
-      flash.now[:error] = 'You must sign in before you can add a recipe to your box.'
+      flash.now[:error] = "You must #{view_context.link_to('sign in', new_user_session_path, class: 'link')} before you can add a recipe to your box."
       respond_to do |format|
         format.js { render 'shared/flash_messages' }
       end

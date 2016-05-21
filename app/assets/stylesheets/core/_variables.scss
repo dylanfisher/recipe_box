@@ -23,7 +23,9 @@ $selection-background: $gray-dark;
 $default-background: $yellow-light;
 
 // Transitions
-$tt: 0.4s;
+$tt-short : 0.1s;
+$tt       : 0.4s;
+$tt-long  : 0.8s;
 
 // Sizes
 $gutter: 15px;
