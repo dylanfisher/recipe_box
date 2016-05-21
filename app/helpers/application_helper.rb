@@ -20,12 +20,12 @@ module ApplicationHelper
     flash_message_close = %{<span class="flash-message__close">×</span>}
     flash_message_check = %{<span class="flash-message__close">✔</span>}
 
-    if flash[:notice]
-      %{<div class="flash-message flash-message--notice">#{flash_message_close} #{flash[:notice]}</div>}
-    elsif flash[:error]
-      %{<div class="flash-message flash-message--error">#{flash_message_close} #{flash[:error]}</div>}
-    elsif flash[:success]
-      %{<div class="flash-message flash-message--success">#{flash_message_check} #{flash[:success]}</div>}
+    if flash_or_params(:notice)
+      %{<div class="flash-message flash-message--notice">#{flash_message_close} #{flash_or_params(:notice)}</div>}
+    elsif flash_or_params(:error)
+      %{<div class="flash-message flash-message--error">#{flash_message_close} #{flash_or_params(:error)}</div>}
+    elsif flash_or_params(:success)
+      %{<div class="flash-message flash-message--success">#{flash_message_check} #{flash_or_params(:success)}</div>}
     end
   end
 
@@ -45,5 +45,11 @@ module ApplicationHelper
     return if @application_body_styles.blank?
     @application_body_styles.collect{|key, value| "#{key}: #{value};"}.join
   end
+
+  private
+
+    def flash_or_params(name)
+      flash[name] || params[name]
+    end
 
 end

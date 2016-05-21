@@ -1,0 +1,15 @@
+<%# Usage: %>
+<%#= render 'shared/modal', modal_button_text: 'Open this guy', modal_id: 'dialog_tester', content: 'This is a tester.' %>
+
+<div class="button-wrap">
+  <button data-dialog="<%= modal_id %>" class="button"><%= modal_button_text %></button>
+</div>
+
+<div class="dialog" id="<%= modal_id %>">
+  <div class="dialog__overlay"></div>
+  <div class="dialog__content">
+    <%= content_tag(:h2, content, class: 'dialog__content__title') %>
+    <br>
+    <button class="button--small" data-dialog-close>Close</button>
+  </div>
+</div>

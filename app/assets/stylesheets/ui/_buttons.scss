@@ -1,5 +1,4 @@
-.button {
-  @include patron-light__medium;
+@mixin button-base {
   display: inline-block;
   text-decoration: none;
   color: inherit;
@@ -7,7 +6,7 @@
   border: 1px solid;
   border-radius: 6px;
   line-height: 1;
-  padding: 0.4em 0.6em;
+  padding: 0.425em 0.6em 0.3em;
 
   &:hover {
     border-style: dashed;
@@ -16,4 +15,14 @@
   &:active {
     transform: translate(2px, 2px);
   }
+}
+
+.button {
+  @include patron-light__medium;
+  @include button-base;
+}
+
+.button--small {
+  @include patron-thin__regular;
+  @include button-base;
 }

@@ -23,14 +23,18 @@ class UsersController < ApplicationController
   # PATCH/PUT /user/1.json
   def update
     authorize @user
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to [@user], notice: 'Your profile was saved.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+    begin
+      respond_to do |format|
+        if @user.update(user_params)
+          format.html { redirect_to [@user], notice: 'Your profile was saved.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: 'edit' }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
       end
+    rescue ActiveRecord::RecordNotUnique => e
+      redirect_to action: 'edit', notice: 'That URL is already taken.'
     end
   end
 
