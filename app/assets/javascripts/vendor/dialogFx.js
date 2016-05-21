@@ -87,7 +87,10 @@
 		}
 		else {
 			classie.add( this.el, 'dialog--open' );
-			document.querySelector( '[data-dialog="' + this.el.getAttribute('id') + '"]' ).blur();
+			var button = document.querySelector( '[data-dialog="' + this.el.getAttribute('id') + '"]' );
+			if ( button ) {
+				buton.blur();
+			}
 
 			// callback on open
 			this.options.onOpenDialog( this );

@@ -16,16 +16,25 @@ module ApplicationHelper
     doc.to_html.html_safe
   end
 
-  def flash_message
-    flash_message_close = %{<span class="flash-message__close">×</span>}
-    flash_message_check = %{<span class="flash-message__close">✔</span>}
-
+  def flash_message_type
     if flash_or_params(:notice)
-      %{<div class="flash-message flash-message--notice">#{flash_message_close} #{flash_or_params(:notice)}</div>}
+      type = :notice
     elsif flash_or_params(:error)
-      %{<div class="flash-message flash-message--error">#{flash_message_close} #{flash_or_params(:error)}</div>}
+      type = :error
     elsif flash_or_params(:success)
-      %{<div class="flash-message flash-message--success">#{flash_message_check} #{flash_or_params(:success)}</div>}
+      type = :success
+    else
+      type = :other
+    end
+  end
+
+  def flash_message
+    if flash_message_type == :notice
+      %{<div class="flash-message flash-message--notice">#{flash_or_params(:notice)}</div>}
+    elsif flash_message_type == :error
+      %{<div class="flash-message flash-message--error">#{flash_or_params(:error)}</div>}
+    elsif flash_message_type == :success
+      %{<div class="flash-message flash-message--success">#{flash_or_params(:success)}</div>}
     end
   end
 

@@ -1,11 +1,13 @@
 <%# Usage: %>
-<%#= render 'shared/modal', modal_button_text: 'Open this guy', modal_id: 'dialog_tester', content: 'This is a tester.' %>
+<%#= render 'shared/modal', modal_button_text: 'Open this guy', modal_id: 'dialog_tester', content: 'This is a tester.', modal_classes: 'success' %>
 
-<div class="button-wrap">
-  <button data-dialog="<%= modal_id %>" class="button"><%= modal_button_text %></button>
-</div>
+<% if modal_button_text %>
+  <div class="button-wrap">
+    <button data-dialog="<%= modal_id %>" class="button"><%= modal_button_text %></button>
+  </div>
+<% end %>
 
-<div class="dialog" id="<%= modal_id %>">
+<div class="dialog <%= modal_classes %>" id="<%= modal_id %>">
   <div class="dialog__overlay"></div>
   <div class="dialog__content">
     <%= content_tag(:h2, content, class: 'dialog__content__title') %>
