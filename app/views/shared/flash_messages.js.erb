@@ -1,5 +1,3 @@
-<% flash.each do |type, message| %>
-  $(".flash-messages").html("<%= escape_javascript(md(flash_message)) %>")
-<% end %>
+$("body").append("<%= escape_javascript( render('shared/flash_messages') ) %>")
 
 App.startFlashTimer(true);
