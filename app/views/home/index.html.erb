@@ -1,25 +1,19 @@
-<%= content_for :header do %>
-  <div class="controller--home__intro col-sm-12">
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
-        <h1 class="h1">
-          <span class="visually-hidden">Recipe Box</span>
-          <%= embedded_svg('recipe-box-logo', class: 'recipe-box-logo recipe-box-logo--large') %>
-        </h1>
-        <div>
-          <p>
-            The box is decadant and filled with vibrant pages embellished with stickers and jewels. Each page transcribes the most satisfying recipes of your life.
-          </p>
-          <% if !current_user %>
-            <%= link_to('Sign up', new_user_registration_path, class: 'link--default') %>
-          <% end %>
-        </div>
+<div class="controller--home__intro col-sm-12">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h1 class="h1">
+        <span class="visually-hidden">Recipe Box</span>
+        <%= embedded_svg('recipe-box-logo', class: 'recipe-box-logo recipe-box-logo--large') %>
+      </h1>
+      <%= image_tag('recipe-box-home-image.jpg') %>
+      <div>
+        <% if !current_user %>
+          <%= link_to('Sign up', new_user_registration_path, class: 'link--default') %>
+        <% end %>
       </div>
     </div>
   </div>
-
-  <%= render 'nav_primary_home' %>
-<% end %>
+</div>
 
 <div class="controller--home__recipes recipes-grid row">
   <div class="controller--home__recipes__title text-center patron-thin__medium">Featured Recipes</div>

@@ -1,17 +1,13 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .controller--home__intro {
   @include patron-thin__large;
-  background: $pink-light;
+  background: $white;
   text-align: center;
-  padding-top: 80px;
+  padding-top: 100px;
   padding-bottom: 80px;
 }
 
 .controller--home__recipes {
-  background: $pink-light;
+  background: $white;
   padding-top: 60px;
   padding-bottom: 60px;
 }

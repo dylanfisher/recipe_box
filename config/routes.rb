@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'blog/mmmbox'
+
   #
   # Public
   #
@@ -18,6 +20,9 @@ Rails.application.routes.draw do
   get   'users/:id',      to: 'users#show',    as: 'user'
   patch 'users/:id',      to: 'users#update'
   get   'users/:id/edit', to: 'users#edit',    as: 'edit_user'
+
+  # Blog / Tumblr feed
+  get '/mmmbox', to: 'blog#mmmbox', as: 'tumblr'
 
   #
   # Admin
