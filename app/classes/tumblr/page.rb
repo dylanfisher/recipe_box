@@ -9,6 +9,7 @@ class Tumblr::Page
   end
 
   def images
+    # TODO: figure out how to bust all pages every 12 hours
     Rails.cache.fetch(url, expires_in: 12.hours) do
       doc.css('.photo-wrapper img').to_html.html_safe
     end

@@ -47,6 +47,9 @@ gem 'aws-sdk-v1'
 
 gem 'cocoon'
 
+# Map incoming controller parameters to named scopes in your resources http://blog.plataformatec.com.br/
+# gem 'has_scope'
+
 gem 'friendly_id', '~> 5.1.0'
 
 # PDF generation

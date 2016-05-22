@@ -18,6 +18,11 @@ var App = {
 //////////////////////////////////////////////////////////////
 
 $(document).on('page:load page:restore ready', function() {
+  App.scrollTop = $(window).scrollTop();
+
+  App.windowWidth  = $(window).width();
+  App.windowHeight = $(window).height();
+
   App.runFunctions(App.pageLoad);
   App.runFunctions(App.pageResize);
   App.runFunctions(App.pageScroll);
@@ -28,6 +33,8 @@ $(document).on('page:load page:restore ready', function() {
 //////////////////////////////////////////////////////////////
 
 $(window).on('scroll', function() {
+  App.scrollTop = $(window).scrollTop();
+
   App.runFunctions(App.pageScroll);
 });
 
@@ -36,5 +43,8 @@ $(window).on('scroll', function() {
 //////////////////////////////////////////////////////////////
 
 $(window).on('resize', function() {
-   App.runFunctions(App.pageResize);
+  App.windowWidth  = $(window).width();
+  App.windowHeight = $(window).height();
+
+  App.runFunctions(App.pageResize);
 });
