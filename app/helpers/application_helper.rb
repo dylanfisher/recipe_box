@@ -46,8 +46,8 @@ module ApplicationHelper
     end
   end
 
-  def users_own_profile?(user)
-    current_user && current_user == user
+  def users_own_profile?
+    current_user && current_user == @user
   end
 
   def application_body_styles

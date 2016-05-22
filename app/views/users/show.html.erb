@@ -5,7 +5,7 @@
 <div class="row">
   <div class="content-column text-center">
 
-    <% if users_own_profile? @user %>
+    <% if users_own_profile? %>
       <div class="user__actions text-right font__patron-light__size__regular">
         <%#= link_to('Add a recipe', '#', class: 'user__add-recipe-button link--blank-hover') %>
         <%= link_to('Edit your profile', edit_user_path(@user), class: 'user__edit-recipe-button link--blank-hover') %>
@@ -19,12 +19,13 @@
         </div>
         <div class="user__name-location-wrapper text-left">
           <%= content_tag(:h1, @user.full_name, class: 'patron-medium__large') %>
+          <%= content_tag(:h4, @user.website, class: 'patron-light__medium') %>
           <%= content_tag(:h4, @user.location, class: 'patron-light__medium') %>
         </div>
       </div>
     </div>
 
-    <% if users_own_profile? @user %>
+    <% if users_own_profile? %>
       <div class="user__welcome-message-wrapper">
         <% if @user.greeting.present? %>
           <div class="patron-light__medium">
@@ -49,7 +50,7 @@
       <% @uploaded_recipes.each do |recipe| %>
         <%= link_to recipe.title, recipe %><br>
       <% end %>
-    <% elsif users_own_profile? @user %>
+    <% elsif users_own_profile? %>
       <div class="patron-light__medium">
         You havent uploaded any recipes.
       </div>
@@ -63,7 +64,7 @@
       <% @collected_recipes.each do |recipe| %>
         <%= link_to recipe.title, recipe %>, uploaded by <%= link_to recipe.user.name, recipe.user %><br>
       <% end %>
-    <% elsif users_own_profile? @user %>
+    <% elsif users_own_profile? %>
       <div class="patron-light__medium">
         You havent saved any recipes.
       </div>
