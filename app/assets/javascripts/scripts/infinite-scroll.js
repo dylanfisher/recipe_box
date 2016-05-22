@@ -12,12 +12,9 @@ App.pageLoad.push(function() {
         return;
       }
 
-      console.log('scrolled');
-
       if ( !App.infiniteLoadInProgress && App.$infiniteLoader.offset().top - App.scrollTop < App.windowHeight * 2 ) {
         App.$infiniteLoader.trigger('click');
         App.infiniteLoadInProgress = true;
-        console.log('clicked', App.infiniteLoadInProgress);
       }
     });
   } else {
