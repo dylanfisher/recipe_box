@@ -1,4 +1,6 @@
 $('#infinite-loader').remove();
 $('.mmmbox-images').append('<%=j render 'mmmbox_images' %>');
-App.infiniteLoadInProgress = false;
+window.setTimeout(function() {
+  App.infiniteLoadInProgress = false;
+}, 500);
 App.$infiniteLoader = $('#infinite-loader');
