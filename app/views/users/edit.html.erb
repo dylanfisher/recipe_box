@@ -79,6 +79,15 @@
         </div>
       </div>
 
+      <div class="user-edit__form-group">
+        <div class="patron-medium__medium user-edit__box-stickers">
+          <div class="user-edit__box-background-colors__label">Bedazzle the page with stickers and jewels</div>
+          <% @box_stickers.each do |sticker| %>
+            <%= embedded_svg(full_path: sticker) %>
+          <% end %>
+        </div>
+      </div>
+
     </div>
 
   <% end %>

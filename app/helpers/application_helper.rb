@@ -7,7 +7,12 @@ module ApplicationHelper
   end
 
   def embedded_svg(filename, options={})
-    file = File.read(Rails.root.join('app', 'assets', 'images', 'svg', "#{filename}.svg"))
+    options = options.merge(filename) if filename.is_a?(Hash)
+    if options[:full_path]
+      file = File.read(Rails.root.join(options[:full_path]))
+    else
+      file = File.read(Rails.root.join('app', 'assets', 'images', 'svg', "#{filename}.svg"))
+    end
     doc = Nokogiri::HTML::DocumentFragment.parse file
     svg = doc.at_css 'svg'
     if options[:class].present?

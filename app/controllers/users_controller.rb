@@ -87,6 +87,7 @@ class UsersController < ApplicationController
     def set_box_styles
       @box = @user.box
       @box_background_colors = Box::BackgroundColor::COLORS
+      @box_stickers = Box::Sticker::STICKERS
       @application_body_styles["background-color"] = @box.background_color if @box.background_color.present?
     end
 end
