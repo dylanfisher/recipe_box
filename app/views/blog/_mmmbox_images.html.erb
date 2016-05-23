@@ -1,5 +1,5 @@
 <% if @images.blank? %>
-  <div data-disable-infinite-scroll="true"></div>
+  <div class="infinite-scroll-disabler" data-disable-infinite-scroll="true"></div>
 <% else %>
   <%= @images %>
   <%= link_to('Next page', tumblr_path(page: @page + 1), id: 'infinite-loader', remote: true) %>

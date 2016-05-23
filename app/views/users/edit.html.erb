@@ -33,6 +33,7 @@
             <% end %>
 
             <%= content_tag(:h4, class: 'patron-light__medium') do %>
+              <%= f.input :email, label: false, placeholder: 'Email' %>
               <%= f.input :website, label: false, placeholder: 'Website' %>
               <%= f.input :location, label: false, placeholder: 'Location' %>
             <% end %>
@@ -43,15 +44,14 @@
       <div class="user-edit__form-group">
         <div class="patron-medium__medium">Claim your url</div>
         <div class="patron-light__medium">
-          <%= f.input :email, label: false, placeholder: 'Email' %>
-          <%= f.input :slug, label: false, placeholder: 'url' %>
+          recipebox.io/users/<%= f.input :slug, label: false, placeholder: 'url', wrapper_html: { class: 'auto-size-input' } %>
         </div>
       </div>
 
       <div class="user-edit__form-group">
         <div class="patron-medium__medium">Enter a message</div>
         <div class="patron-light__medium">
-          <%= f.input :greeting, label: false, placeholder: 'Type a greeting for your box' %>
+          <%= f.input :greeting, label: false, as: :text, placeholder: 'Type a greeting for your box' %>
         </div>
       </div>
 

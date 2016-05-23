@@ -54,13 +54,13 @@
 
 .nav--primary--with-logo__home-link {
   @include breakpoint(sm) {
-    left: 10px;
+    left: 30px;
   }
 }
 
 .nav--primary--with-logo .nav--primary__list {
   @include breakpoint(sm) {
-    right: 10px;
+    right: 30px;
   }
 }
 

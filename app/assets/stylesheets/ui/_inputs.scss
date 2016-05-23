@@ -1,25 +1,31 @@
 .inline-input {
-  input {
-    &[type="text"],
-    &[type="email"] {
-      letter-spacing: inherit;
-      background: transparent;
-      outline: 0;
-      border: 0;
-      border-bottom: 1px dashed;
-      width: 100%;
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    letter-spacing: inherit;
+    outline: 0;
+    border: 0;
+    border-bottom: 1px dashed;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.4);
 
-      &:hover {
-        background: rgba(255, 255, 255, 0.5);
-      }
-
-      &:focus {
-        background: $white;
-      }
+    &:focus {
+      background: rgba(255, 255, 255, 0.75);
     }
   }
 
-  .form-group {
+  textarea {
+    resize: vertical;
+    border: 1px dashed;
+    height: 150px;
+  }
+}
 
+.auto-size-input {
+  display: inline-block;
+
+  input {
+    width: auto;
+    display: inline-block;
   }
 }
