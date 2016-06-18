@@ -40,6 +40,10 @@ module ApplicationHelper
       %{<div class="flash-message flash-message--error">#{flash_or_params(:error)}</div>}
     elsif flash_message_type == :success
       %{<div class="flash-message flash-message--success">#{flash_or_params(:success)}</div>}
+    else
+      flash.collect do |f|
+        %{<div class="flash-message flash-message--#{f[0]}">#{f[1]}</div>}
+      end.join
     end
   end
 
