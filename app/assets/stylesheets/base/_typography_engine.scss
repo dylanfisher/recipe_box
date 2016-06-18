@@ -15,7 +15,6 @@ $font-stack__patron-thin    : 'patron-thin',    sans-serif;
 // Bangla
 $font-stack__bangla-regular : 'bangla',         serif;
 
-
 ///////////////////////////////////////////////////
 // Typography definitions
 ///////////////////////////////////////////////////
@@ -74,7 +73,7 @@ $font-stack__bangla-regular : 'bangla',         serif;
   $font-size      : 30px;
   $letter-spacing : 0.5px;
   @include type-generator($font-size, $letter-spacing);
-  line-height: 1.2;
+  line-height: 1.4;
   font-family: $font-stack__patron-thin;
 }
 .patron-thin__large {
@@ -137,6 +136,18 @@ $font-stack__bangla-regular : 'bangla',         serif;
 }
 .patron-medium__large {
   @include patron-medium__large;
+}
+
+@mixin patron-medium__huge {
+  $font-size      : 72px;
+  $letter-spacing : 0;
+  $xs-ratio: 1.7;
+  @include type-generator($font-size, $letter-spacing, $xs-ratio);
+  line-height: 1.4;
+  font-family: $font-stack__patron-medium;
+}
+.patron-medium__huge {
+  @include patron-medium__huge;
 }
 
 //

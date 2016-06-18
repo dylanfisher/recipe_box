@@ -12,10 +12,6 @@
   padding-bottom: 60px;
 }
 
-.controller--home__recipes__title {
-  padding-bottom: 40px;
-}
-
 .controller--home__about-area__right-column {
   background: $blue;
   color: $white;
@@ -37,4 +33,20 @@
     left: 0;
     transform: translate(0, -50%);
   }
+}
+
+.greeting-wrapper {
+  text-align: center;
+  background-color: $blue-light;
+  color: $white;
+  padding: 10px $gutter 40px;
+
+  @include breakpoint(sm) {
+    padding: 180px $gutter 140px;
+  }
+}
+
+.controller--home__sign-up-wrapper {
+  background-color: $peach;
+  padding: 80px 0;
 }

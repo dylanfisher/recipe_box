@@ -8,6 +8,7 @@
 $black: #000;
 $white: #fff;
 $blue: #465DC0;
+$blue-light: #3D86EB;
 $pink: #D47EB8;
 $pink-light: #FEEEF8;
 $pink-dark: #FBDDDE;
@@ -17,10 +18,13 @@ $red: #C02A17;
 $orange: #FDC968;
 $gray: #D8DAD4;
 $gray-dark: #8D8D8D;
+$peach: #FEEEE9;
 
 // Color assignments
 $selection-background: $gray-dark;
 $default-background: $yellow-light;
+
+$color-active: #d0e4ff;
 
 // Transitions
 $tt-short : 0.1s;

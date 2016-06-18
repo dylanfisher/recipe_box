@@ -55,6 +55,14 @@ module ApplicationHelper
     end
   end
 
+  def login_or_logout_link
+    if current_user
+      link_to('Logout', destroy_user_session_path, class: 'link--blank-hover')
+    else
+      link_to('Login', new_user_session_path, class: 'link--blank-hover')
+    end
+  end
+
   def users_own_profile?
     current_user && current_user == @user
   end

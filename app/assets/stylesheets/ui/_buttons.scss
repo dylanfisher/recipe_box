@@ -4,16 +4,15 @@
   color: inherit;
   background: transparent;
   border: 1px solid;
-  border-radius: 6px;
+  border-radius: 0.5em;
   line-height: 1;
   padding: 0.425em 0.6em 0.3em;
+  transition: all 0.2s;
 
-  &:hover {
-    border-style: dashed;
-  }
-
-  &:active {
-    transform: translate(2px, 2px);
+  &:hover,
+  &:focus {
+    background: $color-active;
+    outline: 0;
   }
 }
 
@@ -25,4 +24,10 @@
 .button--small {
   @include patron-thin__regular;
   @include button-base;
+}
+
+.button--large {
+  @include patron-medium__medium;
+  @include button-base;
+  padding: 0.625em 2em 0.5em;
 }

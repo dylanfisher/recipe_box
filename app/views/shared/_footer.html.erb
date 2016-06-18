@@ -12,9 +12,9 @@
         guidelines
       </div>
       <div class="col-sm-3">
-        <%= link_to('Login', new_user_session_path) %><br>
         <%= link_to('Profile<br>'.html_safe, user_path(current_user)) if current_user %>
-        Submit
+        Submit<br>
+        <%= login_or_logout_link %>
       </div>
       <div class="col-sm-3">
         Newsletter

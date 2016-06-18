@@ -1,18 +1,9 @@
 <% cache recipe do %>
-  <div class="recipes-grid__item text-center col-sm-6">
+  <div class="recipes-grid__item text-center col-sm-4" style="color: <%= recipe.color %>">
     <%= link_to(recipe, class: 'link--blank') do %>
-      <div class="recipes-grid__item__inner">
-        <div class="recipes-grid__item__front">
-          <div class="recipes-grid__item__gem recipe__gem">
-            
-          </div>
-          <%= content_tag(:h2, recipe.title, class: 'recipes-grid__item__title recipes-grid__item__centered-text bangla-regular__large') %>
-          <%= content_tag(:div, "by #{recipe.user.first_name}", class: 'recipes-grid__item__user') %>
-        </div>
-        <div class="recipes-grid__item__back">
-          <%= content_tag(:h4, recipe.description, class: 'recipes-grid__item__description recipes-grid__item__centered-text patron-thin__medium') %>
-        </div>
-      </div>
+      <%= render 'recipes/gem', recipe: recipe %>
+      <%= content_tag(:h2, recipe.title, class: 'recipes-grid__item__title recipes-grid__item__centered-text bangla-regular__large margin-bottom-medium') %>
+      <%= content_tag(:div, "by #{recipe.user.first_name}", class: 'recipes-grid__item__user patron-thin__large') %>
     <% end %>
   </div>
 <% end %>
