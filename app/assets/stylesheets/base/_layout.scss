@@ -5,16 +5,13 @@ html, body {
 .application-body {
   @include breakpoint(sm) {
     .application-wrapper {
-      padding-top: $header-height + 80px;
+      padding-top: $header-height + 20px;
     }
 
     &.controller--home .application-wrapper {
       padding-top: 0;
     }
 
-    &.controller--recipes .application-wrapper {
-      padding-top: $header-height + 60px;
-    }
   }
 }
 

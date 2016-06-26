@@ -50,13 +50,13 @@
 
 .nav--primary--with-logo__home-link {
   @include breakpoint(sm) {
-    left: 30px;
+    left: $gutter;
   }
 }
 
 .nav--primary--with-logo .nav--primary__list {
   @include breakpoint(sm) {
-    right: 30px;
+    right: $gutter*2;
   }
 }
 

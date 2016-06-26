@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'blog/mmmbox'
-
   #
   # Public
   #
@@ -24,6 +22,11 @@ Rails.application.routes.draw do
   # Blog / Tumblr feed
   get '/mmmbox', to: 'blog#mmmbox', as: 'tumblr'
 
+  # About
+  get '/about', to: 'about#index'
+  get '/about/statement', to: 'about#statement'
+
+
   #
   # Admin
   #
@@ -38,6 +41,7 @@ Rails.application.routes.draw do
     resources :users
     resources :users
   end
+
 
   #
   # Authentication
