@@ -9,9 +9,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= @application_body_class %>" style="<%= application_body_styles %>">
-  <div class="application-wrapper row">
+  <div class="application-wrapper">
     <%= content_for?(:header) ? yield(:header) : render('shared/nav_primary') %>
-    <div class="application-content col-sm-12">
+    <div class="application-content">
       <%= render 'shared/flash_messages' %>
       <%= content_for?(:application) ? yield(:application) : yield %>
     </div>

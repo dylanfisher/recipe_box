@@ -1,58 +1,82 @@
-<div class="greeting-wrapper row">
-  <div class="greeting">
-    <h2 class="patron-medium__huge">Hi, it's 5 pm. My tummy<br>is whispering, “Feed me!”</h2>
+<div class="greeting-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="greeting">
+        <h2 class="patron-medium__huge">Hi, it's 5 pm. My tummy<br>is whispering, “Feed me!”</h2>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="controller--home__recipes recipes-grid row margin-bottom-large">
-  <div class="text-center patron-medium__medium margin-bottom-large">Featured Recipes</div>
-  <div class="col-sm-10 col-sm-offset-1">
+<div class="controller--home__recipes recipes-grid margin-bottom-large">
+  <div class="container">
     <div class="row">
-      <%= render partial: 'recipes/recipe', collection: @recipes %>
+      <div class="text-center patron-medium__medium margin-bottom-large">Featured Recipes</div>
+      <div class="col-sm-10 col-sm-offset-1">
+        <div class="row">
+          <%= render partial: 'recipes/recipe', collection: @recipes %>
+        </div>
+      </div>
+      <div class="col-sm-12 text-center margin-top-large">
+        <%= link_to('view all', recipes_path, class: 'button--large') %>
+      </div>
     </div>
-  </div>
-  <div class="col-sm-12 text-center margin-top-large">
-    <%= link_to('view all', recipes_path, class: 'button--large') %>
   </div>
 </div>
 
 <%# if !current_user %>
-  <div class="controller--home__sign-up-wrapper margin-bottom-huge row">
-    <div class="text-center patron-medium__large margin-bottom-medium">What‘s cooking?</div>
-    <div class="clearfix">
-      <div class="text-center patron-thin__large margin-bottom-large col-sm-6 col-sm-offset-3">Recipe Box is all about preserving recipes that are good for your soul or good for you body.</div>
-    </div>
-    <div class="text-center">
-      <%= link_to('sign up', new_user_registration_path, class: 'button--large') %>
+  <div class="controller--home__sign-up-wrapper margin-bottom-huge">
+    <div class="container">
+      <div class="row">
+        <div class="text-center patron-medium__large margin-bottom-medium">What‘s cooking?</div>
+        <div class="clearfix">
+          <div class="text-center patron-thin__large margin-bottom-large col-sm-6 col-sm-offset-3">Recipe Box is all about preserving recipes that are good for your soul or good for you body.</div>
+        </div>
+        <div class="text-center">
+          <%= link_to('sign up', new_user_registration_path, class: 'button--large') %>
+        </div>
+      </div>
     </div>
   </div>
 <%# end %>
 
-<div class="controller--home__featured-recipe-wrapper margin-bottom-huge row">
-  <div class="col-sm-12">
-    <div class="text-center patron-medium__large margin-bottom-large">Featured Recipe</div>
-    <%= render 'recipes/featured_recipe', recipe: @featured_recipe %>
-  </div>
-</div>
-
-<div class="controller--home__recently-uploaded-recipes margin-bottom-huge row">
-  <div class="col-sm-12">
-    <div class="text-center patron-medium__large margin-bottom-large">Recently Uploaded Recipes</div>
+<div class="controller--home__featured-recipe-wrapper margin-bottom-huge">
+  <div class="container">
     <div class="row">
-      <%= render 'recipes/recently_uploaded_recipes', recipes: @recently_uploaded_recipes %>
+      <div class="col-sm-12">
+        <div class="text-center patron-medium__large margin-bottom-large">Featured Recipe</div>
+        <%= render 'recipes/featured_recipe', recipe: @featured_recipe %>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="controller--home__about-area row">
-  <div class="controller--home__about-area__left-column controller--home__about-area__column text-center col-sm-4">
-    <div class="controller--home__about-area__left-column__inner col-sm-4">
-      <p>the story behind</p>
-      <div class="patron-regular__large">Recipe Box</div>
+<div class="controller--home__recently-uploaded-recipes margin-bottom-huge">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="text-center patron-medium__large margin-bottom-large">Recently Uploaded Recipes</div>
+        <div class="row">
+          <%= render 'recipes/recently_uploaded_recipes', recipes: @recently_uploaded_recipes %>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="controller--home__about-area__right-column controller--home__about-area__column patron-thin__large col-sm-8">
-    <p>Recipe Box phasellus leo enim, convallis nec eleifend vitae, port titor efficitur ipsum. Pelle tesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque dignissim posuere ligula eget elementum. Morbi finibus arcu sit amet turpis facilisis pharetra.</p>
-    <div class="patron-medium__large">Continue reading</div>
+</div>
+
+<div class="controller--home__about-area">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="controller--home__about-area__left-column controller--home__about-area__column text-center col-sm-4">
+        <div class="controller--home__about-area__left-column__inner col-sm-4">
+          <p>the story behind</p>
+          <div class="patron-regular__large">Recipe Box</div>
+        </div>
+      </div>
+      <div class="controller--home__about-area__right-column controller--home__about-area__column patron-thin__large col-sm-8">
+        <p>Recipe Box phasellus leo enim, convallis nec eleifend vitae, port titor efficitur ipsum. Pelle tesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque dignissim posuere ligula eget elementum. Morbi finibus arcu sit amet turpis facilisis pharetra.</p>
+        <div class="patron-medium__large">Continue reading</div>
+      </div>
+    </div>
   </div>
 </div>

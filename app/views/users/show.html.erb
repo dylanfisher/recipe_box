@@ -2,76 +2,78 @@
 <%= page_title(@user.full_name) %>
 <%= page_description("View #{@user.full_name.possessive} recipes on Recipe Box (#{@user.uploaded_recipe_count} uploaded, #{@user.collected_recipe_count} collected). #{@user.name} joined Recipe Box on #{full_date(@user.created_at)}.") %>
 
-<div class="row">
-  <div class="content-column text-center">
+<div class="container">
+  <div class="row">
+    <div class="content-column text-center">
 
-    <% if users_own_profile? %>
-      <div class="user__actions text-right font__patron-light__size__regular">
-        <%#= link_to('Add a recipe', '#', class: 'user__add-recipe-button link--blank-hover') %>
-        <%= link_to('Edit your profile', edit_user_path(@user), class: 'user__edit-recipe-button link--blank-hover') %>
-      </div>
-    <% end %>
-
-    <div class="user__top-area row">
-      <div class="col-sm-10 col-sm-offset-1 ibfix">
-        <div class="user__avatar-wrapper">
-          <div class="user__avatar-inner"></div>
+      <% if users_own_profile? %>
+        <div class="user__actions text-right font__patron-light__size__regular">
+          <%#= link_to('Add a recipe', '#', class: 'user__add-recipe-button link--blank-hover') %>
+          <%= link_to('Edit your profile', edit_user_path(@user), class: 'user__edit-recipe-button link--blank-hover') %>
         </div>
-        <div class="user__name-location-wrapper text-left">
-          <%= content_tag(:h1, @user.full_name, class: 'patron-medium__large') %>
-          <%= content_tag(:h4, @user.website, class: 'patron-light__medium') %>
-          <%= content_tag(:h4, @user.location, class: 'patron-light__medium') %>
+      <% end %>
+
+      <div class="user__top-area row">
+        <div class="col-sm-10 col-sm-offset-1 ibfix">
+          <div class="user__avatar-wrapper">
+            <div class="user__avatar-inner"></div>
+          </div>
+          <div class="user__name-location-wrapper text-left">
+            <%= content_tag(:h1, @user.full_name, class: 'patron-medium__large') %>
+            <%= content_tag(:h4, @user.website, class: 'patron-light__medium') %>
+            <%= content_tag(:h4, @user.location, class: 'patron-light__medium') %>
+          </div>
         </div>
       </div>
-    </div>
 
-    <% if users_own_profile? %>
-      <div class="user__welcome-message-wrapper">
-        <% if @user.greeting.present? %>
-          <div class="patron-light__medium">
-            <%= @user.greeting %>
-          </div>
-        <% else %>
-          <h2 class="patron-medium__large h2">Welcome</h2>
-          <div class="patron-light__medium">
-            Congratulations! You're now a Recipe Box user. To customize your box, click the pencil icon in the top right. To add a new recipe, select the pizza button next to it.
-          </div>
+      <% if users_own_profile? %>
+        <div class="user__welcome-message-wrapper">
+          <% if @user.greeting.present? %>
+            <div class="patron-light__medium">
+              <%= @user.greeting %>
+            </div>
+          <% else %>
+            <h2 class="patron-medium__large h2">Welcome</h2>
+            <div class="patron-light__medium">
+              Congratulations! You're now a Recipe Box user. To customize your box, click the pencil icon in the top right. To add a new recipe, select the pizza button next to it.
+            </div>
+          <% end %>
+        </div>
+      <% elsif @user.greeting.present? %>
+        <div class="patron-light__medium">
+          <%= @user.greeting %>
+        </div>
+        <br><br>
+      <% end %>
+
+      <% if @uploaded_recipes.any? %>
+        <h2 class="patron-medium__medium"><%= @user.name.possessive %> Recipes</h2>
+        <% @uploaded_recipes.each do |recipe| %>
+          <%= link_to recipe.title, recipe %><br>
         <% end %>
-      </div>
-    <% elsif @user.greeting.present? %>
-      <div class="patron-light__medium">
-        <%= @user.greeting %>
-      </div>
+      <% elsif users_own_profile? %>
+        <div class="patron-light__medium">
+          You havent uploaded any recipes.
+        </div>
+        Upload your first recipe
+      <% end %>
+
       <br><br>
-    <% end %>
 
-    <% if @uploaded_recipes.any? %>
-      <h2 class="patron-medium__medium"><%= @user.name.possessive %> Recipes</h2>
-      <% @uploaded_recipes.each do |recipe| %>
-        <%= link_to recipe.title, recipe %><br>
+      <% if @collected_recipes.any? %>
+        <h2 class="patron-medium__medium">Recipes <%= @user.name %> has collected</h2>
+        <% @collected_recipes.each do |recipe| %>
+          <%= link_to recipe.title, recipe %>, uploaded by <%= link_to recipe.user.name, recipe.user %><br>
+        <% end %>
+      <% elsif users_own_profile? %>
+        <div class="patron-light__medium">
+          You havent saved any recipes.
+        </div>
+        Browse 100s of recipes
       <% end %>
-    <% elsif users_own_profile? %>
-      <div class="patron-light__medium">
-        You havent uploaded any recipes.
-      </div>
-      Upload your first recipe
-    <% end %>
 
-    <br><br>
+      <br><br><br><br>
 
-    <% if @collected_recipes.any? %>
-      <h2 class="patron-medium__medium">Recipes <%= @user.name %> has collected</h2>
-      <% @collected_recipes.each do |recipe| %>
-        <%= link_to recipe.title, recipe %>, uploaded by <%= link_to recipe.user.name, recipe.user %><br>
-      <% end %>
-    <% elsif users_own_profile? %>
-      <div class="patron-light__medium">
-        You havent saved any recipes.
-      </div>
-      Browse 100s of recipes
-    <% end %>
-
-    <br><br><br><br>
-
+    </div>
   </div>
 </div>

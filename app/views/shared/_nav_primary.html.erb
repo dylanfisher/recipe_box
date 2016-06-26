@@ -1,6 +1,12 @@
 <nav id="nav--primary" class="nav--primary nav--primary--with-logo nav--primary--fixed clearfix">
-  <%= link_to(root_path, class: 'nav--primary--with-logo__home-link') do %>
-    <%= embedded_svg('recipe-box-logo', class: 'recipe-box-logo nav--primary__recipe-box-logo') %>
-  <% end %>
-  <%= render 'shared/nav_primary_list' %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <%= link_to(root_path, class: 'nav--primary--with-logo__home-link') do %>
+          <%= embedded_svg('recipe-box-logo', class: 'recipe-box-logo nav--primary__recipe-box-logo') %>
+        <% end %>
+        <%= render 'shared/nav_primary_list' %>
+      </div>
+    </div>
+  </div>
 </nav>
