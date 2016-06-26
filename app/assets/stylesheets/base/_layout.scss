@@ -5,7 +5,7 @@ html, body {
 .application-body {
   @include breakpoint(sm) {
     .application-wrapper {
-      padding-top: $header-height + 20px;
+      padding-top: $header-height + 60px;
     }
 
     &.controller--home .application-wrapper {

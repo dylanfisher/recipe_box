@@ -171,7 +171,6 @@ $font-stack__bangla-regular : 'bangla',         serif;
   @include type-generator($font-size, $letter-spacing);
   line-height: 1.2;
   font-family: $font-stack__bangla-regular;
-  font-weight: bold;
 }
 .bangla-regular__large {
   @include bangla-regular__large;
@@ -183,7 +182,6 @@ $font-stack__bangla-regular : 'bangla',         serif;
   @include type-generator($font-size, $letter-spacing);
   line-height: 1.2;
   font-family: $font-stack__bangla-regular;
-  font-weight: bold;
 }
 .bangla-regular__huge {
   @include bangla-regular__huge;

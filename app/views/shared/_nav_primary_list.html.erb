@@ -1,15 +1,15 @@
 <ul class="nav--primary__list">
   <li class="nav--primary__list-item">
-    <%= link_to('Recipes', recipes_path, class: 'link--blank-hover') %>
+    <%= link_to('Recipes', recipes_path, class: nav_class(recipes_path)) %>
   </li>
   <li class="nav--primary__list-item">
-    <%= link_to('About', about_path, class: 'link--blank-hover') %>
+    <%= link_to('About', about_path, class: nav_class(about_path)) %>
   </li>
   <li class="nav--primary__list-item">
-    <%= link_to('MMMBox', tumblr_path, class: 'link--blank-hover') %>
+    <%= link_to('MMMBox', tumblr_path, class: nav_class(tumblr_path)) %>
   </li>
   <li class="nav--primary__list-item">
-    <%= link_to('Profile', user_or_login_path, class: 'link--blank-hover') %>
+    <%= link_to('Profile', user_or_login_path, class: nav_class(user_or_login_path)) %>
   </li>
 </ul>
 
