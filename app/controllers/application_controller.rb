@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_or_guest_user
 
   def redirect_to_holding_page
-    if Rails.env.production?
+    if Rails.env.production? && ( controller_name != 'sessions' && !current_user )
       redirect_to holding_page_path unless controller_name == 'holding_pages'
     end
   end
