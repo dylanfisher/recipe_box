@@ -1,0 +1,19 @@
+<% cache recipe do %>
+  <div class="featured-recipe" style="color: <%= recipe.color %>">
+    <div class="col-sm-5 vcenter">
+      <%= link_to(recipe, class: 'link--blank') do %>
+        <div class="featured-recipe__image-wrapper">
+          <%= render 'recipes/gem', recipe: recipe %>
+          <%= image_tag(recipe.featured_image.url(:medium)) %>
+        </div>
+      <% end %>
+    </div><!--
+ --><div class="col-sm-5 col-sm-offset-1 vcenter">
+      <%= link_to(recipe, class: 'link--blank') do %>
+        <%= content_tag(:h2, recipe.title, class: 'featured-recipe__title bangla-regular__large margin-bottom-small') %>
+      <% end %>
+      <%= link_to("by #{recipe.user.first_name}", user_path(recipe.user), class: 'link--default ib featured-recipe__user patron-thin__large margin-bottom-large') %>
+      <%= content_tag(:div, recipe.description, class: 'featured-recipe__description patron-thin__large') %>
+    </div>
+  </div>
+<% end %>

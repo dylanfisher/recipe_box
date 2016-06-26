@@ -18,7 +18,7 @@
 
 <%# if !current_user %>
   <div class="controller--home__sign-up-wrapper margin-bottom-huge row">
-    <div class="text-center patron-medium__medium margin-bottom-medium">What‘s cooking?</div>
+    <div class="text-center patron-medium__large margin-bottom-medium">What‘s cooking?</div>
     <div class="clearfix">
       <div class="text-center patron-thin__large margin-bottom-large col-sm-6 col-sm-offset-3">Recipe Box is all about preserving recipes that are good for your soul or good for you body.</div>
     </div>
@@ -27,6 +27,22 @@
     </div>
   </div>
 <%# end %>
+
+<div class="controller--home__featured-recipe-wrapper margin-bottom-huge row">
+  <div class="col-sm-12">
+    <div class="text-center patron-medium__large margin-bottom-large">Featured Recipe</div>
+    <%= render 'recipes/featured_recipe', recipe: @featured_recipe %>
+  </div>
+</div>
+
+<div class="controller--home__recently-uploaded-recipes margin-bottom-huge row">
+  <div class="col-sm-12">
+    <div class="text-center patron-medium__large margin-bottom-large">Recently Uploaded Recipes</div>
+    <div class="row">
+      <%= render 'recipes/recently_uploaded_recipes', recipes: @recently_uploaded_recipes %>
+    </div>
+  </div>
+</div>
 
 <div class="controller--home__about-area row">
   <div class="controller--home__about-area__left-column controller--home__about-area__column text-center col-sm-4">

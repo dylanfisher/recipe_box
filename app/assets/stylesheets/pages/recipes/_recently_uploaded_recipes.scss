@@ -1,0 +1,26 @@
+// Recently uploaded recipes
+
+.controller--home__recently-uploaded-recipes {
+  background: $yellow-light;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.recently-uploaded-recipes__recipe,
+.recently-uploaded-recipes__recipe__title,
+.recently-uploaded-recipes__recipe .recipe__gem {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.recently-uploaded-recipes__recipe {
+  margin-right: 200px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  .recipe__gem {
+    margin-right: 10px;
+  }
+}

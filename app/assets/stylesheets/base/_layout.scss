@@ -53,3 +53,9 @@ html, body {
 .padding-bottom-medium { padding-bottom: 20px; }
 .padding-bottom-large  { padding-bottom: 50px; }
 .padding-bottom-huge   { padding-bottom: 100px; }
+
+.vcenter {
+  float: none;
+  vertical-align: middle;
+  display: inline-block;
+}

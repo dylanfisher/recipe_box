@@ -28,7 +28,7 @@ class Recipe < ActiveRecord::Base
               association_foreign_key: :pairing_id
 
   scope :recent,        -> { order(updated_at: :desc) }
-  scope :randomize,     -> { order('random()') }
+  scope :random,        -> { order('random()') }
   scope :collected,     -> { joins(:boxes).where('boxes.id IS NOT NULL').distinct }
   scope :not_collected, -> { includes(:boxes).where( boxes: { id: nil } ) }
   scope :uploaded_by,   -> (user_id) { joins(:user).where('recipes.user_id = ?', user_id) }

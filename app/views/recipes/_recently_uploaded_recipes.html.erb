@@ -1,0 +1,14 @@
+<% cache cache_key_for(recipes) do %>
+  <div class="recently-uploaded-recipes">
+    <div class="marquee-wrapper">
+      <div class="marquee">
+        <% recipes.each do |recipe| %>
+          <div class="recently-uploaded-recipes__recipe">
+            <%= render 'recipes/gem', recipe: recipe %>
+            <%= link_to(recipe.title, recipe_path(recipe), class: 'recently-uploaded-recipes__recipe__title patron-regular__large link--blank') %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

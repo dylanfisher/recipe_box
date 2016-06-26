@@ -7,7 +7,7 @@ class RecipesController < ApplicationController
 
   def show
     @recipe   = Recipe.friendly.find(params[:id])
-    @pairings = @recipe.pairings.randomize
+    @pairings = @recipe.pairings.random
     @user     = @recipe.user
 
     if !Rails.cache.exist?([@recipe, @user])

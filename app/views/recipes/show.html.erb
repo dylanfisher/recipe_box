@@ -23,7 +23,7 @@
     <%= content_tag(:h1, @recipe.title, class: 'recipe--show__title text-center bangla-regular__huge') %>
 
     <%= content_tag(:div, class: 'recipe--show__image text-center') do %>
-      <%= image_tag(@recipe.featured_image.url(:medium), data: { gradient_map: "#000, #{@recipe.color}, #fff 100%" }) %>
+      <%= image_tag(@recipe.featured_image.url(:medium)) %>
     <% end if @recipe.featured_image.present? %>
 
     <%= content_tag(:div, class: 'recipe--show__intro patron-light__large text-center') do %>

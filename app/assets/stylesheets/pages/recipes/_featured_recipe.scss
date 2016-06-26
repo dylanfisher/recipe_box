@@ -1,0 +1,12 @@
+// Feature recipes
+
+.featured-recipe__image-wrapper {
+  position: relative;
+
+  .recipe__gem {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
