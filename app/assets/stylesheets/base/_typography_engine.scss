@@ -119,6 +119,17 @@ $font-stack__bangla-regular : 'bangla',         serif;
   @include patron-medium__smallcaps;
 }
 
+@mixin patron-medium__regular {
+  $font-size      : 20px;
+  $letter-spacing : 0.5px;
+  @include type-generator($font-size, $letter-spacing);
+  line-height: 1.4;
+  font-family: $font-stack__patron-medium;
+}
+.patron-medium__regular {
+  @include patron-medium__regular;
+}
+
 @mixin patron-medium__medium {
   $font-size      : 30px;
   $letter-spacing : 0.5px;

@@ -1,5 +1,6 @@
 $('#infinite-loader').remove();
 $('.mmmbox-images').append('<%=j render 'mmmbox_images' %>');
+App.scrollReveal.sync();
 window.setTimeout(function() {
   App.infiniteLoadInProgress = false;
 }, 500);
