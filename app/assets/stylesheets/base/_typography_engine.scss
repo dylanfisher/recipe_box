@@ -23,29 +23,6 @@ $font-stack__bangla-regular : 'bangla',         serif;
 // Patron
 //
 
-// Patron light
-@mixin patron-light__large {
-  $font-size      : 42px;
-  $letter-spacing : 1.2px;
-  font-family: $font-stack__patron-light;
-  line-height: 1.2;
-  @include type-generator($font-size, $letter-spacing);
-}
-.patron-light__large {
-  @include patron-light__large;
-}
-
-@mixin patron-light__medium {
-  $font-size      : 27px;
-  $letter-spacing : 0.5px;
-  font-family: $font-stack__patron-light;
-  line-height: 1.4;
-  @include type-generator($font-size, $letter-spacing);
-}
-.patron-light__medium {
-  @include patron-light__medium;
-}
-
 // Patron thin
 @mixin patron-thin__regular {
   $font-size      : 16px;
@@ -80,6 +57,31 @@ $font-stack__bangla-regular : 'bangla',         serif;
   @include patron-thin__large;
 }
 
+
+// Patron light
+@mixin patron-light__large {
+  $font-size      : 42px;
+  $letter-spacing : 1.2px;
+  font-family: $font-stack__patron-light;
+  line-height: 1.2;
+  @include type-generator($font-size, $letter-spacing);
+}
+.patron-light__large {
+  @include patron-light__large;
+}
+
+@mixin patron-light__medium {
+  $font-size      : 27px;
+  $letter-spacing : 0.5px;
+  font-family: $font-stack__patron-light;
+  line-height: 1.4;
+  @include type-generator($font-size, $letter-spacing);
+}
+.patron-light__medium {
+  @include patron-light__medium;
+}
+
+
 // Patron regular
 @mixin patron-regular__medium {
   $font-size      : 23px;
@@ -102,6 +104,7 @@ $font-stack__bangla-regular : 'bangla',         serif;
 .patron-regular__large {
   @include patron-regular__large;
 }
+
 
 // Patron medium
 @mixin patron-medium__smallcaps {

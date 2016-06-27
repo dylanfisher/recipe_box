@@ -17,19 +17,8 @@
 
 // Show
 
-.recipe--show__gem,
-.recipe--show__image,
-.recipe--show__title,
-.recipe--show__intro,
-.recipe--show__notes,
-.recipe--show__actions,
-.recipe--show__ingredients-procedure-wrapper {
-  margin-bottom: 40px;
-}
-
-.recipe--show__description,
-.recipe--show__content {
-  margin-bottom: 80px;
+.recipe--show__gem {
+  margin-bottom: 50px;
 }
 
 .recipe--show__actions__save {
@@ -90,6 +79,7 @@
 
 .ingredient {
   @extend .clearfix;
+  margin-bottom: 1em;
 }
 
 .ingredient__amount,
@@ -112,10 +102,15 @@
   padding-bottom: 40px;
 
   @include breakpoint(sm) {
-    padding: 80px;
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
 }
 
 .recipe--show__collected-by__user__total-wrapper {
   margin-top: 1em;
+}
+
+.save-to-box-button {
+  margin-right: 50px;
 }

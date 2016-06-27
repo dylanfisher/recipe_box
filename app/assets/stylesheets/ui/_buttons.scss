@@ -26,6 +26,12 @@
   @include button-base;
 }
 
+.button--medium {
+  @include patron-regular__medium;
+  @include button-base;
+  padding: 0.825em 1em 0.7em;
+}
+
 .button--large {
   @include patron-medium__medium;
   @include button-base;

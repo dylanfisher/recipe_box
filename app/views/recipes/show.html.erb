@@ -21,59 +21,55 @@
 
       <%= render 'gem', recipe: @recipe %>
 
-      <%= content_tag(:h1, @recipe.title, class: 'recipe--show__title text-center bangla-regular__huge') %>
+      <%= content_tag(:h1, @recipe.title, class: 'recipe--show__title text-center bangla-regular__huge margin-bottom-large') %>
 
-      <%= content_tag(:div, class: 'recipe--show__image text-center') do %>
-        <%= image_tag(@recipe.featured_image.url(:medium)) %>
-      <% end if @recipe.featured_image.present? %>
-
-      <%= content_tag(:div, class: 'recipe--show__intro patron-light__large text-center') do %>
-        This is a <%= @recipe.diet_names %> recipe posted by <%= link_to(@user.name, user_path(@user), class: 'link--default') %>.
-      <% end %>
-
-      <%= content_tag(:div, class: 'recipe--show__description patron-light__medium') do %>
-        <%= md @recipe.description %>
-      <% end if @recipe.description? %>
-
-      <div class="recipe--show__actions patron-medium__large line-height-normal row">
-        <div class="recipe--show__actions__save col-sm-6">
-          <%= link_to 'Save to your box', save_to_box_path, method: :post, remote: true %>
+      <div class="row margin-bottom-large">
+        <div class="col-sm-5">
+          <%= content_tag(:div, class: 'recipe--show__image text-center') do %>
+            <%= image_tag(@recipe.featured_image.url(:medium)) %>
+          <% end if @recipe.featured_image.present? %>
         </div>
-        <div class="recipe--show__actions__print col-sm-6">
-          <%= link_to('Print / Save as PDF', recipe_path(format: :pdf), class: 'link--blank') %>
+        <div class="col-sm-5 col-sm-offset-1">
+          <%= content_tag(:div, md(@recipe.description), class: 'recipe--show__description patron-light__medium') if @recipe.description.present? %>
+          <%= content_tag(:div, class: 'recipe--show__intro patron-light__medium') do %>
+            This is a <%= @recipe.diet_names %> recipe posted by <%= link_to(@user.name, user_path(@user), class: 'link--default') %>.
+          <% end %>
         </div>
       </div>
 
-      <hr class="hr--dotted">
+      <div class="row margin-bottom-large">
+        <div class="col-sm-8 col-sm-offset-4">
+          <%= link_to 'Save to your box', save_to_box_path, method: :post, remote: true, class: 'button--medium save-to-box-button' %>
+          <%= link_to('Print / Save as PDF', recipe_path(format: :pdf), class: 'button--medium') %>
+        </div>
+      </div>
 
-      <div class="recipe--show__body patron-light__medium">
-        <div class="recipe--show__ingredients-procedure-wrapper">
-          <div class="row">
-            <div class="recipe--show__ingredients col-sm-6">
-              <h3 class="h3 subtitle">Ingredients</h3>
-              <%= render partial: 'ingredient', collection: @recipe.ingredients %>
-            </div>
-
-            <div class="recipe--show__steps col-sm-6">
-              <h3 class="h3 subtitle">Procedure</h3>
-              <ol class="list-style--lower-roman">
-                <%= render partial: 'step', collection: @recipe.steps %>
-              </ol>
-            </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <h3 class="subtitle">Ingredients</h3>
+          <div class="patron-light__medium">
+            <%= render partial: 'ingredient', collection: @recipe.ingredients %>
           </div>
         </div>
+        <div class="col-sm-8">
+          <h3 class="subtitle">Procedure</h3>
+          <div class="patron-light__medium margin-bottom-large">
+            <ol class="list--default">
+              <%= render partial: 'step', collection: @recipe.steps %>
+            </ol>
+          </div>
+
+          <%= content_tag(:div, class: 'recipe--show__notes patron-light__medium margin-bottom-large') do %>
+            <h3 class="h3 subtitle">Notes</h3>
+            <%= @recipe.notes %>
+          <% end if @recipe.notes? %>
+
+          <%= content_tag(:div, class: 'recipe--show__acknowledgements patron-light__medium margin-bottom-large') do %>
+            <h3 class="h3 subtitle">Acknowledgements</h3>
+            <%= @recipe.acknowledgements %>
+          <% end if @recipe.acknowledgements? %>
+        </div>
       </div>
-
-      <%= content_tag(:div, class: 'recipe--show__notes patron-light__medium') do %>
-        <h3 class="h3 subtitle">Notes</h3>
-        <%= @recipe.notes %>
-      <% end if @recipe.notes? %>
-
-      <%= content_tag(:div, class: 'recipe--show__acknowledgements patron-light__medium') do %>
-        <h3 class="h3 subtitle">Acknowledgements</h3>
-        <%= @recipe.acknowledgements %>
-      <% end if @recipe.acknowledgements? %>
-
     </div>
   </div>
 </div>
