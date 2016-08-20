@@ -31,11 +31,45 @@
 }
 
 // Alignment
-.text-left           { text-align: left; }
-.text-right          { text-align: right; }
-.text-center         { text-align: center; }
-.text-justify        { text-align: justify; }
-.text-nowrap         { white-space: nowrap; }
+.text-left {
+  text-align: left;
+
+  input,
+  textarea {
+    text-align: left;
+  }
+ }
+
+.text-right {
+  text-align: right;
+
+  input,
+  textarea {
+    text-align: right;
+  }
+ }
+
+.text-center {
+  text-align: center;
+
+  input,
+  textarea {
+    text-align: center;
+  }
+ }
+
+.text-justify {
+  text-align: justify;
+
+  input,
+  textarea {
+    text-align: justify;
+  }
+ }
+
+.text-nowrap {
+  white-space: nowrap;
+ }
 
 // Transformation
 .text-lowercase      { text-transform: lowercase; }

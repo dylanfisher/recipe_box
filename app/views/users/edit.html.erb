@@ -2,11 +2,9 @@
   <div class="row">
     <%= simple_form_for(@user, html: { class: 'inline-input', data: { droppable_url: edit_user_path(@user) } }) do |f| %>
 
-      <div class="col-sm-10 col-sm-offset-1">
-        <div class="user-edit__actions text-left">
-          <%= link_to('Cancel', user_path(@user), class: 'user-edit__cancel-recipe-button button') %>
-          <%= f.button :submit, 'Save', class: 'user-edit__save-recipe-button button' %>
-        </div>
+      <div class="user-edit__actions">
+        <%= link_to('Cancel', user_path(@user), class: 'user-edit__cancel-recipe-button button') %>
+        <%= f.button :submit, 'Save', class: 'user-edit__save-recipe-button button' %>
       </div>
 
       <div class="content-column text-center">

@@ -1,0 +1,16 @@
+.edit-recipes-list-item {
+  border-top: $dotted-border;
+  padding: 10px 0;
+
+  &:last-child {
+    border-bottom: $dotted-border;
+  }
+}
+
+.edit-recipes-list-item__row-link {
+  &:hover {
+    & + div .edit-recipes-list-item__edit-button {
+      @extend .button--hover;
+    }
+  }
+}

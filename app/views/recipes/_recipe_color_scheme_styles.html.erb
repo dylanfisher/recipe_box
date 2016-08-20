@@ -1,0 +1,11 @@
+<%# Color scheme unique to this recipe %>
+<style type="text/css">
+  .link--default {
+    background: -webkit-linear-gradient(#fff, #fff),
+    -webkit-linear-gradient(#fff, #fff),
+    -webkit-linear-gradient(<%= @recipe.color %>, <%= @recipe.color %>);
+  }
+  .nav--primary__recipe-box-logo:hover {
+    fill: <%= @recipe.color %>;
+  }
+</style>

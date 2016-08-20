@@ -7,15 +7,19 @@ class UserPolicy < ApplicationPolicy
     admin? or user == record
   end
 
+  def edit_recipes?
+    edit?
+  end
+
   def update?
-    admin? or edit?
+    edit?
   end
 
   def confirm?
-    admin? or edit?
+    edit?
   end
 
   def confirm_update?
-    admin? or edit?
+    edit?
   end
 end

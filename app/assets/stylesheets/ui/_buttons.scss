@@ -7,12 +7,26 @@
   border-radius: 0.5em;
   line-height: 1;
   transition: all $tt-short;
+  text-align: center !important;
 
   &:hover,
   &:focus {
-    background: $color-active;
-    outline: 0;
+    @include button-hover;
   }
+
+  &.button--active {
+    background-color: $white;
+
+    &:hover,
+    &:focus {
+      background-color: $white;
+    }
+  }
+}
+
+@mixin button-hover {
+  background: $color-active;
+  outline: 0;
 }
 
 .button {
@@ -26,4 +40,8 @@
   @include patron-thin__regular;
   @include button-base;
   padding: 0.425em 0.6em 0.3em;
+}
+
+.button--hover {
+  @include button-hover;
 }

@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery_plugins
 //= require turbolinks
+//= require cocoon
 //= require_tree ./vendor
 //= require main
 //= require_tree ./scripts

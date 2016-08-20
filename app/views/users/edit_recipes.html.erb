@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+
+    <div class="user__actions margin-bottom-small">
+      <div class="text-left">
+        <%= link_to 'Go back', user_path(@user), class: 'button' %>
+      </div>
+    </div>
+
+    <div class="patron-medium__large text-center margin-bottom-large">Edit your recipes</div>
+
+    <div class="content-column margin-bottom-large">
+      <div class="text-center">
+        <% if action_name == 'edit_recipes' %>
+          <%= content_tag :span, 'Your recipes', class: 'button button--active' %>
+          <%= link_to 'Your saved recipes', edit_user_saved_recipes_path, class: 'button' %>
+        <% else %>
+          <%= link_to 'Your recipes', edit_user_recipes_path, class: 'button' %>
+          <%= content_tag :span, 'Your saved recipes', class: 'button button--active' %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+
+  <%= render partial: 'edit_recipes_list_item', collection: @recipes, as: :recipe %>
+</div>

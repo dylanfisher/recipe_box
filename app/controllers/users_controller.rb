@@ -1,8 +1,18 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :confirm, :confirm_update]
+  before_action :set_user, only: [:show, :edit_recipes, :edit_saved_recipes, :edit, :update, :confirm, :confirm_update]
   before_action :set_box_styles, only: [:show, :edit]
 
   def index
+  end
+
+  def edit_recipes
+    authorize @user
+    @recipes = @user.recipes
+  end
+
+  def edit_saved_recipes
+    @recipes = @user.saved_recipes
+    render action: :edit_recipes
   end
 
   def edit

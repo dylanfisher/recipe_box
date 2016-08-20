@@ -20,9 +20,13 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
   margin: 0 0 1em;
+
+  &:only-child {
+    margin-bottom: 0;
+  }
 }
 
-.no-last-paragraph-margin {
+.no-last-p-margin {
   p:last-child {
     margin-bottom: 0;
   }
@@ -31,6 +35,12 @@ p {
 h1, h2, h3, h4, h5, h6 {
   font-weight: inherit;
   font-size: inherit;
+}
+
+.title {
+  @include patron-medium__large;
+  margin-bottom: 1em;
+  text-align: center;
 }
 
 .subtitle {
