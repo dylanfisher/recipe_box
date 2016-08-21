@@ -93,4 +93,7 @@ group :development do
   # 1. Generate model: bin/rails g model Post title:string content:text
   # 2. Create admin scaffold: bin/rails g admin:scaffold_controller Post title content --parent_controller=admin
   gem 'rails-admin-scaffold'
+
+  # Attach comments to ActiveRecord's SQL queries https://github.com/basecamp/marginalia
+  gem 'marginalia'
 end

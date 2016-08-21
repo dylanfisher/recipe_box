@@ -23,8 +23,8 @@ class RecipesController < ApplicationController
   end
 
   def save_to_box
+    authorize @recipe
     @user = current_or_guest_user
-    authorize @user
 
     respond_to do |format|
       if @user.box.recipes.include?(@recipe)
@@ -49,14 +49,13 @@ class RecipesController < ApplicationController
 
   # GET /recipes/new
   def new
-    authorize @user
     @recipe = Recipe.new
+    authorize @recipe
   end
 
   # GET /recipes/1/edit
   def edit
-    @user = @recipe.user
-    authorize @user
+    authorize @recipe
     @pairings = @recipe.pairings.random
   end
 
@@ -64,8 +63,8 @@ class RecipesController < ApplicationController
   # POST /recipes.json
   def create
     @recipe = Recipe.new(recipe_params)
+    authorize @recipe
     @recipe.user = current_user if current_user
-    authorize @user
 
     respond_to do |format|
       if @recipe.save
@@ -81,6 +80,8 @@ class RecipesController < ApplicationController
   # PATCH/PUT /recipes/1
   # PATCH/PUT /recipes/1.json
   def update
+    authorize @recipe
+
     respond_to do |format|
       if @recipe.update(recipe_params)
         format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
@@ -95,6 +96,8 @@ class RecipesController < ApplicationController
   # DELETE /recipes/1
   # DELETE /recipes/1.json
   def destroy
+    authorize @recipe
+
     @recipe.destroy
     respond_to do |format|
       format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
@@ -109,12 +112,23 @@ class RecipesController < ApplicationController
     end
 
     def user_not_authorized(exception)
-      policy_name = exception.policy.class.to_s.underscore
+      # policy_name = exception.policy.class.to_s.underscore
 
       # TODO: Redirect to sign up page
       flash.now[:error] = "You must #{view_context.link_to('sign in', new_user_session_path, class: 'link')} before you can add a recipe to your box."
       respond_to do |format|
+        format.html { redirect_to @recipe, flash: {
+          error: not_authorized_to_edit_flash_error }
+        }
         format.js { render 'shared/flash_messages' }
+      end
+    end
+
+    def not_authorized_to_edit_flash_error
+      if current_user
+        "You don't have permission to edit that recipe."
+      else
+        "You must #{view_context.link_to('sign in', new_user_session_path, class: 'link')} before you can edit a recipe."
       end
     end
 end

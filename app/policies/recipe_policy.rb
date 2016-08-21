@@ -1,15 +1,10 @@
-class UserPolicy < ApplicationPolicy
+class RecipePolicy < ApplicationPolicy
   def save_to_box?
     registered?
   end
 
   def edit?
-    # binding.pry
-    admin?
-  end
-
-  def edit_recipes?
-    edit?
+    admin? || user == record.user
   end
 
   def update?

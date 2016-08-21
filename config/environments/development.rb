@@ -50,3 +50,5 @@ Rails.application.configure do
     }
   }
 end
+
+Marginalia::Comment.components = [:controller, :action, :line]

@@ -6,7 +6,7 @@
 
       <div class="user__actions margin-bottom-small">
         <div class="text-left">
-          <%= link_to 'Cancel', edit_user_recipes_path(@user), class: 'button' %>
+          <%= link_to 'Cancel', edit_user_recipes_path(@recipe.user), class: 'button' %>
         </div>
         <div class="text-right">
           <%= f.button :submit, class: 'button', value: 'Save' %>
