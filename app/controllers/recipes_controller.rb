@@ -131,4 +131,25 @@ class RecipesController < ApplicationController
         "You must #{view_context.link_to('sign in', new_user_session_path, class: 'link')} before you can edit a recipe."
       end
     end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def recipe_params
+      params.require(:recipe).permit(:title,
+                                     :description,
+                                     :notes,
+                                     :acknowledgements,
+                                     :featured_image,
+                                     :user_id,
+                                     :jewel_id,
+                                     :color_scheme_id,
+                                     :cuisine_ids => [],
+                                     :meal_type_ids => [],
+                                     :diet_ids => [],
+                                     :season_ids => [],
+                                     :occasion_ids => [],
+                                     :pairing_ids => [],
+                                     :box_ids => [],
+                                     steps_attributes: [:id, :_destroy, :position, :description],
+                                     ingredients_attributes: [:id, :_destroy, :position, :title, :amount],)
+    end
 end

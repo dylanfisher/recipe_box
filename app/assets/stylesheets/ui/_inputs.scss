@@ -14,10 +14,33 @@
     }
   }
 
+  select {
+    width: 100%;
+  }
+
   textarea {
     resize: vertical;
     border: 1px dashed;
     height: 150px;
+  }
+
+  label {
+    @include patron-medium__smallcaps;
+    display: block;
+    text-align: left;
+  }
+
+  .nested-fields {
+    margin-bottom: 30px;
+  }
+
+  .add_fields {
+    @include button;
+  }
+
+  .remove_fields {
+    @include button--small;
+    margin-top: 10px;
   }
 }
 

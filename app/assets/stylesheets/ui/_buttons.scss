@@ -29,17 +29,25 @@
   outline: 0;
 }
 
-.button {
+@mixin button {
   @include patron-medium__regular;
   @include button-base;
   width: 220px;
   padding: 22px 5px 18px;
 }
 
-.button--small {
+@mixin button--small {
   @include patron-thin__regular;
   @include button-base;
   padding: 0.425em 0.6em 0.3em;
+}
+
+.button {
+  @include button;
+}
+
+.button--small {
+  @include button--small;
 }
 
 .button--hover {

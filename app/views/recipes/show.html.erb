@@ -1,110 +1,124 @@
-<%# Page Meta %>
-<%= page_title(@recipe.title) %>
-<%= page_description("#{@recipe.title} is a recipe by #{@recipe.user.full_name}. It was uploaded on #{full_date(@recipe.created_at)} and appears in #{@recipe.boxes.count} other boxes.") %>
+<% cache [@recipe, @user] do %>
 
-<%= render 'recipe_color_scheme_styles' %>
+  <%# Page Meta %>
+  <%= page_title(@recipe.title) %>
+  <%= page_description("#{@recipe.title} is a recipe by #{@recipe.user.full_name}. It was uploaded on #{full_date(@recipe.created_at)} and appears in #{@recipe.boxes.count} other boxes.") %>
 
-<%# Recipe body %>
-<div class="container">
-  <div class="row recipe--show__wrapper" style="color: <%= @recipe.color %>">
-    <div class="recipe--show__content col-sm-12">
+  <%= render 'recipe_color_scheme_styles' %>
 
-      <%= render 'gem', recipe: @recipe %>
+  <%# Recipe body %>
+  <div class="container">
+    <div class="row recipe--show__wrapper" style="color: <%= @recipe.color %>">
+      <div class="recipe--show__content col-sm-12">
 
-      <%= content_tag(:h1, @recipe.title, class: 'recipe--show__title text-center bangla-regular__huge margin-bottom-large') %>
+        <% if users_own_recipe? %>
+          <div class="user__actions margin-bottom-small">
+            <div class="text-right">
+              <%= link_to 'Edit recipe', edit_recipe_path(@recipe), class: 'button' %>
+            </div>
+          </div>
+        <% end %>
 
-      <div class="row margin-bottom-large">
-        <div class="col-sm-5">
-          <%= content_tag(:div, class: 'recipe--show__image text-center') do %>
-            <%= image_tag(@recipe.featured_image.url(:medium)) %>
-          <% end if @recipe.featured_image.present? %>
-        </div>
-        <div class="col-sm-5 col-sm-offset-1">
-          <%= content_tag(:div, md(@recipe.description), class: 'recipe--show__description patron-light__medium') if @recipe.description.present? %>
-          <%= content_tag(:div, class: 'recipe--show__intro patron-light__medium') do %>
-            This is a <%= @recipe.diet_names %> recipe posted by <%= link_to(@user.name, user_path(@user), class: 'link--default') %>.
-          <% end %>
-        </div>
-      </div>
+        <%= render 'gem', recipe: @recipe %>
 
-      <div class="row margin-bottom-large">
-        <div class="col-sm-8 col-sm-offset-4">
-          <%= link_to 'Save to your box', save_to_box_path, method: :post, remote: true, class: 'button save-to-box-button' %>
-          <%= link_to('Print / Save as PDF', recipe_path(format: :pdf), class: 'button') %>
-        </div>
-      </div>
+        <%= content_tag(:h1, @recipe.title, class: 'recipe--show__title text-center bangla-regular__huge margin-bottom-large') %>
 
-      <div class="row">
-        <div class="col-sm-4">
-          <h3 class="subtitle">Ingredients</h3>
-          <div class="patron-light__medium">
-            <%= render partial: 'ingredient', collection: @recipe.ingredients %>
+        <div class="row margin-bottom-large">
+          <div class="col-sm-5">
+            <%= content_tag(:div, class: 'recipe--show__image text-center') do %>
+              <%= image_tag(@recipe.featured_image.url(:medium)) %>
+            <% end if @recipe.featured_image.present? %>
+          </div>
+          <div class="col-sm-5 col-sm-offset-1">
+            <%= content_tag(:div, md(@recipe.description), class: 'recipe--show__description patron-light__medium') if @recipe.description.present? %>
+            <%= content_tag(:div, class: 'recipe--show__intro patron-light__medium') do %>
+              This is a <%= @recipe.diet_names %> recipe posted by <%= link_to(@user.name, user_path(@user), class: 'link--default') %>.
+            <% end %>
           </div>
         </div>
-        <div class="col-sm-8">
-          <h3 class="subtitle">Procedure</h3>
-          <div class="patron-light__medium margin-bottom-large">
-            <ol class="list--default">
-              <%= render partial: 'step', collection: @recipe.steps %>
-            </ol>
+
+        <div class="row margin-bottom-large">
+          <div class="col-sm-8 col-sm-offset-4">
+            <%= link_to 'Save to your box', save_to_box_path, method: :post, remote: true, class: 'button save-to-box-button' %>
+            <%= link_to('Print / Save as PDF', recipe_path(format: :pdf), class: 'button') %>
           </div>
+        </div>
 
-          <%= content_tag(:div, class: 'recipe--show__notes patron-light__medium margin-bottom-large') do %>
-            <h3 class="h3 subtitle">Notes</h3>
-            <%= @recipe.notes %>
-          <% end if @recipe.notes? %>
+        <div class="row">
+          <div class="col-sm-4">
+            <h3 class="subtitle">Ingredients</h3>
+            <div class="patron-light__medium">
+              <%= render partial: 'ingredient', collection: @recipe.ingredients %>
+            </div>
+          </div>
+          <div class="col-sm-8">
+            <h3 class="subtitle">Procedure</h3>
+            <div class="patron-light__medium margin-bottom-large">
+              <ol class="list--default">
+                <%= render partial: 'step', collection: @recipe.steps %>
+              </ol>
+            </div>
 
-          <%= content_tag(:div, class: 'recipe--show__acknowledgements patron-light__medium margin-bottom-large') do %>
-            <h3 class="h3 subtitle">Acknowledgements</h3>
-            <%= @recipe.acknowledgements %>
-          <% end if @recipe.acknowledgements? %>
+            <%= content_tag(:div, class: 'recipe--show__notes patron-light__medium margin-bottom-large') do %>
+              <h3 class="h3 subtitle">Notes</h3>
+              <%= @recipe.notes %>
+            <% end if @recipe.notes? %>
+
+            <%= content_tag(:div, class: 'recipe--show__acknowledgements patron-light__medium margin-bottom-large') do %>
+              <h3 class="h3 subtitle">Acknowledgements</h3>
+              <%= @recipe.acknowledgements %>
+            <% end if @recipe.acknowledgements? %>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<%# Recipe pairings %>
-<% if @recipe.pairings.any? %>
-  <div class="container-fluid">
-    <div class="recipe--show__pairings row">
-      <div class="recipe--show__pairings__left-column recipe--show__pairings__column text-center col-sm-4">
-        <div class="recipe--show__pairings__left-column__inner col-sm-4">
-          <div class="patron-regular__large">Suggested<br>pairings</div>
+  <%# Recipe pairings %>
+  <% if @recipe.pairings.any? %>
+    <div class="container-fluid">
+      <div class="recipe--show__pairings row">
+        <div class="recipe--show__pairings__left-column recipe--show__pairings__column text-center col-sm-4">
+          <div class="recipe--show__pairings__left-column__inner col-sm-4">
+            <div class="patron-regular__large">Suggested<br>pairings</div>
+          </div>
+        </div>
+        <div class="recipe--show__pairings__right-column recipe--show__pairings__column patron-thin__large col-sm-8" <%= "data-carousel" if @pairings.count > 1 %>>
+          <%= render partial: 'recipe', collection: @pairings, layout: 'pairing_layout' %>
         </div>
       </div>
-      <div class="recipe--show__pairings__right-column recipe--show__pairings__column patron-thin__large col-sm-8" <%= "data-carousel" if @pairings.count > 1 %>>
-        <%= render partial: 'recipe', collection: @pairings, layout: 'pairing_layout' %>
-      </div>
     </div>
-  </div>
+  <% end %>
+
 <% end %>
 
 <%# Collected by users %>
 <% if @recipe.collected? %>
   <% collected_limit = 3 %>
-  <div class="recipe--show__collected-by patron-regular__medium text-center">
-    <div class="container">
-      <div class="col-sm-12">
-        <h4 class="recipe--show__collected-by__title">This recipe has been collected by</h4>
-        <% @recipe.boxes.first(collected_limit).each do |box| %>
-          <div class="recipe--show__collected-by__user">
-            <span class="recipe--show__collected-by__user__avatar">
-              avatar
-            </span>
-            <%= link_to(box.user.full_name, box.user, class: 'recipe--show__collected-by__user__name') %>
-          </div>
-        <% end %>
-        <%# TODO: Add javascript for this toggle, and fix the link color %>
-        <% if @recipe.boxes.count > collected_limit %>
-          <div class="recipe--show__collected-by__user__total-wrapper">
-            and
-            <span class="recipe--show__collected-by__user__total-count link">
-              <%= @recipe.boxes.count %> others
-            </span>
-          </div>
-        <% end %>
+  <% cache @recipe.boxes.first(collected_limit) do %>
+    <div class="recipe--show__collected-by patron-regular__medium text-center">
+      <div class="container">
+        <div class="col-sm-12">
+          <h4 class="recipe--show__collected-by__title">This recipe has been collected by</h4>
+          <% @recipe.boxes.first(collected_limit).each do |box| %>
+            <div class="recipe--show__collected-by__user">
+              <span class="recipe--show__collected-by__user__avatar">
+                avatar
+              </span>
+              <%= link_to(box.user.full_name, box.user, class: 'recipe--show__collected-by__user__name') %>
+            </div>
+          <% end %>
+          <%# TODO: Add javascript for this toggle, and fix the link color %>
+          <% if @recipe.boxes.count > collected_limit %>
+            <div class="recipe--show__collected-by__user__total-wrapper">
+              and
+              <span class="recipe--show__collected-by__user__total-count link">
+                <%= @recipe.boxes.count %> others
+              </span>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 <% end %>

@@ -13,47 +13,49 @@
         </div>
       </div>
 
-      <div class="title">Edit your recipe</div>
+      <div class="title">Editing <%= @recipe.title.presence || 'your recipe' %></div>
 
       <div class="content-column text-center">
-        <div class="bangla-regular__huge margin-bottom-large">
-          <%= f.input :title, as: :text, label: false, placeholder: 'Recipe name' %>
-        </div>
-
-        <div class="patron-light__medium">
-          <%= f.input :description, label: false, placeholder: 'Description' %>
-        </div>
+        <%= f.input :title %>
+        <%= f.input :description %>
+        <%= f.input :notes %>
+        <%= f.input :acknowledgements %>
+        <%= f.input :featured_image, as: :file %>
+        <%= f.association :jewel %>
+        <%= f.association :color_scheme %>
+        <%= f.association :cuisines %>
+        <%= f.association :meal_types %>
+        <%= f.association :diets %>
+        <%= f.association :seasons %>
+        <%= f.association :occasions %>
+        <%= f.association :pairings, collection: Recipe.all_except(@recipe) %>
 
         <div class="subtitle">Categories</div>
 
         <hr class="hr--dotted">
-
-        <div class="patron-light__large">
-          To add a new step or ingredient, click the link at the end of the section.
-          Text that has a dotted underline is editable. To remove a step or ingredient,
-          simply select it and delete the text.
-        </div>
+        <br>
+        <br>
       </div>
 
       <div class="col-sm-4">
         <h3 class="subtitle">Ingredients</h3>
-        <div class="patron-light__medium" data-sortable="true">
+        <div data-sortable="true">
           <%= f.simple_fields_for :ingredients do |ingredient| %>
             <%= render 'ingredient_fields', f: ingredient %>
           <% end %>
           <div class="links">
-            <%= link_to_add_association 'add ingredient', f, :ingredients %>
+            <%= link_to_add_association 'Add ingredient', f, :ingredients %>
           </div>
         </div>
       </div>
       <div class="col-sm-8">
         <h3 class="subtitle">Procedure</h3>
-        <div class="patron-light__medium margin-bottom-large" data-sortable="true">
+        <div class="margin-bottom-large" data-sortable="true">
           <%= f.simple_fields_for :steps do |step| %>
             <%= render 'step_fields', f: step %>
           <% end %>
           <div class="links">
-            <%= link_to_add_association 'add step', f, :steps %>
+            <%= link_to_add_association 'Add step', f, :steps %>
           </div>
         </div>
       </div>
@@ -61,53 +63,13 @@
     </div>
   </div>
 
-
-<% end %>
-
-
-<% if false %>
-  <%= simple_form_for(@recipe) do |f| %>
-    <div class="form-inputs">
-      <%= f.input :title %>
-      <%= f.input :description %>
-      <%= f.input :notes %>
-      <%= f.input :acknowledgements %>
-      <%= f.input :featured_image, as: :file %>
-      <%= f.association :user, label_method: :first_name %>
-      <%= f.association :jewel %>
-      <%= f.association :color_scheme %>
-      <%= f.association :cuisines %>
-      <%= f.association :meal_types %>
-      <%= f.association :diets %>
-      <%= f.association :seasons %>
-      <%= f.association :occasions %>
-      <%= f.association :pairings, collection: Recipe.all_except(@recipe) %>
-
-      <h3>Ingredients</h3>
-      <div class="ingredients" data-sortable="true">
-        <%= f.simple_fields_for :ingredients do |ingredient| %>
-          <%= render 'ingredient_fields', f: ingredient %>
-        <% end %>
-        <div class="links">
-          <%= link_to_add_association 'add ingredient', f, :ingredients %>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="text-right">
+        <%= f.button :submit, class: 'button', value: 'Save' %>
       </div>
-
-      <h3>Procedure</h3>
-      <div class="steps" data-sortable="true">
-        <%= f.simple_fields_for :steps do |step| %>
-          <%= render 'step_fields', f: step %>
-        <% end %>
-        <div class="links">
-          <%= link_to_add_association 'add step', f, :steps %>
-        </div>
-      </div>
-
     </div>
+  </div>
 
-    <div class="form-actions">
-      <%= f.button :submit %>
-    </div>
-  <% end %>
 
 <% end %>
