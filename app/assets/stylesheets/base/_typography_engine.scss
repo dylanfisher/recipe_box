@@ -168,22 +168,11 @@ $font-stack__bangla-regular : 'bangla',         serif;
 // Bangla
 //
 
-@mixin bangla-regular__regular {
-  $font-size      : 16px;
-  $letter-spacing : 0.5px;
-  @include type-generator($font-size, $letter-spacing);
-  line-height: 1.4;
-  font-family: $font-stack__bangla-regular;
-}
-.bangla-regular__regular {
-  @include bangla-regular__regular;
-}
-
 @mixin bangla-regular__large {
   $font-size      : 38px;
-  $letter-spacing : 0.5px;
+  $letter-spacing : 0px;
   @include type-generator($font-size, $letter-spacing);
-  line-height: 1.2;
+  line-height: 1.5;
   font-family: $font-stack__bangla-regular;
 }
 .bangla-regular__large {
@@ -194,7 +183,7 @@ $font-stack__bangla-regular : 'bangla',         serif;
   $font-size      : 52px;
   $letter-spacing : 0px;
   @include type-generator($font-size, $letter-spacing);
-  line-height: 1.2;
+  line-height: 1.5;
   font-family: $font-stack__bangla-regular;
 }
 .bangla-regular__huge {

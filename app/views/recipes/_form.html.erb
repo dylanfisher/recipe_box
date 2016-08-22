@@ -32,6 +32,29 @@
 
         <div class="subtitle">Categories</div>
 
+        <div class="subtitle">Preparation time</div>
+
+        <div class="recipe__preparation-times">
+          <div class="recipe__preparation-time-wrapper recipe__preparation-time-wrapper--quick">
+            <input type="radio" id="recipe_preparation_time_quick" name="recipe[preparation_time]" value="<%= Recipe.preparation_times.key(0) %>" class="recipe__preparation-time__input" <%= 'checked' if @recipe.preparation_time == Recipe.preparation_times.key(0) %> />
+            <label class="recipe__preparation-time__label" for="recipe_preparation_time_quick">
+              <%= embedded_svg 'preparation-time-quick', class: 'recipe__preparation-time-icon recipe__preparation-time--quick' %>
+              <span class="recipe__preparation-time__label__name">Quick</span>
+            </label>
+          </div>
+
+          <div class="recipe__preparation-time-wrapper recipe__preparation-time-wrapper--slow">
+            <input type="radio" id="recipe_preparation_time_slow" name="recipe[preparation_time]" value="<%= Recipe.preparation_times.key(1) %>" class="recipe__preparation-time__input" <%= 'checked' if @recipe.preparation_time == Recipe.preparation_times.key(1) %> />
+            <label class="recipe__preparation-time__label" for="recipe_preparation_time_slow">
+              <%= embedded_svg 'preparation-time-quick', class: 'recipe__preparation-time-icon recipe__preparation-time--slow' %>
+              <span class="recipe__preparation-time__label__name">Time consuming</span>
+            </label>
+          </div>
+        </div>
+
+        <br>
+
+
         <hr class="hr--dotted">
         <br>
         <br>

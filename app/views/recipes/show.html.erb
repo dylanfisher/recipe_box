@@ -21,7 +21,7 @@
 
         <%= render 'gem', recipe: @recipe %>
 
-        <%= content_tag(:h1, @recipe.title, class: 'recipe--show__title text-center bangla-regular__huge margin-bottom-large') %>
+        <%= content_tag(:h1, @recipe.title, class: 'display-title') %>
 
         <div class="row margin-bottom-large">
           <div class="col-sm-5">
@@ -30,12 +30,27 @@
             <% end if @recipe.featured_image.present? %>
           </div>
           <div class="col-sm-5 col-sm-offset-1">
-            <%= content_tag(:div, md(@recipe.description), class: 'recipe--show__description patron-light__medium') if @recipe.description.present? %>
-            <%= content_tag(:div, class: 'recipe--show__intro patron-light__medium') do %>
+            <%= content_tag(:div, md(@recipe.description), class: 'recipe--show__description') if @recipe.description.present? %>
+            <%= content_tag(:div, class: 'recipe--show__intro') do %>
               This is a <%= @recipe.diet_names %> recipe posted by <%= link_to(@user.name, user_path(@user), class: 'link--default') %>.
             <% end %>
           </div>
         </div>
+
+        <% if @recipe.preparation_time.present? %>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="recipe__preparation-times margin-bottom-large">
+                <div class="recipe--show__preparation-time">
+                  <%= embedded_svg 'preparation-time-quick', class: 'recipe__preparation-time-icon recipe__preparation-time--quick' %>
+                  <div class="recipe__preparation-time__label__name">
+                    <%= @recipe.preparation_time.humanize %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
 
         <div class="row margin-bottom-large">
           <div class="col-sm-8 col-sm-offset-4">
@@ -47,24 +62,24 @@
         <div class="row">
           <div class="col-sm-4">
             <h3 class="subtitle">Ingredients</h3>
-            <div class="patron-light__medium">
+            <div class="">
               <%= render partial: 'ingredient', collection: @recipe.ingredients %>
             </div>
           </div>
           <div class="col-sm-8">
             <h3 class="subtitle">Procedure</h3>
-            <div class="patron-light__medium margin-bottom-large">
+            <div class=" margin-bottom-large">
               <ol class="list--default">
                 <%= render partial: 'step', collection: @recipe.steps %>
               </ol>
             </div>
 
-            <%= content_tag(:div, class: 'recipe--show__notes patron-light__medium margin-bottom-large') do %>
+            <%= content_tag(:div, class: 'recipe--show__notes margin-bottom-large') do %>
               <h3 class="h3 subtitle">Notes</h3>
               <%= @recipe.notes %>
             <% end if @recipe.notes? %>
 
-            <%= content_tag(:div, class: 'recipe--show__acknowledgements patron-light__medium margin-bottom-large') do %>
+            <%= content_tag(:div, class: 'recipe--show__acknowledgements margin-bottom-large') do %>
               <h3 class="h3 subtitle">Acknowledgements</h3>
               <%= @recipe.acknowledgements %>
             <% end if @recipe.acknowledgements? %>

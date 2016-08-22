@@ -39,9 +39,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :color_schemes
     resources :jewels
-    resources :recipes
     resources :user_groups
-    resources :users
     resources :users
   end
 

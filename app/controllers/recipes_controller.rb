@@ -138,6 +138,7 @@ class RecipesController < ApplicationController
                                      :description,
                                      :notes,
                                      :acknowledgements,
+                                     :preparation_time,
                                      :featured_image,
                                      :user_id,
                                      :jewel_id,

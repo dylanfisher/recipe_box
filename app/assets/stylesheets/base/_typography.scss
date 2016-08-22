@@ -37,6 +37,22 @@ h1, h2, h3, h4, h5, h6 {
   font-size: inherit;
 }
 
+.display-title,
+.title,
+.subtitle {
+  @include breakpoint(sm) {
+    max-width: 630px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.display-title {
+  @include bangla-regular__huge;
+  margin: 60px auto;
+  text-align: center;
+}
+
 .title {
   @include patron-medium__large;
   margin-bottom: 1em;
