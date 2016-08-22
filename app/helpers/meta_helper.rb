@@ -2,8 +2,10 @@ module MetaHelper
   DEFAULT_DESCRIPTION = 'Create an account and become part of Recipe Box today.'
   DEFAULT_KEYWORDS    = 'Recipe Box, New York, NYC, Design, Food, Vegetarian, Vegan, Healthy'
 
-  def page_title(path=[])
-    title = (Array(path) << 'Recipe Box').uniq.join(' | ')
+  def page_title(*paths)
+    paths = Array(paths)
+    paths << 'Recipe Box'
+    title = paths.uniq.join(' - ')
     content_for(:page_title, title.to_s)
   end
 

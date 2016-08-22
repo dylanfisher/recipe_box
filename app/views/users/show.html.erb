@@ -54,13 +54,16 @@
       <% if @uploaded_recipes.any? %>
         <% if users_own_profile? %>
           <%= link_to('Add a recipe', new_recipe_path, class: 'button') %>
+          <br><br>
         <% end %>
         <h2 class="patron-medium__medium"><%= @user.name.possessive %> Recipes</h2>
         <% @uploaded_recipes.each do |recipe| %>
           <%= link_to recipe.title, recipe %><br>
         <% end %>
         <% if users_own_profile? %>
+          <br><br>
           <%= link_to('View all recipes', edit_user_recipes_path, class: 'button') %>
+          <br>
         <% end %>
       <% elsif users_own_profile? %>
         <div class="patron-light__medium">

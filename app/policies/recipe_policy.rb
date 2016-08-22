@@ -4,7 +4,11 @@ class RecipePolicy < ApplicationPolicy
   end
 
   def edit?
-    admin? || user == record.user
+    user == record.user
+  end
+
+  def create?
+    user.present?
   end
 
   def update?

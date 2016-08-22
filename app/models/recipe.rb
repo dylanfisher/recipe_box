@@ -7,6 +7,8 @@ class Recipe < ActiveRecord::Base
 
   enum preparation_time: { quick: 0, time_consuming: 1 }
 
+  validates :title, :description, presence: true
+
   belongs_to :user
   belongs_to :jewel
   belongs_to :color_scheme
