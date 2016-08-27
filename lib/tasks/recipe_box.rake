@@ -1,4 +1,4 @@
-namespace :recipebox do
+namespace :recipe_box do
   desc "Bust all items in the Tumblr cache"
   task :bust_tumblr_cache => :environment do
     # TODO: figure out why this regex isn't working
