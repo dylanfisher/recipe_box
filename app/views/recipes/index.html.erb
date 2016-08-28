@@ -2,7 +2,7 @@
 <%= page_title('All Recipes') %>
 <%= page_description("There are #{Recipe.count} recipes on Recipe Box right now, uploaded by #{User.with_uploaded_recipes.count} different users. These are some of the most recent recipes.") %>
 
-<% cache cache_key_for(Recipe) do %>
+<% cache cache_key_for(@recipes) do %>
   <div class="recipe--index__recipes-grid recipes-grid row">
     <div class="col-sm-8 col-sm-offset-2">
       <div class="row">

@@ -4,7 +4,6 @@ class UserPolicy < ApplicationPolicy
   end
 
   def edit?
-    # binding.pry
     admin?
   end
 

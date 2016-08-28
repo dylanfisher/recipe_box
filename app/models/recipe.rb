@@ -2,11 +2,6 @@ class Recipe < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
 
-  # xs: 480,
-  # sm: 768,
-  # md: 992,
-  # lg: 1200
-
   has_attached_file :featured_image,
     styles: {
       sm: "768>",
@@ -17,6 +12,8 @@ class Recipe < ActiveRecord::Base
   validates_attachment_content_type :featured_image, content_type: /\Aimage\/.*\Z/
 
   enum preparation_time: { quick: 0, time_consuming: 1 }
+
+  after_save :touch!
 
   validates :title, :description, presence: true
 
@@ -61,4 +58,10 @@ class Recipe < ActiveRecord::Base
   def collected?
     boxes.any?
   end
+
+  private
+
+    def touch!
+      self.touch
+    end
 end
