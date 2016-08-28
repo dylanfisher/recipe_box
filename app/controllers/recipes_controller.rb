@@ -9,17 +9,6 @@ class RecipesController < ApplicationController
     @recipe   = Recipe.friendly.find(params[:id])
     @pairings = @recipe.pairings.random
     @user     = @recipe.user
-
-    if !Rails.cache.exist?([@recipe, @user])
-      Rails.cache.write([@recipe, @user], render_to_string(pdf: "#{@recipe.title} - #{Date.today.to_s}", template: 'recipes/pdf.html.erb', layout: 'pdf.html'))
-    end
-
-    respond_to do |format|
-      format.html
-      format.pdf do
-        render text: Rails.cache.read([@recipe, @user])
-      end
-    end
   end
 
   def save_to_box

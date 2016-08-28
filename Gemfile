@@ -52,10 +52,6 @@ gem 'cocoon'
 
 gem 'friendly_id', '~> 5.1.0'
 
-# PDF generation
-gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary'
-
 gem 'pry-rails'
 
 gem 'figaro'
