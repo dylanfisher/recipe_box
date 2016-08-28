@@ -26,7 +26,7 @@
         <div class="row margin-bottom-large">
           <div class="col-sm-5">
             <%= content_tag(:div, class: 'recipe--show__image text-center') do %>
-              <%= image_tag(@recipe.featured_image.url(:medium)) %>
+              <%= responsive_image(@recipe.featured_image, column_size: 5) %>
             <% end if @recipe.featured_image.present? %>
           </div>
           <div class="col-sm-5 col-sm-offset-1">

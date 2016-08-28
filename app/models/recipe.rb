@@ -2,7 +2,18 @@ class Recipe < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
 
-  has_attached_file :featured_image, styles: { medium: "500x500>" }, default_url: "/images/:style/missing.png"
+  # xs: 480,
+  # sm: 768,
+  # md: 992,
+  # lg: 1200
+
+  has_attached_file :featured_image,
+    styles: {
+      sm: "768>",
+      md: "992>",
+      lg: "1170>",
+      xl: "2000>",
+    }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :featured_image, content_type: /\Aimage\/.*\Z/
 
   enum preparation_time: { quick: 0, time_consuming: 1 }
