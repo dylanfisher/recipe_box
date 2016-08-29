@@ -2,13 +2,18 @@ class Recipe < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
 
+  searchkick settings: {
+    number_of_shards: 2
+  }, suggest: ['title'],
+  facets: [:seasons_title, :cuisines_title, :meal_types_title, :diets_title, :occasions_title]
+
   has_attached_file :featured_image,
     styles: {
-      sm: "768>",
-      md: "992>",
-      lg: "1170>",
-      xl: "2000>",
-    }, default_url: "/images/:style/missing.png"
+      sm: '768>',
+      md: '992>',
+      lg: '1170>',
+      xl: '2000>',
+    }, default_url: '/images/:style/missing.png'
   validates_attachment_content_type :featured_image, content_type: /\Aimage\/.*\Z/
 
   enum preparation_time: { quick: 0, time_consuming: 1 }
@@ -47,6 +52,25 @@ class Recipe < ActiveRecord::Base
   scope :collected_by,    -> (user_id) { joins(:boxes).where('boxes.user_id = ?', user_id) }
   scope :all_except,      -> (recipe) { where.not(id: recipe) }
   scope :with_image,      -> { where.not(featured_image_file_name: [nil, '']) }
+
+  # Searckick
+  scope :search_import, -> { includes(:seasons) }
+
+  # Searckick
+  def search_data
+    attributes.merge(
+      seasons_title: seasons.collect(&:title),
+      cuisines_title: cuisines.collect(&:title),
+      meal_types_title: meal_types.collect(&:title),
+      diets_title: diets.collect(&:title),
+      occasions_title: occasions.collect(&:title),
+    )
+  end
+
+  # FriendlyId
+  def should_generate_new_friendly_id?
+    title_changed?
+  end
 
   def color
     (color_scheme.color if color_scheme) || '#000000'

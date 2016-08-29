@@ -29,6 +29,9 @@ Rails.application.routes.draw do
   get '/about', to: 'about#index'
   get '/about/statement', to: 'about#statement'
 
+  # Search
+  get 'search', to: 'search#index'
+
 
   #
   # Admin

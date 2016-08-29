@@ -60,6 +60,12 @@ gem 'redcarpet'
 
 gem 'possessive'
 
+# Intelligent search made easy with Rails and Elasticsearch https://github.com/ankane/searchkick
+gem 'searchkick'
+
+# Typhoeus wraps libcurl in order to make fast and reliable requests. https://github.com/typhoeus/typhoeus
+gem 'typhoeus'
+
 group :development, :test do
   gem 'dotenv-rails'
 end
