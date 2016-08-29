@@ -2,9 +2,7 @@ class SearchController < ApplicationController
 
   def index
     @query_term = params[:query]
-    @query = nil
-    @results = []
-    @suggestions = []
+    @query = Recipe.search(@query_term)
   end
 
 end

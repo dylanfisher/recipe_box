@@ -5,17 +5,11 @@
         <form accept-charset="UTF-8" action="/search" method="get" class="search-form__form">
           <%= query_field(@query_term, autofocus: true) %>
         </form>
-
-        <% if @suggestions.any? %>
-          <% @suggestions.each do |suggestion| %>
-            Did you mean <%= link_to suggestion, search_path(query: suggestion) %>?<br>
-          <% end %>
-        <% end %>
       </div>
     </div>
   </div>
 
-  <% @results.each do |result| %>
+  <% @query.each do |result| %>
     <%= link_to md(result.title), recipe_path(result) %>
   <% end %>
 </div>

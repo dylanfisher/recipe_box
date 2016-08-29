@@ -1,4 +1,20 @@
 class Recipe < ActiveRecord::Base
+  # PgSearch
+  include PgSearch
+  pg_search_scope(
+    :search,
+    against: {
+      title: 'A',
+      description: 'B',
+    },
+    using: {
+      tsearch: {
+        dictionary: 'english',
+      }
+    }
+  )
+
+  # FriendlyId
   extend FriendlyId
   friendly_id :title, use: :slugged
 
