@@ -72,7 +72,7 @@
               <%= content_tag(:div,
                               nil,
                               class: "user-edit__box-background-color #{'active' if @box.background_color == color}",
-                              style: "background: #{color};",
+                              style: "background: #{color}; color: #{color};",
                               data: { background_color: color } ) %>
             <% end %>
           </div>

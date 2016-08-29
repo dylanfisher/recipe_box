@@ -4,7 +4,7 @@
       <%= link_to(recipe, class: 'link--blank') do %>
         <div class="featured-recipe__image-wrapper">
           <%= render 'recipes/gem', recipe: recipe %>
-          <%= image_tag(recipe.featured_image.url(:medium)) if recipe.featured_image.present? %>
+          <%= responsive_image(recipe.featured_image, column_size: 5) if recipe.featured_image.present? %>
         </div>
       <% end %>
     </div><!--

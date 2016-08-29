@@ -11,10 +11,10 @@
 <div class="controller--home__recipes recipes-grid margin-bottom-large">
   <div class="container">
     <div class="row">
-      <div class="text-center patron-medium__medium margin-bottom-large">Featured Recipes</div>
-      <div class="col-sm-10 col-sm-offset-1">
+      <div class="text-center patron-medium__medium margin-bottom-large">Random Recipes</div>
+      <div class="col-sm-12">
         <div class="row">
-          <%= render partial: 'recipes/recipe', collection: @recipes %>
+          <%= render partial: 'recipes/recipe', collection: @random_recipes %>
         </div>
       </div>
       <div class="col-sm-12 text-center margin-top-large">
@@ -44,7 +44,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-        <div class="text-center patron-medium__large margin-bottom-large">Featured Recipe</div>
+        <div class="text-center patron-medium__medium margin-bottom-large">Featured Recipe</div>
         <%= render 'recipes/featured_recipe', recipe: @featured_recipe %>
       </div>
     </div>
@@ -55,7 +55,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-12">
-        <div class="text-center patron-medium__large margin-bottom-large">Recently Uploaded Recipes</div>
+        <div class="text-center patron-medium__medium margin-bottom-large">Recently Uploaded Recipes</div>
         <div class="row">
           <%= render 'recipes/recently_uploaded_recipes', recipes: @recently_uploaded_recipes %>
         </div>

@@ -82,12 +82,12 @@
   display: inline-block;
   margin: 5px;
   cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid;
 
-  &:hover {
-    border: 1px dotted $black;
-  }
-
+  &:hover,
   &.active {
+    transform: scale(1.1);
     border: 1px solid $black;
   }
 }

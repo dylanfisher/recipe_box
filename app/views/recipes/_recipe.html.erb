@@ -1,9 +1,13 @@
 <% cache recipe do %>
   <div class="recipes-grid__item text-center col-sm-4" style="color: <%= recipe.color %>">
-    <%= link_to(recipe, class: 'link--blank') do %>
+    <%= link_to(recipe, class: 'link--blank display-block') do %>
       <%= render 'recipes/gem', recipe: recipe %>
       <%= content_tag(:h2, recipe.title, class: 'recipes-grid__item__title recipes-grid__item__centered-text bangla-regular__large margin-bottom-medium') %>
       <%= content_tag(:div, "by #{recipe.user.first_name}", class: 'recipes-grid__item__user patron-thin__large') %>
     <% end %>
   </div>
+
+  <% if recipe_counter % 3 == 2 %>
+    <div class="clearfix hidden-xs"></div>
+  <% end %>
 <% end %>

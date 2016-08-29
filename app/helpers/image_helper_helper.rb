@@ -21,7 +21,7 @@ module ImageHelperHelper
       "#{closest_url(object, retina_column_index)} #{closest_retina_width}w"
     end.reject(&:blank?).uniq
 
-    image_tag( src_url, sizes: srcset_sizes.join(', '), srcset: srcset_urls.join(', ').presence, **options )
+    image_tag src_url, sizes: srcset_sizes.join(', '), srcset: srcset_urls.join(', ').presence, **options
   end
 
   private

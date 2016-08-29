@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :save_to_box, :edit, :update, :destroy]
 
   def index
-    @recipes = Recipe.includes(:user).recent
+    @recipes = Recipe.includes(:user).updated_at_desc
   end
 
   def show

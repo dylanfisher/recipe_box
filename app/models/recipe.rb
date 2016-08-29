@@ -39,13 +39,14 @@ class Recipe < ActiveRecord::Base
               foreign_key: :recipe_id,
               association_foreign_key: :pairing_id
 
-  scope :recent,        -> { order(updated_at: :desc) }
-  scope :random,        -> { order('random()') }
-  scope :collected,     -> { joins(:boxes).where('boxes.id IS NOT NULL').distinct }
-  scope :not_collected, -> { includes(:boxes).where( boxes: { id: nil } ) }
-  scope :uploaded_by,   -> (user_id) { joins(:user).where('recipes.user_id = ?', user_id) }
-  scope :collected_by,  -> (user_id) { joins(:boxes).where('boxes.user_id = ?', user_id) }
-  scope :all_except,    -> (recipe) { where.not(id: recipe) }
+  scope :updated_at_desc, -> { order(updated_at: :desc) }
+  scope :random,          -> { order('random()') }
+  scope :collected,       -> { joins(:boxes).where('boxes.id IS NOT NULL').distinct }
+  scope :not_collected,   -> { includes(:boxes).where( boxes: { id: nil } ) }
+  scope :uploaded_by,     -> (user_id) { joins(:user).where('recipes.user_id = ?', user_id) }
+  scope :collected_by,    -> (user_id) { joins(:boxes).where('boxes.user_id = ?', user_id) }
+  scope :all_except,      -> (recipe) { where.not(id: recipe) }
+  scope :with_image,      -> { where.not(featured_image_file_name: [nil, '']) }
 
   def color
     (color_scheme.color if color_scheme) || '#000000'

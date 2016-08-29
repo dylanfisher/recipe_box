@@ -72,9 +72,14 @@
  }
 
 // Transformation
-.text-lowercase      { text-transform: lowercase; }
-.text-uppercase      { text-transform: uppercase; }
-.text-capitalize     { text-transform: capitalize; }
+.text-lowercase  { text-transform: lowercase; }
+.text-uppercase  { text-transform: uppercase; }
+.text-capitalize { text-transform: capitalize; }
 
 // Line height
-.line-height-normal  { line-height: normal !important; }
+.line-height-normal { line-height: normal !important; }
+
+// Display
+.display-block        { display: block; }
+.display-inline       { display: inline; }
+.display-inline-block { display: inline-block; }
