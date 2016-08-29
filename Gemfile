@@ -43,7 +43,7 @@ gem 'pundit'
 gem 'simple_form'
 
 gem 'paperclip'
-gem 'aws-sdk-v1'
+gem 'aws-sdk', '~> 2.3'
 
 gem 'cocoon'
 
@@ -60,11 +60,8 @@ gem 'redcarpet'
 
 gem 'possessive'
 
-# Intelligent search made easy with Rails and Elasticsearch https://github.com/ankane/searchkick
-gem 'searchkick'
-
-# Typhoeus wraps libcurl in order to make fast and reliable requests. https://github.com/typhoeus/typhoeus
-gem 'typhoeus'
+# pg_search builds ActiveRecord named scopes that take advantage of PostgreSQL’s full text search https://github.com/Casecommons/pg_search
+gem 'pg_search'
 
 group :development, :test do
   gem 'dotenv-rails'

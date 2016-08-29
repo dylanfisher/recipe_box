@@ -17,7 +17,7 @@ var App = {
 // On Page load
 //////////////////////////////////////////////////////////////
 
-$(document).on('page:load page:restore ready', function() {
+$(document).on('turbolinks:load', function() {
   App.scrollTop = $(window).scrollTop();
 
   App.windowWidth  = $(window).width();
